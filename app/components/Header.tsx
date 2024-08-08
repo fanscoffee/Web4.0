@@ -11,7 +11,7 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen)
   }
   return (
-    <nav className='bg-beige mx-auto border-gray-200'>
+    <nav className='border-gray-200 mx-auto'>
       <div className='flex flex-wrap items-center justify-between p-4'>
         <Link
           href='/'
@@ -21,15 +21,15 @@ export default function Header() {
             src='/fans-logo-oscuro.png'
             className='h-15'
             alt='Flowbite Logo'
+            height={200}
             width={100}
-            height='200'
           />
         </Link>
         <button
           onClick={toggleMenu}
           data-collapse-toggle='navbar-default'
           type='button'
-          className='h-10 w-10 rounded-lg p-2 text-sm text-gray-500 hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden'
+          className='text-gray-500 focus:ring-gray-200 h-10 w-10 rounded-lg p-2 text-sm hover:bg-transparent focus:outline-none focus:ring-2 md:hidden'
           aria-controls='navbar-default'
           aria-expanded={isMenuOpen}
         >
@@ -54,11 +54,11 @@ export default function Header() {
           className={`w-full md:block ${isMenuOpen ? 'block' : 'hidden'}`}
           id='navbar-default'
         >
-          <ul className='md:bg-beige mt-4 flex flex-col items-center justify-center rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium md:mt-0 md:flex-row md:space-x-16 md:border-0 md:p-0 rtl:space-x-reverse'>
+          <ul className='border-gray-100 bg-gray-50 mt-4 flex flex-col items-center justify-center rounded-lg border p-4 font-medium md:mt-0 md:flex-row md:space-x-16 md:border-0 md:p-0 rtl:space-x-reverse'>
             <li onClick={toggleMenu}>
               <Link
                 href='/coffee'
-                className='md:hover:text-green block rounded px-3 py-2 text-gray-100 md:bg-transparent md:p-0'
+                className='text-gray-100 block rounded px-3 py-2 md:bg-transparent md:p-0 md:hover:text-green'
                 aria-current='page'
               >
                 Coffee
@@ -67,7 +67,7 @@ export default function Header() {
             <li onClick={toggleMenu}>
               <Link
                 href='/bakery'
-                className='md:hover:text-green block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent'
+                className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
               >
                 Bakery
               </Link>
@@ -89,7 +89,7 @@ export default function Header() {
             <li onClick={toggleMenu}>
               <Link
                 href='/pastry'
-                className='md:hover:text-green block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent'
+                className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
               >
                 Pastry
               </Link>
@@ -97,7 +97,7 @@ export default function Header() {
             <li onClick={toggleMenu}>
               <Link
                 href='/contact'
-                className='md:hover:text-green block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent'
+                className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
               >
                 Contact
               </Link>
