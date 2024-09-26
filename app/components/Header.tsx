@@ -11,7 +11,7 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen)
   }
   return (
-    <nav className='border-gray-200 mx-auto'>
+    <nav className='border-gray-200 mx-auto relative'>
       <div className='flex flex-wrap items-center justify-between p-4'>
         <Link
           href='/'
