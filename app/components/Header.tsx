@@ -10,8 +10,9 @@ export default function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+
   return (
-    <nav className='border-gray-200 mx-auto relative'>
+    <nav className='absolute left-0 top-0 z-10 w-full bg-transparent backdrop-blur-md'>
       <div className='flex flex-wrap items-center justify-between p-4'>
         <Link
           href='/'
@@ -20,7 +21,7 @@ export default function Header() {
           <Image
             src='/fans-logo-oscuro.png'
             className='h-15'
-            alt='Flowbite Logo'
+            alt='Fans Logo'
             height={200}
             width={100}
           />
@@ -54,7 +55,7 @@ export default function Header() {
           className={`w-full md:block ${isMenuOpen ? 'block' : 'hidden'}`}
           id='navbar-default'
         >
-          <ul className='border-gray-100 bg-gray-50 mt-4 flex flex-col items-center justify-center rounded-lg border p-4 font-medium md:mt-0 md:flex-row md:space-x-16 md:border-0 md:p-0 rtl:space-x-reverse'>
+          <ul className='mt-4 flex flex-col items-center justify-center rounded-lg bg-transparent p-4 font-medium md:mt-0 md:flex-row md:space-x-16 rtl:space-x-reverse'>
             <li onClick={toggleMenu}>
               <Link
                 href='/coffee'
@@ -80,9 +81,9 @@ export default function Header() {
                 <Image
                   src='/fans-logo-oscuro.png'
                   className='h-15'
-                  alt='Flowbite Logo'
+                  alt='Fans Logo'
                   width={200}
-                  height='200'
+                  height={200}
                 />
               </Link>
             </li>
