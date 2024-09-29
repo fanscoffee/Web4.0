@@ -3,16 +3,22 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const isHomePage = pathname === '/'
+
   return (
-    <nav className='absolute left-0 top-0 z-10 w-full bg-transparent backdrop-blur-md'>
+    <nav
+      className={`${isHomePage ? 'absolute left-0 top-0 z-10 w-full bg-transparent' : 'relative w-full bg-white shadow-md'}`}
+    >
       <div className='flex flex-wrap items-center justify-between p-4'>
         <Link
           href='/'
@@ -93,6 +99,14 @@ export default function Header() {
                 className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
               >
                 Pastry
+              </Link>
+            </li>
+            <li onClick={toggleMenu}>
+              <Link
+                href='/pdfs/catalog'
+                className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
+              >
+                Catalog
               </Link>
             </li>
             <li onClick={toggleMenu}>
