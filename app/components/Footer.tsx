@@ -1,5 +1,6 @@
 // components/Footer.jsx
 import React from 'react'
+import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -11,12 +12,13 @@ const Footer = () => {
           <p className='mt-4 text-sm'>
             En FANS, somos FANS de ti y de cada momento dulce.
           </p>
-          <div className='mt-4 flex space-x-4'>
-            <a href='#' aria-label='Facebook' className='text-gray-300 hover:'>
-              Facebook
+          <div className='mt-4 flex items-center space-x-4'>
+            <span>Follow us:</span>
+            <a href='#' aria-label='Facebook' className='text-gray-300'>
+              <FaFacebook />
             </a>
-            <a href='#' aria-label='Instagram' className='text-gray-300 hover:'>
-              Instagram
+            <a href='#' aria-label='Instagram' className='text-gray-300'>
+              <FaInstagram />
             </a>
           </div>
         </div>
