@@ -62,6 +62,20 @@ export default function Header() {
           id='navbar-default'
         >
           <ul className='mt-4 flex flex-col items-center justify-center rounded-lg bg-transparent p-4 font-medium md:mt-0 md:flex-row md:space-x-16 rtl:space-x-reverse'>
+            <li onClick={toggleMenu} className='hidden md:block'>
+              <Link
+                href='/'
+                className='flex items-center space-x-3 rtl:space-x-reverse'
+              >
+                <Image
+                  src='/fans-logo-oscuro.png'
+                  className='h-15'
+                  alt='Fans Logo'
+                  width={200}
+                  height={200}
+                />
+              </Link>
+            </li>
             <li onClick={toggleMenu}>
               <Link
                 href='/coffee'
@@ -77,20 +91,6 @@ export default function Header() {
                 className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
               >
                 Bakery
-              </Link>
-            </li>
-            <li onClick={toggleMenu} className='hidden md:block'>
-              <Link
-                href='/'
-                className='flex items-center space-x-3 rtl:space-x-reverse'
-              >
-                <Image
-                  src='/fans-logo-oscuro.png'
-                  className='h-15'
-                  alt='Fans Logo'
-                  width={200}
-                  height={200}
-                />
               </Link>
             </li>
             <li onClick={toggleMenu}>
