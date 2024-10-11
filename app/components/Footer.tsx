@@ -1,4 +1,5 @@
 // components/Footer.jsx
+import Link from 'next/link'
 import React from 'react'
 import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
@@ -13,51 +14,58 @@ const Footer = () => {
             En FANS, somos FANS de ti y de cada momento dulce.
           </p>
           <div className='mt-4 flex items-center space-x-4'>
-            <span>Follow us:</span>
+            <span>Síguenos:</span>
             <a href='#' aria-label='Facebook' className='text-gray-300'>
-              <FaFacebook />
+              <FaFacebook className='size-6' />
             </a>
-            <a href='#' aria-label='Instagram' className='text-gray-300'>
-              <FaInstagram />
+            <a
+              href='https://www.instagram.com/fanscoffee.es/'
+              target='_blank'
+              aria-label='Instagram'
+              className='text-gray-300'
+            >
+              <FaInstagram className='size-6' />
             </a>
           </div>
         </div>
 
         {/* Feed de Instagram */}
         <div className='mb-8 md:mb-0'>
-          <h3 className='mb-4 font-semibold'>Instagram Feed</h3>
-          <div className='grid grid-cols-3 gap-2'>
-            <img
-              src='https://via.placeholder.com/100'
-              alt='Post 1'
-              className='h-auto w-full'
-            />
-            <img
-              src='https://via.placeholder.com/100'
-              alt='Post 2'
-              className='h-auto w-full'
-            />
-            <img
-              src='https://via.placeholder.com/100'
-              alt='Post 3'
-              className='h-auto w-full'
-            />
-            <img
-              src='https://via.placeholder.com/100'
-              alt='Post 4'
-              className='h-auto w-full'
-            />
-            <img
-              src='https://via.placeholder.com/100'
-              alt='Post 5'
-              className='h-auto w-full'
-            />
-            <img
-              src='https://via.placeholder.com/100'
-              alt='Post 6'
-              className='h-auto w-full'
-            />
-          </div>
+          <h3 className='mb-4 font-semibold'>Feed de Instagram</h3>
+          <a href='https://www.instagram.com/fanscoffee.es/' target='_blank'>
+            <div className='grid grid-cols-3 gap-2'>
+              <img
+                src='/images/instagram/i1.png'
+                alt='Post 1'
+                className='h-28 w-28 object-cover'
+              />
+              <img
+                src='/images/instagram/i2.png'
+                alt='Post 2'
+                className='h-28 w-28 object-cover'
+              />
+              <img
+                src='/images/instagram/i3.png'
+                alt='Post 3'
+                className='h-28 w-28 object-cover'
+              />
+              <img
+                src='/images/instagram/i4.png'
+                alt='Post 4'
+                className='h-28 w-28 object-cover'
+              />
+              <img
+                src='/images/instagram/i5.png'
+                alt='Post 5'
+                className='h-28 w-28 object-cover'
+              />
+              <img
+                src='/images/instagram/i6.png'
+                alt='Post 6'
+                className='h-28 w-28 object-cover'
+              />
+            </div>
+          </a>
         </div>
 
         <div className='mx-auto text-center md:mx-3 md:mt-10'>
@@ -69,8 +77,27 @@ const Footer = () => {
           />
         </div>
       </div>
-      <div className='text-gray-500 mt-8 text-center'>
-        &copy; 2023 FANS COFFEE FRIENDS S.L.L. Todos los derechos reservados.
+      <div className='text-gray-500 mx-auto mt-8 flex max-w-[1200px] flex-col items-center text-center'>
+        <div className='mb-2 flex flex-col space-y-2 md:flex-row md:space-x-4 md:space-y-0'>
+          <Link href='legal' className='hover:text-green'>
+            Aviso Legal
+          </Link>
+          <span className='hidden md:inline'>|</span>
+          <Link href='privacy' className='hover:text-green'>
+            Privacidad
+          </Link>
+          <span className='hidden md:inline'>|</span>
+          <Link href='work' className='hover:text-green'>
+            Trabaja con nosotros
+          </Link>
+          <span className='hidden md:inline'>|</span>
+          <Link href='about' className='hover:text-green'>
+            Nosotros
+          </Link>
+        </div>
+        <div>
+          &copy; 2023 FANS COFFEE FRIENDS S.L.L. Todos los derechos reservados.
+        </div>
       </div>
     </footer>
   )
