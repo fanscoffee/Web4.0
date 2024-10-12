@@ -131,7 +131,7 @@ export default function Header() {
                 href='/pdfs/cakes'
                 className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
               >
-                Tartas completas
+                Tartas enteras
               </Link>
             </li>
             <li onClick={toggleMenu}>
