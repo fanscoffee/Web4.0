@@ -1,7 +1,7 @@
 // components/Footer.jsx
 import Link from 'next/link'
 import React from 'react'
-import { FaFacebook, FaInstagram } from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -15,9 +15,6 @@ const Footer = () => {
           </p>
           <div className='mt-4 flex items-center space-x-4'>
             <span>Síguenos:</span>
-            <a href='#' aria-label='Facebook' className='text-gray-300'>
-              <FaFacebook className='size-6' />
-            </a>
             <a
               href='https://www.instagram.com/fanscoffee.es/'
               target='_blank'
