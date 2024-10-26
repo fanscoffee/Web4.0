@@ -5,6 +5,29 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 
+const navItems = [
+  {
+    name: "Cafés",
+    href: '/coffee'
+  },
+  {
+    name: "Panadería",
+    href: '/bakery'
+  },
+  {
+    name: "Pastelería",
+    href: '/pastry'
+  },
+  {
+    name: "Tartas enteras",
+    href: '/pdfs/cakes'
+  },
+  {
+    name: "Contacto",
+    href: '/contact'
+  },
+]
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -101,47 +124,19 @@ export default function Header() {
                 />
               </Link>
             </li>
-            <li onClick={toggleMenu}>
-              <Link
-                href='/coffee'
-                className='text-gray-100 block rounded px-3 py-2 md:bg-transparent md:p-0 md:hover:text-green'
-                aria-current='page'
-              >
-                Cafés
-              </Link>
-            </li>
-            <li onClick={toggleMenu}>
-              <Link
-                href='/bakery'
-                className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
-              >
-                Panadería
-              </Link>
-            </li>
-            <li onClick={toggleMenu}>
-              <Link
-                href='/pastry'
-                className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
-              >
-                Pastelería
-              </Link>
-            </li>
-            <li onClick={toggleMenu}>
-              <Link
-                href='/pdfs/cakes'
-                className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
-              >
-                Tartas enteras
-              </Link>
-            </li>
-            <li onClick={toggleMenu}>
-              <Link
-                href='/contact'
-                className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
-              >
-                Contacto
-              </Link>
-            </li>
+            {navItems.map(item => {
+              return (
+                <li key={item.href} onClick={toggleMenu}>
+                  <Link 
+                    href={item.href}
+                    className='text-gray-900 hover:bg-gray-100 block rounded px-3 py-2 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-green'
+                    aria-current={pathname === item.href}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </div>
