@@ -37,39 +37,7 @@ export default function Header() {
   }
 
   const isHomePage = pathname === '/'
-  const menuIcon = isMenuOpen ? (
-    <svg
-      className='h-5 w-5'
-      aria-hidden='true'
-      xmlns='http://www.w3.org/2000/svg'
-      fill='none'
-      viewBox='0 0 24 24'
-      stroke='currentColor'
-    >
-      <path
-        strokeLinecap='round'
-        strokeLinejoin='round'
-        strokeWidth='2'
-        d='M6 18L18 6M6 6l12 12'
-      />
-    </svg>
-  ) : (
-    <svg
-      className='h-5 w-5'
-      aria-hidden='true'
-      xmlns='http://www.w3.org/2000/svg'
-      fill='none'
-      viewBox='0 0 17 14'
-    >
-      <path
-        stroke='currentColor'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-        strokeWidth='2'
-        d='M1 1h15M1 7h15M1 13h15'
-      />
-    </svg>
-  )
+
   return (
     <nav
       className={
@@ -99,7 +67,7 @@ export default function Header() {
           aria-expanded={isMenuOpen}
         >
           <span className='sr-only'>Hamburger menu</span>
-          {menuIcon}
+          {isMenuOpen ? <IconBurger /> : <IconCross />}
         </button>
         <div
           className={`w-full md:block ${isMenuOpen ? 'block' : 'hidden'}`}
@@ -143,3 +111,48 @@ export default function Header() {
     </nav>
   )
 }
+
+/*
+ * Icons Component
+ * This could be in its own file later
+ */
+function IconBurger() {
+  return (
+    <svg
+      className='h-5 w-5'
+      aria-hidden='true'
+      xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+      viewBox='0 0 24 24'
+      stroke='currentColor'
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='2'
+        d='M6 18L18 6M6 6l12 12'
+      />
+    </svg>
+  )
+}
+
+function IconCross() {
+  return (
+    <svg
+      className='h-5 w-5'
+      aria-hidden='true'
+      xmlns='http://www.w3.org/2000/svg'
+      fill='none'
+      viewBox='0 0 17 14'
+    >
+      <path
+        stroke='currentColor'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='2'
+        d='M1 1h15M1 7h15M1 13h15'
+      />
+    </svg>
+  )
+}
+
