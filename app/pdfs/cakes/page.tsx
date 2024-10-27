@@ -1,9 +1,10 @@
-import PdfViewer from '@/components/PdfViewer'
+import dynamic from 'next/dynamic'
 
+const DynamicPdfViewer = dynamic((props: {pdf: string} ) => import('@/components/PdfViewer'), {ssr: false,});
 export default function Cakes() {
   return (
     <main className='container'>
-      <PdfViewer pdf='/pdfs/tartas-completas.pdf' />
+      <DynamicPdfViewer pdf='/pdfs/tartas-completas.pdf' />
     </main>
   )
 }
