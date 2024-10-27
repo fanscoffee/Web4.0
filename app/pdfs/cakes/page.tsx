@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 
-const DynamicPdfViewer = dynamic((props: {pdf: string} ) => import('@/components/PdfViewer'), {ssr: false,});
+const DynamicPdfViewer = dynamic(() => import('@/components/PdfViewer'), {ssr: false,});
 export default function Cakes() {
   return (
     <main className='container'>
