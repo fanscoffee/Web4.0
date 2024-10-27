@@ -1,16 +1,16 @@
-'use client'
-
-import  useWindowDimensions from './useWindowDimensions'
+'use client';
 
 export default function PdfViewer(props: {pdf: string}) {
-const { height, width } = useWindowDimensions();
+console.log('props --> ', props);
+  const height = window.innerHeight;
   return (
       <iframe
         src={props.pdf}
         width="100%"
         height={height}
-        style={{ border: 'none',
-          overflow: "auto", }}
+        style={{ 
+          border: 'none',
+        }}
         title="PDF Viewer"
       />
   );
