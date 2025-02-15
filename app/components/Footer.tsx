@@ -32,32 +32,32 @@ const Footer = () => {
           <a href='https://www.instagram.com/fanscoffee.es/' target='_blank'>
             <div className='grid grid-cols-3 gap-2'>
               <img
-                src='/images/instagram/i1.png'
+                src='/images/instagram/i1.webp'
                 alt='Post 1'
                 className='h-28 w-28 object-cover'
               />
               <img
-                src='/images/instagram/i2.png'
+                src='/images/instagram/i2.webp'
                 alt='Post 2'
                 className='h-28 w-28 object-cover'
               />
               <img
-                src='/images/instagram/i3.png'
+                src='/images/instagram/i3.webp'
                 alt='Post 3'
                 className='h-28 w-28 object-cover'
               />
               <img
-                src='/images/instagram/i4.png'
+                src='/images/instagram/i4.webp'
                 alt='Post 4'
                 className='h-28 w-28 object-cover'
               />
               <img
-                src='/images/instagram/i5.png'
+                src='/images/instagram/i5.webp'
                 alt='Post 5'
                 className='h-28 w-28 object-cover'
               />
               <img
-                src='/images/instagram/i6.png'
+                src='/images/instagram/i6.webp'
                 alt='Post 6'
                 className='h-28 w-28 object-cover'
               />
