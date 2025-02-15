@@ -6,19 +6,19 @@ import { Dancing_Script } from 'next/font/google'
 
 const images = [
   {
-    url: '/images/carousel-1.jpeg',
+    url: '/images/carousel-1.webp',
     title: 'Cafés Artesanales',
-    subtittle: 'La Energía en Cada Taza',
+    subtittle: '100% Arabico',
     text: 'Disfruta de nuestros cafés cuidadosamente seleccionados y preparados con pasión. Desde un suave cappuccino hasta un intenso espresso, cada taza está hecha para ofrecerte una experiencia única. Perfectos para acompañar nuestras tostadas o postres, nuestros cafés son el complemento ideal para cualquier momento del día.'
   },
   {
-    url: '/images/carousel-2.jpeg',
+    url: '/images/carousel-2.webp',
     title: 'Tostadas Gourmet',
     subtittle: 'El Sabor Perfecto en Cada Mordisco',
     text: 'Descubre nuestras irresistibles tostadas, preparadas con ingredientes frescos y combinaciones únicas. Cada una de nuestras tostadas es una explosión de sabor, perfecta para un desayuno saludable o una merienda deliciosa. ¡Ven y disfruta del crujido perfecto en cada bocado!'
   },
   {
-    url: '/images/carousel-3.jpeg',
+    url: '/images/carousel-3.webp',
     title: 'Pie de Limón',
     subtittle: 'Un Toque de Frescura y Dulzura',
     text: 'Nuestro pie de limón es el balance perfecto entre lo dulce y lo ácido, con una base crujiente y un relleno suave y cremoso que hará que cada bocado sea una delicia. Preparado con ingredientes frescos, este postre es ideal para cualquier ocasión. ¡Prueba la frescura en cada porción!'
