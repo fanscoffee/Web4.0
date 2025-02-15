@@ -37,7 +37,7 @@ export default function RootLayout({
         <meta property='og:url' content='https://fanscoffee.es' />
         <meta
           property='og:image'
-          content='https://fanscoffee.es/fans-logo.jpg'
+          content='https://fanscoffee.es/fans-logo.webp'
         />
         <meta property='og:image:alt' content='Fans Coffee  Logo' />
         <meta property='og:image:width' content='2150' />
@@ -51,7 +51,7 @@ export default function RootLayout({
         <meta property='twitter:card' content='summary_large_image' />
         <meta
           property='twitter:image'
-          content='https://fanscoffee.es/fans-logo.jpg'
+          content='https://fanscoffee.es/fans-logo.webp'
         />
         <meta property='twitter:image:alt' content='Fans Coffee ' />
       </head>

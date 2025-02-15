@@ -54,7 +54,7 @@ export default function Header() {
           >
             <Image
               src={
-                isHomePage ? '/fans-logo-blanco.png' : '/fans-logo-oscuro.png'
+                isHomePage ? '/fans-logo-blanco.webp' : '/fans-logo-oscuro.webp'
               }
               alt='Fans Logo'
               height={200}
