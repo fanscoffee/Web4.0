@@ -91,6 +91,10 @@ const Footer = () => {
           <Link href='about' className='hover:text-green'>
             Nosotros
           </Link>
+          <span className='hidden md:inline'>|</span>
+          <Link href='sitemap' className='hover:text-green'>
+            Mapa del sitio
+          </Link>
         </div>
         <div>
           &copy; 2023 FANS COFFEE FRIENDS S.L.L. Todos los derechos reservados.
