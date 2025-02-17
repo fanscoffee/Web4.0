@@ -10,7 +10,7 @@ export default function Home() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "name": "Fans Coffee",
+          "name": "Fans Coffee Bakery",
           "url": "https://www.fanscoffee.es/"
         }) }} />
       </Head>

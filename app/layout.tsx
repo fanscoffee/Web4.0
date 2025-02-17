@@ -11,7 +11,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://www.fanscoffee.es/`),
-  title: 'Fans Coffee',
+  title: 'Fans Coffee Bakery',
   description:
     'En Fans somos fan(s) de ti. ¡Visítanos! Para pedidos llama al: 📞 628984413',
   alternates: {
