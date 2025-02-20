@@ -74,6 +74,7 @@ export default function ParallaxComponent() {
         <Parallax
           bgImage={images[currentIndex].url}
           strength={300}
+          bgImageAlt={images[currentIndex].title}
           className='flex items-center justify-center bg-cover bg-center'
           style={{
             height: '100vh',
