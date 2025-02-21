@@ -3,6 +3,7 @@ import './globals.css'
 import { Poppins } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Script from 'next/script'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -19,11 +20,37 @@ export const metadata: Metadata = {
   }
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Fans Coffee Bakery",
+  "description": "En Fans somos fan(s) de ti. ¡Visítanos! Para pedidos llama al: 📞 628984413",
+  "url": "https://www.fanscoffee.es/",
+  "telephone": "+34628984413",
+  "email": "fanscoffee22@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. del Dr. Esquerdo, 180",
+    "addressLocality": "Madrid",
+    "addressRegion": "Madrid",
+    "postalCode": "28007",
+    "addressCountry": "Spain"
+  },
+  "monday": "7:00–21:00",
+  "tuesday": "7:00–21:00",
+  "wednesday": "7:00–21:00",
+  "thursday": "7:00–21:00",
+  "friday": "7:00–21:00",
+  "saturday": "8:00–21:00",
+  "sunday": "8:30–21:00"
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
+
   return (
     <html lang='en'>
       <head>
@@ -58,6 +85,13 @@ export default function RootLayout({
           content='https://fanscoffee.es/fans-logo.webp'
         />
         <meta property='twitter:image:alt' content='Fans Coffee ' />
+
+        <Script
+          id="json-ld-global"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
       </head>
       <body className={poppins.className}>
         <Header />
