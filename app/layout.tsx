@@ -58,6 +58,7 @@ export default function RootLayout({
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta name='author' content='Juan Rolo - @zonarolo' />
         <meta name='author' content='Carlos Dominguez - @Cardandom' />
+        <meta name='author' content='Javier Gil - @JavierG123' />
 
         <meta property='og:title' content='Fans Coffee' />
         <meta
