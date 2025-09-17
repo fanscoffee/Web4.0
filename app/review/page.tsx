@@ -1,52 +1,56 @@
 'use client'
 
 import { useState } from 'react'
-import emailjs from 'emailjs-com'
 import 'react-phone-number-input/style.css'
 import Swal from 'sweetalert2'
 import Link from 'next/link'
 
 export default function Contact() {
   const [Check, setCheck] = useState(false)
-  const [value, setValue] = useState<string | undefined>()
 
-  function sendEmail(e: React.FormEvent<HTMLFormElement>) {
+  async function sendReview(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    const emailService = process.env.NEXT_PUBLIC_EMAIL_SERVICE || ''
-    const emailTemplate = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_REVIEW || ''
-    const emailUser = process.env.NEXT_PUBLIC_EMAIL_USER || ''
+    const form = e.target as HTMLFormElement
+    const formData = new FormData(form)
 
-    emailjs
-      .sendForm(
-        emailService,
-        emailTemplate,
-        e.target as HTMLFormElement,
-        emailUser
-      )
-      .then(
-        result => {
-          console.log(result.text)
-          Swal.fire({
-            title: 'Confirmado',
-            text: 'Hemos recibido tu reseña, revisaremos la información y estaremos en contacto pronto.',
-            icon: 'success',
-            timer: 3000,
-            timerProgressBar: true
-          })
-          ;(e.target as HTMLFormElement).reset()
-        },
-        error => {
-          console.error(error.text)
-          Swal.fire({
-            title: 'Error',
-            text: 'No hemos podido enviar tu reseña, comunícate a nuestro número de soporte.',
-            icon: 'error',
-            timer: 3000,
-            timerProgressBar: true
-          })
-        }
-      )
+    const body = {
+      score: Number(formData.get('puntos')),
+      client_name: formData.get('nombre'),
+      client_email: formData.get('email'),
+      invoice: formData.get('factura'),
+      waitress: formData.get('camarera'),
+      comment: formData.get('mensaje')
+    }
+
+    try {
+      const res = await fetch('https://back-seven-livid.vercel.app/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      })
+
+      if (!res.ok) throw new Error('Error en el servidor')
+
+      Swal.fire({
+        title: 'Confirmado',
+        text: 'Hemos recibido tu reseña, revisaremos la información y estaremos en contacto pronto.',
+        icon: 'success',
+        timer: 3000,
+        timerProgressBar: true
+      })
+
+      form.reset()
+    } catch (error) {
+      console.error(error)
+      Swal.fire({
+        title: 'Error',
+        text: 'No hemos podido enviar tu reseña, comunícate a nuestro número de soporte.',
+        icon: 'error',
+        timer: 3000,
+        timerProgressBar: true
+      })
+    }
   }
 
   const check = () => {
@@ -67,10 +71,11 @@ export default function Contact() {
       })
     }
   }
+
   return (
     <div className='mx-auto mb-5 mt-[5rem] max-w-[1200px] lg:mt-[6rem]'>
       <form
-        onSubmit={sendEmail}
+        onSubmit={sendReview}
         className='mx-6 py-10 text-center md:text-left'
       >
         <div className='mb-3'>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function NotFound() {
   return (
@@ -8,13 +9,17 @@ export default function NotFound() {
         Lo sentimos, no hemos podido encontrar la página que busca. Tal vez haya
         escrito mal la URL? Asegúrese de revisar su ortografía.
       </p>
-      <Link href='/'>
-        <img
-          className='mx-auto mt-5 h-[400px] w-[600px]'
+
+      <Link href='/' className='block'>
+        <Image
+          className='mx-auto mt-5 h-[400px] w-[600px] object-contain'
           src='https://i.imgur.com/lDJZJoX.png'
           alt='404'
+          width={600}
+          height={400}
+          priority
         />
-        <button className='font-small hover:text-md rounded-full bg-green px-8 py-4 text-sm text-white transition-all hover:bg-dark-green hover:font-medium'>
+        <button className='font-small hover:text-md mt-5 rounded-full bg-green px-8 py-4 text-sm text-white transition-all hover:bg-dark-green hover:font-medium'>
           Inicio
         </button>
       </Link>
