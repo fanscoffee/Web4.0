@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <header>
       <nav
-        className={`relative z-[100] w-full transition-colors md:absolute md:left-0 md:top-0 md:z-[60] ${headerBgClass}`}
+        className={`fixed left-0 top-0 z-[1000] w-full transition-colors md:absolute md:left-0 md:top-0 md:z-[100] ${headerBgClass}`}
       >
         <div className='flex items-center justify-between p-4 md:p-3'>
           <button

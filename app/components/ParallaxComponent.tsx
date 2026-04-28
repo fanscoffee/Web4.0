@@ -87,7 +87,7 @@ export default function ParallaxComponent() {
           }}
         >
           {/* Capa de desenfoque del tamaño de la imagen */}
-          <div className='absolute inset-0 h-full w-full bg-black/30 backdrop-blur-sm'></div>
+          <div className='absolute inset-0 z-0 h-full w-full bg-black/30 backdrop-blur-sm'></div>
 
           {/* Contenedor para subtítulo y texto centrado */}
           <div className='z-1 relative mx-auto flex h-screen w-3/4 flex-col items-center justify-center text-white'>
