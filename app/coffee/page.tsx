@@ -1,9 +1,10 @@
-import Building from '@/components/Building'
+import { ProductCatalog } from '@/components/ProductCatalog'
+import { coffeeProducts } from './data'
 
 export default function Coffee() {
   return (
-    <main>
-      <Building />
+    <main className='pt-20 md:pt-32'>
+      <ProductCatalog products={coffeeProducts} />
     </main>
   )
 }

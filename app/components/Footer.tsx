@@ -1,6 +1,7 @@
 // components/Footer.jsx
 import Link from 'next/link'
 import React from 'react'
+import Image from 'next/image'
 import { FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
@@ -31,34 +32,46 @@ const Footer = () => {
           <h3 className='mb-4 font-semibold'>Feed de Instagram</h3>
           <a href='https://www.instagram.com/fanscoffee.es/' target='_blank'>
             <div className='grid grid-cols-3 gap-2'>
-              <img
+              <Image
                 src='/images/instagram/i1.webp'
                 alt='Post 1'
+                width={112}
+                height={112}
                 className='h-28 w-28 object-cover'
               />
-              <img
+              <Image
                 src='/images/instagram/i2.webp'
                 alt='Post 2'
+                width={112}
+                height={112}
                 className='h-28 w-28 object-cover'
               />
-              <img
+              <Image
                 src='/images/instagram/i3.webp'
                 alt='Post 3'
+                width={112}
+                height={112}
                 className='h-28 w-28 object-cover'
               />
-              <img
+              <Image
                 src='/images/instagram/i4.webp'
                 alt='Post 4'
+                width={112}
+                height={112}
                 className='h-28 w-28 object-cover'
               />
-              <img
+              <Image
                 src='/images/instagram/i5.webp'
                 alt='Post 5'
+                width={112}
+                height={112}
                 className='h-28 w-28 object-cover'
               />
-              <img
+              <Image
                 src='/images/instagram/i6.webp'
                 alt='Post 6'
+                width={112}
+                height={112}
                 className='h-28 w-28 object-cover'
               />
             </div>
@@ -97,7 +110,7 @@ const Footer = () => {
           </Link>
         </div>
         <div>
-          &copy; 2023 FANS COFFEE FRIENDS S.L.L. Todos los derechos reservados.
+          &copy; 2025 FANS COFFEE FRIENDS S.L.L. Todos los derechos reservados.
         </div>
       </div>
     </footer>
