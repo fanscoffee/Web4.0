@@ -1,9 +1,9 @@
-import ParallaxComponent from '@/components/ParallaxComponent';
+import ParallaxComponent from '@/components/ParallaxComponent'
 
 export default function Home() {
   return (
     <div>
       <ParallaxComponent />
     </div>
-  );
+  )
 }
