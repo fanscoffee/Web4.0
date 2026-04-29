@@ -1,6 +1,6 @@
 export default function Legal() {
   return (
-    <div className='container m-auto mb-5 max-w-[800px]'>
+    <div className='container mb-5 mt-28 max-w-[800px] md:mt-48'>
       <h1 className='my-5 text-center text-3xl font-bold'>AVISO LEGAL</h1>
       <p className='my-2'>
         En <strong>FANS COFFEE FRIENDS, S.L.L.</strong> consideramos que la
