@@ -110,7 +110,7 @@ const Footer = () => {
           </Link>
         </div>
         <div>
-          &copy; 2025 FANS COFFEE FRIENDS S.L.L. Todos los derechos reservados.
+          &copy; 2026 FANS COFFEE FRIENDS S.L.L. Todos los derechos reservados.
         </div>
       </div>
     </footer>

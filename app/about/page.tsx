@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className='container max-w-[800px] py-24'>
+    <div className='mt-18 container max-w-[800px] py-24 md:mt-28'>
       <h1 className='mx-auto text-3xl font-bold'>Nosotros</h1>
       <p className='mx-auto mt-5'>
         Somos más que una panadería, somos una experiencia. Nos enorgullece ser
