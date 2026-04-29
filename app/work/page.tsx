@@ -1,6 +1,6 @@
 export default function Work() {
   return (
-    <div className='container mx-auto max-w-[800px] py-24'>
+    <div className='mt-18 container mx-auto max-w-[800px] py-24 md:mt-28'>
       <h1 className='mx-auto text-3xl font-bold'>Trabaja con nosotros</h1>
       <p className='mx-auto mt-5'>
         ¡Únete a nuestro equipo y forma parte de una familia apasionada por la
