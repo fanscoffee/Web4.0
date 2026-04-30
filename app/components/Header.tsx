@@ -9,7 +9,7 @@ const navItems = [
   { name: 'Cafés', href: '/coffee' },
   { name: 'Panadería', href: '/bakery' },
   { name: 'Pastelería', href: '/pastry' },
-  { name: 'Tartas enteras', href: '/pdfs/cakes' },
+  { name: 'Tartas enteras', href: '/cakes' },
   { name: 'Contacto', href: '/contact' }
 ]
 
