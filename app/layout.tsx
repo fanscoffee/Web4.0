@@ -147,6 +147,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
+      <head>
+        <link rel='preload' as='image' href='/images/carousel-1.webp' />
+      </head>
       <body className={poppins.className}>
         <Header />
         {children}

@@ -38,6 +38,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i2.webp'
@@ -45,6 +47,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i3.webp'
@@ -52,6 +56,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i4.webp'
@@ -59,6 +65,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i5.webp'
@@ -66,6 +74,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i6.webp'
@@ -73,6 +83,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
             </div>
           </a>

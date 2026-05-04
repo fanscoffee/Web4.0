@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import 'react-phone-number-input/style.css'
-import Swal from 'sweetalert2'
 import Link from 'next/link'
 
 export default function ReviewForm() {
@@ -10,6 +9,7 @@ export default function ReviewForm() {
 
   async function sendReview(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const Swal = (await import('sweetalert2')).default
 
     const form = e.target as HTMLFormElement
     const formData = new FormData(form)
@@ -60,8 +60,9 @@ export default function ReviewForm() {
     setCheck(agree?.checked || false)
   }
 
-  const showAlert = () => {
+  const showAlert = async () => {
     if (!Check) {
+      const Swal = (await import('sweetalert2')).default
       Swal.fire({
         title: 'Espera',
         text: 'Tienes que terminar de rellenar la información.',

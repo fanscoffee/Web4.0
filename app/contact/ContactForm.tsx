@@ -1,18 +1,23 @@
 'use client'
 
 import { useState } from 'react'
-import emailjs from 'emailjs-com'
-import PhoneInput from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
-import Swal from 'sweetalert2'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+
+const PhoneInput = dynamic(
+  () => import('react-phone-number-input'),
+  { ssr: false }
+)
 
 export default function ContactForm() {
   const [Check, setCheck] = useState(false)
   const [value, setValue] = useState<string | undefined>()
 
-  function sendEmail(e: React.FormEvent<HTMLFormElement>) {
+  async function sendEmail(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    const emailjs = await import('emailjs-com')
+    const Swal = (await import('sweetalert2')).default
 
     const emailService = process.env.NEXT_PUBLIC_EMAIL_SERVICE || ''
     const emailTemplate = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE || ''
@@ -57,8 +62,9 @@ export default function ContactForm() {
     setCheck(agree?.checked || false)
   }
 
-  const showAlert = () => {
+  const showAlert = async () => {
     if (!Check) {
+      const Swal = (await import('sweetalert2')).default
       Swal.fire({
         title: 'Espera',
         text: 'Tienes que terminar de rellenar la información.',
