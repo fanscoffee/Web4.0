@@ -241,10 +241,6 @@ function ProductModal({
             <p className='mb-2 text-xs leading-relaxed text-brown/80 sm:mb-4 sm:text-sm'>
               {product.description}
             </p>
-            <p className='mb-3 text-lg font-bold text-green sm:mb-6 sm:text-xl lg:text-2xl'>
-              {product.price.toFixed(2)} €
-            </p>
-
             <div className='border-t border-brown/20 pt-2 sm:pt-4'>
               <h4 className='mb-2 text-xs font-semibold text-dark-green sm:mb-3'>
                 Alérgenos
