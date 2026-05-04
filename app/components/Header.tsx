@@ -6,9 +6,9 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 const navItems = [
-  { name: 'Cafés', href: '/coffee' },
-  { name: 'Panadería', href: '/bakery' },
-  { name: 'Pastelería', href: '/pastry' },
+  { name: 'Desayuno', href: '/breakfast' },
+  { name: 'Tostadas especiales', href: '/special-toast' },
+  { name: 'Bebidas especiales', href: '/special-drinks' },
   { name: 'Tartas enteras', href: '/cakes' },
   { name: 'Contacto', href: '/contact' }
 ]
