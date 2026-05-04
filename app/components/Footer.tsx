@@ -38,6 +38,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i2.webp'
@@ -45,6 +47,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i3.webp'
@@ -52,6 +56,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i4.webp'
@@ -59,6 +65,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i5.webp'
@@ -66,6 +74,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
               <Image
                 src='/images/instagram/i6.webp'
@@ -73,6 +83,8 @@ const Footer = () => {
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
+                sizes='112px'
+                loading='lazy'
               />
             </div>
           </a>
@@ -80,10 +92,13 @@ const Footer = () => {
 
         <div className='mx-auto text-center md:mx-3 md:mt-10'>
           <iframe
-            title='google'
+            title='Ubicación de Fans Coffee Bakery en Google Maps'
             src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.315829639117!2d-3.6768293491456254!3d40.40185366436702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4227f0d51d1505%3A0xbfa018432bd3d379!2sFans%20Coffee%20%26%20Bakery!5e0!3m2!1ses!2ses!4v1620941613287!5m2!1ses!2ses'
+            width='300'
+            height='250'
             style={{ border: 0, borderRadius: 10 }}
             loading='lazy'
+            referrerPolicy='no-referrer-when-downgrade'
           />
         </div>
       </div>
