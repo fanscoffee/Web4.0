@@ -1,6 +1,17 @@
+import type { Metadata } from 'next'
 import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Mapa del Sitio | Fans Coffee Bakery',
+  description:
+    'Mapa del sitio de Fans Coffee Bakery. Encuentra todas nuestras páginas: cartas, contacto, sobre nosotros y más.',
+  robots: {
+    index: false,
+    follow: false
+  }
+}
 
 export default async function SiteMapPage() {
   const baseUrl = 'https://www.fanscoffee.es'
