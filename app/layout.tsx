@@ -7,43 +7,137 @@ import Script from 'next/script'
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '700']
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: true
 })
 
+const SITE_URL = 'https://www.fanscoffee.es'
+
 export const metadata: Metadata = {
-  metadataBase: new URL(`https://www.fanscoffee.es/`),
-  title: 'Fans Coffee Bakery',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Fans Coffee Bakery | Café Artesanal y Repostería en Madrid',
+    template: '%s | Fans Coffee Bakery'
+  },
   description:
-    'En Fans somos fan(s) de ti. ¡Visítanos! Para pedidos llama al: 📞 628984413',
+    'En Fans somos fan(s) de ti. Café artesanal, desayunos, tostadas gourmet y repostería en Madrid. Haz tu pedido al 628 984 413. ¡Visítanos!',
+  keywords: [
+    'café madrid',
+    'cafetería madrid',
+    'desayuno madrid',
+    'repostería artesanal',
+    'tostadas gourmet',
+    'bakery madrid',
+    'café artesanal',
+    'pastelería madrid'
+  ],
+  authors: [
+    { name: 'Juan Rolo', url: 'https://zonarolo.com' },
+    { name: 'Carlos Dominguez', url: 'https://cardandom.com' }
+  ],
+  openGraph: {
+    title: 'Fans Coffee Bakery | Café Artesanal y Repostería en Madrid',
+    description:
+      'En Fans somos fan(s) de ti. Café artesanal, desayunos, tostadas gourmet y repostería en Madrid. ¡Visítanos!',
+    url: SITE_URL,
+    siteName: 'Fans Coffee Bakery',
+    images: [
+      {
+        url: '/fans-logo.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Fans Coffee Bakery - Café Artesanal y Repostería'
+      }
+    ],
+    locale: 'es_ES',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fans Coffee Bakery | Café Artesanal y Repostería en Madrid',
+    description:
+      'En Fans somos fan(s) de ti. Café artesanal, desayunos, tostadas gourmet y repostería en Madrid. ¡Visítanos!',
+    images: ['/fans-logo.jpg']
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  },
   alternates: {
-    canonical: './'
-  }
+    canonical: SITE_URL
+  },
+  category: 'food'
 }
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'CafeOrCoffeeShop',
+  '@id': `${SITE_URL}/#business`,
   name: 'Fans Coffee Bakery',
   description:
-    'En Fans somos fan(s) de ti. ¡Visítanos! Para pedidos llama al: 📞 628984413',
-  url: 'https://www.fanscoffee.es/',
+    'Café artesanal, desayunos, tostadas gourmet y repostería en Madrid. Un ambiente único donde la pasión por la panadería se encuentra con la excelencia culinaria.',
+  url: SITE_URL,
   telephone: '+34628984413',
   email: 'fanscoffee22@gmail.com',
+  image: `${SITE_URL}/fans-logo.jpg`,
+  priceRange: '€€',
+  servesCuisine: ['Café', 'Desayunos', 'Repostería', 'Panadería'],
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'C. del Dr. Esquerdo, 180',
     addressLocality: 'Madrid',
-    addressRegion: 'Madrid',
     postalCode: '28007',
-    addressCountry: 'Spain'
+    addressCountry: 'ES'
   },
-  monday: '7:00–21:00',
-  tuesday: '7:00–21:00',
-  wednesday: '7:00–21:00',
-  thursday: '7:00–21:00',
-  friday: '7:00–21:00',
-  saturday: '8:00–21:00',
-  sunday: '8:30–21:00'
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 40.4018536,
+    longitude: -3.6744478
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '07:00',
+      closes: '21:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '08:00',
+      closes: '21:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Sunday',
+      opens: '08:30',
+      closes: '21:00'
+    }
+  ],
+  sameAs: [
+    'https://www.instagram.com/fanscoffeebakery/'
+  ]
+}
+
+const breadcrumbListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: SITE_URL
+    }
+  ]
 }
 
 export default function RootLayout({
@@ -52,50 +146,23 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
-      <head>
-        <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta name='author' content='Juan Rolo - @zonarolo' />
-        <meta name='author' content='Carlos Dominguez - @Cardandom' />
-
-        <meta property='og:title' content='Fans Coffee' />
-        <meta
-          property='og:description'
-          content='En Fans somos fan(s) de ti. ¡Visítanos! Para pedidos llama al: 📞 628984413'
-        />
-        <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://fanscoffee.es' />
-        <meta
-          property='og:image'
-          content='https://fanscoffee.es/fans-logo.webp'
-        />
-        <meta property='og:image:alt' content='Fans Coffee  Logo' />
-        <meta property='og:image:width' content='2150' />
-        <meta property='og:image:height' content='2180' />
-
-        <meta property='twitter:title' content='Fans Coffee ' />
-        <meta
-          property='twitter:description'
-          content='En Fans somos fan(s) de ti. ¡Visítanos! Para pedidos llama al: 📞 628984413'
-        />
-        <meta property='twitter:card' content='summary_large_image' />
-        <meta
-          property='twitter:image'
-          content='https://fanscoffee.es/fans-logo.webp'
-        />
-        <meta property='twitter:image:alt' content='Fans Coffee ' />
-
+    <html lang='es'>
+      <body className={poppins.className}>
+        <Header />
+        {children}
+        <Footer />
         <Script
           id='json-ld-global'
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className={poppins.className}>
-        <Header />
-        {children}
-        <Footer />
+        <Script
+          id='breadcrumb-json-ld'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbListJsonLd)
+          }}
+        />
       </body>
     </html>
   )

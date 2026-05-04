@@ -1,3 +1,20 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Sobre Nosotros | Fans Coffee Bakery',
+  description:
+    'Conoce la historia de Fans Coffee Bakery: masa madre, productos artesanales, postres creativos y un ambiente único inspirado en Los Simpsons.',
+  openGraph: {
+    title: 'Sobre Nosotros | Fans Coffee Bakery',
+    description:
+      'Conoce la historia de Fans Coffee Bakery: masa madre, productos artesanales, postres creativos y un ambiente único.',
+    url: 'https://www.fanscoffee.es/about',
+    siteName: 'Fans Coffee Bakery',
+    locale: 'es_ES',
+    type: 'website'
+  }
+}
+
 export default function About() {
   return (
     <div className='mt-18 container max-w-[800px] py-24 md:mt-28'>

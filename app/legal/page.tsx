@@ -1,3 +1,24 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Aviso Legal | Fans Coffee Bakery',
+  description:
+    'Aviso legal y términos de uso de Fans Coffee Bakery. FANS COFFEE FRIENDS, S.L.L. - CIF: B88349394.',
+  openGraph: {
+    title: 'Aviso Legal | Fans Coffee Bakery',
+    description:
+      'Aviso legal y términos de uso de Fans Coffee Bakery.',
+    url: 'https://www.fanscoffee.es/legal',
+    siteName: 'Fans Coffee Bakery',
+    locale: 'es_ES',
+    type: 'website'
+  },
+  robots: {
+    index: false,
+    follow: true
+  }
+}
+
 export default function Legal() {
   return (
     <div className='container mb-5 mt-28 max-w-[800px] md:mt-48'>

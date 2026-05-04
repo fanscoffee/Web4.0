@@ -1,4 +1,20 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'Desayuno Especial | Fans Coffee Bakery',
+  description:
+    'Comienza tu día con nuestro desayuno especial: café o té, zumo natural, tostadas artesanas con mantequilla y mermelada. Lunes a viernes de 7:00 a 14:00.',
+  openGraph: {
+    title: 'Desayuno Especial | Fans Coffee Bakery',
+    description:
+      'Comienza tu día con nuestro desayuno especial: café, zumo natural y tostadas artesanas.',
+    url: 'https://www.fanscoffee.es/breakfast',
+    siteName: 'Fans Coffee Bakery',
+    locale: 'es_ES',
+    type: 'website'
+  }
+}
 
 export default function Breakfast() {
   return (

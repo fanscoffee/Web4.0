@@ -1,5 +1,21 @@
+import type { Metadata } from 'next'
 import { ProductCatalog } from '@/components/ProductCatalog'
 import { smoothieProducts, frappeProducts } from './data'
+
+export const metadata: Metadata = {
+  title: 'Smoothies y Frappés | Bebidas Especiales | Fans Coffee Bakery',
+  description:
+    'Disfruta de nuestras bebidas especiales: smoothies naturales de frutas frescas y frappés cremosos. Café, Oreo, caramelo, Nutella y más.',
+  openGraph: {
+    title: 'Smoothies y Frappés | Bebidas Especiales | Fans Coffee Bakery',
+    description:
+      'Disfruta de nuestras bebidas especiales: smoothies naturales y frappés cremosos.',
+    url: 'https://www.fanscoffee.es/special-drinks',
+    siteName: 'Fans Coffee Bakery',
+    locale: 'es_ES',
+    type: 'website'
+  }
+}
 
 export default function SpecialDrinks() {
   return (

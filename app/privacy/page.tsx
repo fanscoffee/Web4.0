@@ -1,4 +1,24 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Política de Privacidad | Fans Coffee Bakery',
+  description:
+    'Política de privacidad de Fans Coffee Bakery. Protección de datos personales y cookies. FANS COFFEE FRIENDS, S.L.L.',
+  openGraph: {
+    title: 'Política de Privacidad | Fans Coffee Bakery',
+    description:
+      'Política de privacidad y protección de datos de Fans Coffee Bakery.',
+    url: 'https://www.fanscoffee.es/privacy',
+    siteName: 'Fans Coffee Bakery',
+    locale: 'es_ES',
+    type: 'website'
+  },
+  robots: {
+    index: false,
+    follow: true
+  }
+}
 
 function Privacy() {
   return (

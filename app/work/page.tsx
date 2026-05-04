@@ -1,3 +1,20 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Trabaja con Nosotros | Fans Coffee Bakery',
+  description:
+    'Únete al equipo de Fans Coffee Bakery. Buscamos personas apasionadas por la panadería, el café y la atención al cliente. ¡Envíanos tu CV!',
+  openGraph: {
+    title: 'Trabaja con Nosotros | Fans Coffee Bakery',
+    description:
+      'Únete al equipo de Fans Coffee Bakery. Buscamos personas apasionadas por la panadería y el café.',
+    url: 'https://www.fanscoffee.es/work',
+    siteName: 'Fans Coffee Bakery',
+    locale: 'es_ES',
+    type: 'website'
+  }
+}
+
 export default function Work() {
   return (
     <div className='mt-18 container mx-auto max-w-[800px] py-24 md:mt-28'>
