@@ -74,6 +74,7 @@ export default function ContactForm() {
       })
     }
   }
+
   return (
     <div className='mx-auto mb-5 mt-[5rem] max-w-[1200px] lg:mt-[6rem]'>
       <div className='grid-1 grid gap-8 md:grid-cols-2'>
@@ -121,7 +122,7 @@ export default function ContactForm() {
                 htmlFor='telefono'
                 className='text-md my-2 block font-medium'
               >
-                Ingresa tu movíl
+                Ingresa tu móvil
                 <PhoneInput
                   international
                   id='telefono'
@@ -130,7 +131,7 @@ export default function ContactForm() {
                   value={value}
                   onChange={setValue}
                   name='telefono'
-                  className='focus:shadow-outline w-full rounded border bg-white p-2 leading-tight shadow focus:outline-none'
+                  className='phone-input-container focus:shadow-outline w-full rounded border bg-white p-2 leading-tight shadow focus:outline-none'
                 />
               </label>
             </div>
@@ -201,9 +202,6 @@ export default function ContactForm() {
           <p className='mt-2'>
             Si deseas contactar con nosotros, puedes hacerlo de las formas
             habituales.
-          </p>
-          <p className='mt-2'>
-            <strong>Dirección:</strong> Calle Doctor Esquerdo 180, 28007, Madrid
           </p>
           <p className='my-2 py-2'>
             <strong>Teléfono:</strong>
