@@ -58,13 +58,14 @@ export default function Breakfast() {
                   </div>
                   <p className='text-gray-600'>La combinación perfecta</p>
                 </div>
-              </div>
-
-              <div className='rounded-xl bg-white p-6 text-center shadow-md'>
-                <div className='text-3xl font-bold text-dark-green'>
-                  3.30€
+                <div className='rounded-xl bg-white p-6 text-center shadow-md'>
+                  <div className='text-3xl font-bold text-dark-green'>
+                    3.30€
+                  </div>
+                  <p className='text-gray-600 mt-2'>
+                    Precio del desayuno especial
+                  </p>
                 </div>
-                <p className='text-gray-600 mt-2'>Precio del desayuno especial</p>
               </div>
 
               <div className='rounded-xl bg-white p-6 shadow-md'>
