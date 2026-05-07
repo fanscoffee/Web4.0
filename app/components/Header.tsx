@@ -20,6 +20,26 @@ export default function Header() {
 
   const logoSrc = isHomePage ? '/fans-logo-blanco.png' : '/fans-logo-oscuro.png'
   const headerBgClass = isHomePage ? 'bg-transparent' : 'bg-white shadow-md'
+  const textColor = isHomePage ? 'text-white' : 'text-gray-700'
+  const menuBg = isHomePage ? 'bg-black/90 backdrop-blur-md' : 'bg-white'
+
+  const getMobileLinkClass = (href: string) => {
+    const isActive = pathname === href
+    return `block w-full py-4 text-center text-xl font-medium transition-colors ${
+      isHomePage
+        ? `text-white hover:bg-white/10 ${isActive ? 'text-green' : ''}`
+        : `text-gray-900 hover:bg-gray-100 ${isActive ? 'text-green' : ''}`
+    }`
+  }
+
+  const getDesktopLinkClass = (href: string) => {
+    const isActive = pathname === href
+    return `text-lg font-medium transition-colors ${
+      isHomePage
+        ? `text-white hover:text-green ${isActive ? 'text-green' : ''}`
+        : `text-gray-800 hover:text-green ${isActive ? 'text-green' : ''}`
+    }`
+  }
 
   return (
     <header>
@@ -29,9 +49,7 @@ export default function Header() {
         <div className='flex items-center justify-between p-4 md:p-3'>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`flex h-12 w-12 items-center justify-center rounded-lg md:hidden ${
-              isHomePage ? 'text-white' : 'text-gray-700'
-            }`}
+            className={`flex h-12 w-12 items-center justify-center rounded-lg md:hidden ${textColor}`}
             aria-label='Menú'
             aria-expanded={isMenuOpen}
           >
@@ -58,20 +76,14 @@ export default function Header() {
 
         <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
           <div
-            className={`flex flex-col items-center pb-8 pt-4 ${
-              isHomePage ? 'bg-black/90 backdrop-blur-md' : 'bg-white'
-            }`}
+            className={`flex flex-col items-center pb-8 pt-4 ${menuBg}`}
           >
             {navItems.map(item => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block w-full py-4 text-center text-xl font-medium transition-colors ${
-                  isHomePage
-                    ? `text-white hover:bg-white/10 ${pathname === item.href ? 'text-green' : ''}`
-                    : `text-gray-900 hover:bg-gray-100 ${pathname === item.href ? 'text-green' : ''}`
-                }`}
+                className={getMobileLinkClass(item.href)}
               >
                 {item.name}
               </Link>
@@ -95,11 +107,7 @@ export default function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`text-lg font-medium transition-colors ${
-                    isHomePage
-                      ? `text-white hover:text-green ${pathname === item.href ? 'text-green' : ''}`
-                      : `text-gray-800 hover:text-green ${pathname === item.href ? 'text-green' : ''}`
-                  }`}
+                  className={getDesktopLinkClass(item.href)}
                 >
                   {item.name}
                 </Link>

@@ -1,17 +1,22 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
-const PhoneInput = dynamic(
-  () => import('react-phone-number-input'),
-  { ssr: false }
-)
+const PhoneInputComponent = dynamic(() => import('react-phone-number-input'), {
+  ssr: false,
+  loading: () => <div className='phone-input-horizontal' />
+})
 
 export default function ContactForm() {
   const [Check, setCheck] = useState(false)
   const [value, setValue] = useState<string | undefined>()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   async function sendEmail(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -74,6 +79,7 @@ export default function ContactForm() {
       })
     }
   }
+
   return (
     <div className='mx-auto mb-5 mt-[5rem] max-w-[1200px] lg:mt-[6rem]'>
       <div className='grid-1 grid gap-8 md:grid-cols-2'>
@@ -120,18 +126,25 @@ export default function ContactForm() {
               <label
                 htmlFor='telefono'
                 className='text-md my-2 block font-medium'
+                suppressHydrationWarning
               >
-                Ingresa tu movíl
-                <PhoneInput
-                  international
-                  id='telefono'
-                  autoComplete='off'
-                  defaultCountry='ES'
-                  value={value}
-                  onChange={setValue}
-                  name='telefono'
-                  className='focus:shadow-outline w-full rounded border bg-white p-2 leading-tight shadow focus:outline-none'
-                />
+                Ingresa tu movil
+                <div className='mt-1'>
+                  {mounted ? (
+                    <PhoneInputComponent
+                      international
+                      id='telefono'
+                      autoComplete='off'
+                      defaultCountry='ES'
+                      value={value}
+                      onChange={setValue}
+                      name='telefono'
+                      className='phone-input-horizontal'
+                    />
+                  ) : (
+                    <div className='phone-input-horizontal' />
+                  )}
+                </div>
               </label>
             </div>
             <label htmlFor='email' className='text-md my-2 block font-medium'>
@@ -201,9 +214,6 @@ export default function ContactForm() {
           <p className='mt-2'>
             Si deseas contactar con nosotros, puedes hacerlo de las formas
             habituales.
-          </p>
-          <p className='mt-2'>
-            <strong>Dirección:</strong> Calle Doctor Esquerdo 180, 28007, Madrid
           </p>
           <p className='my-2 py-2'>
             <strong>Teléfono:</strong>
