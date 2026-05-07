@@ -112,14 +112,19 @@ function ProductCard({ product, onInfoClick }: ProductCardProps) {
       >
         <span className='text-lg font-bold'>i</span>
       </button>
-      <div className='absolute bottom-0 left-0 right-0 bg-black/50 p-4 backdrop-blur-md'>
-        <h3 className='mb-1 truncate text-xl font-bold text-white'>
-          {product.title}
-        </h3>
-        <p className='line-clamp-2 text-sm text-white/90'>
-          {product.description}
-        </p>
-      </div>
+       <div className='absolute bottom-0 left-0 right-0 bg-black/50 p-4 backdrop-blur-md'>
+         <div className='flex items-center justify-between'>
+           <h3 className='mb-1 truncate text-xl font-bold text-white'>
+             {product.title}
+           </h3>
+           <span className='rounded-full bg-green/90 px-2 py-0.5 text-sm font-bold text-white'>
+             {product.price.toFixed(2)}€
+           </span>
+         </div>
+         <p className='line-clamp-2 text-sm text-white/90'>
+           {product.description}
+         </p>
+       </div>
     </div>
   )
 }
@@ -235,10 +240,13 @@ function ProductModal({
             <span className='mb-2 inline-block w-fit rounded-full bg-green/20 px-2 py-0.5 text-[10px] font-semibold text-dark-green sm:mb-3 sm:px-3 sm:py-1 sm:text-xs'>
               {product.category}
             </span>
-            <h2 className='mb-1 text-lg font-bold text-dark-green sm:mb-3 sm:text-2xl lg:text-3xl'>
-              {product.title}
-            </h2>
-            <p className='mb-2 text-xs leading-relaxed text-brown/80 sm:mb-4 sm:text-sm'>
+             <h2 className='mb-1 text-lg font-bold text-dark-green sm:mb-3 sm:text-2xl lg:text-3xl'>
+               {product.title}
+             </h2>
+             <span className='mb-1 inline-block rounded-full bg-green/90 px-2 py-0.5 text-sm font-bold text-white sm:mb-3'>
+               {product.price.toFixed(2)}€
+             </span>
+             <p className='mb-2 text-xs leading-relaxed text-brown/80 sm:mb-4 sm:text-sm'>
               {product.description}
             </p>
             <div className='border-t border-brown/20 pt-2 sm:pt-4'>

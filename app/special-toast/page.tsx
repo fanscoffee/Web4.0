@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { ProductCatalog } from '@/components/ProductCatalog'
-import { toastProducts } from './data'
+import { saltyToastProducts, sweetToastProducts } from './data'
 
 export const metadata: Metadata = {
   title: 'Tostadas Gourmet | Fans Coffee Bakery',
@@ -19,8 +19,20 @@ export const metadata: Metadata = {
 
 export default function SpecialToast() {
   return (
-    <main className='pt-20 md:pt-32'>
-      <ProductCatalog products={toastProducts} />
+    <main className='pt-24 md:pt-48'>
+      <section className='mb-12'>
+        <h2 className='mx-4 mb-6 text-center text-2xl font-bold text-dark-green md:mx-8 lg:mx-16 lg:text-3xl xl:mx-24'>
+          Tostadas Saladas
+        </h2>
+        <ProductCatalog products={saltyToastProducts} />
+      </section>
+
+      <section>
+        <h2 className='mx-4 mb-6 text-center text-2xl font-bold text-dark-green md:mx-8 lg:mx-16 lg:text-3xl xl:mx-24'>
+          Tostadas Dulces
+        </h2>
+        <ProductCatalog products={sweetToastProducts} />
+      </section>
     </main>
   )
 }
