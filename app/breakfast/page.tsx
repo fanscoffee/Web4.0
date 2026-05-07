@@ -48,8 +48,7 @@ export default function Breakfast() {
 
               <p className='text-gray-600 mb-6 text-lg leading-relaxed'>
                 Disfruta de nuestro desayuno completo que incluye café o té,
-                zumo natural recién exprimido, tostadas artesanas con
-                mantequilla y mermelada.
+                tostadas artesanas con mantequilla y mermelada.
               </p>
 
               <div className='mb-8 grid gap-4 md:grid-cols-2'>
@@ -58,17 +57,14 @@ export default function Breakfast() {
                     Café + Tostada
                   </div>
                   <p className='text-gray-600'>La combinación perfecta</p>
-                  <div className='mt-4 text-3xl font-bold text-dark-green'>
-                    3.30€
-                  </div>
                 </div>
+              </div>
 
-                <div className='rounded-xl bg-white p-6 text-center shadow-md'>
-                  <div className='mb-2 text-2xl font-bold text-green'>
-                    Zumo Natural
-                  </div>
-                  <p className='text-gray-600'>Incluido en el desayuno</p>
+              <div className='rounded-xl bg-white p-6 text-center shadow-md'>
+                <div className='text-3xl font-bold text-dark-green'>
+                  3.30€
                 </div>
+                <p className='text-gray-600 mt-2'>Precio del desayuno especial</p>
               </div>
 
               <div className='rounded-xl bg-white p-6 shadow-md'>
