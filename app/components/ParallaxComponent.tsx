@@ -1,8 +1,16 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Parallax } from 'react-parallax'
+import dynamic from 'next/dynamic'
 import { Dancing_Script } from 'next/font/google'
+
+const Parallax = dynamic(
+  () => import('react-parallax').then(mod => ({ default: mod.Parallax })),
+  {
+    ssr: false,
+    loading: () => <div className='h-screen w-full bg-gray-200 animate-pulse' />
+  }
+)
 
 const images = [
   {
@@ -81,8 +89,8 @@ export default function ParallaxComponent() {
             width: '100%'
           }}
           bgImageStyle={{
-            minHeight: '100%', // Esto asegura que las imágenes mantengan el mismo tamaño
-            objectFit: 'cover', // Ajuste para que se adapten a la pantalla
+            minHeight: '100%',
+            objectFit: 'cover',
             width: '100vw'
           }}
         >
