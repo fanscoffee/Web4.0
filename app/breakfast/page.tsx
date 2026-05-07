@@ -42,14 +42,13 @@ export default function Breakfast() {
             </div>
 
             <div className='p-6 md:p-10'>
-              <h2 className='mb-4 text-2xl font-bold text-gray-900 md:text-3xl'>
+              <h2 className='text-gray-900 mb-4 text-2xl font-bold md:text-3xl'>
                 ¡Comienza tu día con nosotros!
               </h2>
 
-              <p className='mb-6 text-lg leading-relaxed text-gray-600'>
+              <p className='text-gray-600 mb-6 text-lg leading-relaxed'>
                 Disfruta de nuestro desayuno completo que incluye café o té,
-                zumo natural recién exprimido, tostadas artesanas con mantequilla
-                y mermelada.
+                tostadas artesanas con mantequilla y mermelada.
               </p>
 
               <div className='mb-8 grid gap-4 md:grid-cols-2'>
@@ -59,23 +58,24 @@ export default function Breakfast() {
                   </div>
                   <p className='text-gray-600'>La combinación perfecta</p>
                 </div>
-
                 <div className='rounded-xl bg-white p-6 text-center shadow-md'>
-                  <div className='mb-2 text-2xl font-bold text-green'>
-                    + Zumo Natural
+                  <div className='text-3xl font-bold text-dark-green'>
+                    3.30€
                   </div>
-                  <p className='text-gray-600'>Añade lo que quieras</p>
+                  <p className='text-gray-600 mt-2'>
+                    Precio del desayuno especial
+                  </p>
                 </div>
               </div>
 
               <div className='rounded-xl bg-white p-6 shadow-md'>
-                <h3 className='mb-3 text-xl font-semibold text-gray-900'>
+                <h3 className='text-gray-900 mb-3 text-xl font-semibold'>
                   Horario del desayuno
                 </h3>
                 <p className='text-gray-600'>
                   Disponible de lunes a viernes de <strong>7:00 a 14:00</strong>
                 </p>
-                <p className='mt-2 text-sm text-gray-500'>
+                <p className='text-gray-500 mt-2 text-sm'>
                   Consulta disponibilidad para fines de semana
                 </p>
               </div>

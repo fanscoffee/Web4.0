@@ -7,7 +7,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -16,7 +16,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/8284685/pexels-photo-8284685.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -25,7 +25,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/17272970/pexels-photo-17272970.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -34,7 +34,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -43,7 +43,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/28107534/pexels-photo-28107534.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -52,7 +52,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/8679371/pexels-photo-8679371.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -61,7 +61,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -70,7 +70,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/10003793/pexels-photo-10003793.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -79,7 +79,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -88,7 +88,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/24743547/pexels-photo-24743547.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -97,7 +97,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/8679343/pexels-photo-8679343.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   },
   {
@@ -106,7 +106,7 @@ export const smoothieProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Smoothie'
   }
 ]
@@ -118,7 +118,7 @@ export const frappeProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: true, lactose: true, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Frappé'
   },
   {
@@ -127,7 +127,7 @@ export const frappeProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: true, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Frappé'
   },
   {
@@ -136,7 +136,7 @@ export const frappeProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: true, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Frappé'
   },
   {
@@ -145,7 +145,7 @@ export const frappeProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: true, lactose: true, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Frappé'
   },
   {
@@ -154,7 +154,7 @@ export const frappeProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: true, egg: false, nuts: false },
-    price: 0,
+    price: 4.70,
     category: 'Frappé'
   },
   {
@@ -163,7 +163,7 @@ export const frappeProducts: Product[] = [
     image:
       'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
     allergens: { gluten: false, lactose: true, egg: false, nuts: true },
-    price: 0,
+    price: 4.70,
     category: 'Frappé'
   }
 ]
