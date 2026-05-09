@@ -287,8 +287,7 @@ export default function Legal() {
         ¿QUÉ DERECHOS TIENE USTED CON RESPECTO A LOS DATOS QUE NOS FACILITA?
       </h3>
       <p className='my-2'>
-        Usted tiene derecho a obtener confirmación sobre si en Ostelea diversa
-        S.L.U. estamos tratando los datos personales que le conciernan, o no.
+        Usted tiene derecho a obtener confirmación sobre si en FANS COFFEE FRIENDS S.L.L. estamos tratando los datos personales que le conciernan, o no.
       </p>
       <p className='my-2'>
         Asimismo las personas interesadas tienen derecho a{' '}
@@ -397,9 +396,7 @@ export default function Legal() {
       <p className='my-2'>
         La legislación aplicable al presente AVISO LEGAL será la legislación
         española, y a la jurisdicción competente para conocer de cualesquiera
-        demandas que esta web suscite será la de los juzgados y Tribunales de
-        BARCELONA , renunciando expresamente el usuario a cualquier otro fuero
-        que pudiera corresponderle.
+        demandas que esta web suscite será la de los Juzgados y Tribunales de Madrid, renunciando expresamente el usuario a cualquier otro fuero que pudiera corresponderle.
       </p>
 
       <h3 className='my-6 text-2xl'>CONTENIDO DE LA WEB Y ENLACES (LINKS) </h3>
