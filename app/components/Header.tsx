@@ -45,13 +45,15 @@ export default function Header() {
     <header>
       <nav
         className={`fixed left-0 top-0 z-[1000] w-full transition-colors md:absolute md:left-0 md:top-0 md:z-[100] ${headerBgClass}`}
+        aria-label='Navegación principal'
       >
         <div className='flex items-center justify-between p-4 md:p-3'>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`flex h-12 w-12 items-center justify-center rounded-lg md:hidden ${textColor}`}
-            aria-label='Menú'
+            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isMenuOpen}
+            aria-controls='mobile-menu'
           >
             {isMenuOpen ? <IconClose /> : <IconMenu />}
           </button>
@@ -63,7 +65,7 @@ export default function Header() {
           >
             <Image
               src={logoSrc}
-              alt='Fans Logo'
+              alt='Fans Coffee Bakery — ir a inicio'
               width={120}
               height={80}
               className='h-14 w-auto'
@@ -74,20 +76,28 @@ export default function Header() {
           <div className='hidden w-12 md:block' />
         </div>
 
-        <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
+        <div
+          id='mobile-menu'
+          className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}
+          aria-hidden={!isMenuOpen}
+        >
           <div
             className={`flex flex-col items-center pb-8 pt-4 ${menuBg}`}
           >
-            {navItems.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={getMobileLinkClass(item.href)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map(item => {
+              const isActive = pathname === item.href
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={getMobileLinkClass(item.href)}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.name}
+                </Link>
+              )
+            })}
           </div>
         </div>
 
@@ -95,7 +105,7 @@ export default function Header() {
           <Link href='/' className='flex items-center'>
             <Image
               src={logoSrc}
-              alt='Fans Logo'
+              alt='Fans Coffee Bakery — ir a inicio'
               width={220}
               height={140}
               className='h-20 w-auto'
@@ -103,16 +113,20 @@ export default function Header() {
             />
           </Link>
           <ul className='ml-16 flex space-x-10'>
-            {navItems.map(item => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={getDesktopLinkClass(item.href)}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
+            {navItems.map(item => {
+              const isActive = pathname === item.href
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={getDesktopLinkClass(item.href)}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </nav>
