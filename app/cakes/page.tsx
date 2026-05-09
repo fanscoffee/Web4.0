@@ -3,13 +3,16 @@ import { ProductCatalog } from '@/components/ProductCatalog'
 import { cakesProducts } from './data'
 
 export const metadata: Metadata = {
-  title: 'Nuestras Tartas Artesanales | Fans Coffee Bakery',
+  title: 'Tartas Artesanales | Fans Coffee Bakery',
   description:
-    'Descubre nuestras tartas artesanales: Selva Negra, Red Velvet, Queso, Tres Chocolates, Frutas y más. Hechas con ingredientes frescos y mucho cariño.',
+    'Tartas artesanales: Selva Negra, Red Velvet, Queso Vasco, Tres Chocolates y más. Desde 22€ - 30€. Reserva la tuya.',
+  alternates: {
+    canonical: 'https://www.fanscoffee.es/cakes'
+  },
   openGraph: {
-    title: 'Nuestras Tartas Artesanales | Fans Coffee Bakery',
+    title: 'Tartas Artesanales | Fans Coffee Bakery',
     description:
-      'Descubre nuestras tartas artesanales: Selva Negra, Red Velvet, Queso, Tres Chocolates y más.',
+      'Tartas artesanales: Selva Negra, Red Velvet, Queso, Tres Chocolates. Desde 22€.',
     url: 'https://www.fanscoffee.es/cakes',
     siteName: 'Fans Coffee Bakery',
     locale: 'es_ES',

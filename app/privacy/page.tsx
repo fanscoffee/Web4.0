@@ -4,7 +4,10 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Política de Privacidad | Fans Coffee Bakery',
   description:
-    'Política de privacidad de Fans Coffee Bakery. Protección de datos personales y cookies. FANS COFFEE FRIENDS, S.L.L.',
+    'Política de privacidad de Fans Coffee Bakery. Protección de datos personales y cookies. FANS COFFEE FRIENDS, S.L.L. Madrid.',
+  alternates: {
+    canonical: 'https://www.fanscoffee.es/privacy'
+  },
   openGraph: {
     title: 'Política de Privacidad | Fans Coffee Bakery',
     description:

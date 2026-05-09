@@ -10,15 +10,30 @@ import {
 export const metadata: Metadata = {
   title: 'Desayuno Especial | Fans Coffee Bakery',
   description:
-    'Comienza tu día con nuestro desayuno especial: café o té, tostadas artesanas con mantequilla y mermelada. Lunes a viernes de 7:00 a 14:00.',
+    'Desayuno completo en Madrid: café o té, tostadas artesanas con mantequilla y mermelada. Solo 3.30€. Lunes a viernes de 7:00 a 14:00.',
+  alternates: {
+    canonical: 'https://www.fanscoffee.es/breakfast'
+  },
   openGraph: {
     title: 'Desayuno Especial | Fans Coffee Bakery',
     description:
-      'Comienza tu día con nuestro desayuno especial: café, tostadas artesanas con mantequilla y mermelada.',
+      'Desayuno completo por solo 3.30€. Café, tostadas artesanas con mantequilla y mermelada.',
     url: 'https://www.fanscoffee.es/breakfast',
     siteName: 'Fans Coffee Bakery',
     locale: 'es_ES',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1200&q=80',
+        width: 1200,
+        height: 630,
+        alt: 'Desayuno especial en Fans Coffee Bakery'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1200&q=80']
   }
 }
 

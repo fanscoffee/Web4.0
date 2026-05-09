@@ -5,11 +5,14 @@ import { smoothieProducts, frappeProducts } from './data'
 export const metadata: Metadata = {
   title: 'Smoothies y Frappés | Bebidas Especiales | Fans Coffee Bakery',
   description:
-    'Disfruta de nuestras bebidas especiales: smoothies naturales de frutas frescas y frappés cremosos. Café, Oreo, caramelo, Nutella y más.',
+    'Disfruta de nuestras bebidas especiales: smoothies naturales de frutas frescas y frappés cremosos. Café, Oreo, caramelo, Nutella y más. Desde 4.70€.',
+  alternates: {
+    canonical: 'https://www.fanscoffee.es/special-drinks'
+  },
   openGraph: {
     title: 'Smoothies y Frappés | Bebidas Especiales | Fans Coffee Bakery',
     description:
-      'Disfruta de nuestras bebidas especiales: smoothies naturales y frappés cremosos.',
+      'Bebidas especiales: smoothies de frutas frescas y frappés. Desde 4.70€.',
     url: 'https://www.fanscoffee.es/special-drinks',
     siteName: 'Fans Coffee Bakery',
     locale: 'es_ES',

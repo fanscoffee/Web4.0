@@ -3,7 +3,10 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Aviso Legal | Fans Coffee Bakery',
   description:
-    'Aviso legal y términos de uso de Fans Coffee Bakery. FANS COFFEE FRIENDS, S.L.L. - CIF: B88349394.',
+    'Aviso legal y términos de uso de Fans Coffee Bakery. FANS COFFEE FRIENDS, S.L.L. - CIF: B88349394. Madrid.',
+  alternates: {
+    canonical: 'https://www.fanscoffee.es/legal'
+  },
   openGraph: {
     title: 'Aviso Legal | Fans Coffee Bakery',
     description:
