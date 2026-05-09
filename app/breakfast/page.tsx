@@ -35,6 +35,7 @@ export default function Breakfast() {
                   src='https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1200&q=80'
                   alt='Desayuno especial'
                   fill
+                  sizes='(max-width: 768px) 100vw, 1200px'
                   className='object-cover'
                   priority
                 />
