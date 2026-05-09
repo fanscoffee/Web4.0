@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
+      <h1 className='sr-only'>Fans Coffee Bakery - Café artesanal y repostería en Madrid</h1>
       <ParallaxComponent />
     </div>
   )
