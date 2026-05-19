@@ -3,13 +3,16 @@ import { ProductCatalog } from '@/components/ProductCatalog'
 import { saltyToastProducts, sweetToastProducts } from './data'
 
 export const metadata: Metadata = {
-  title: 'Tostadas Gourmet | Fans Coffee Bakery',
+  title: 'Tostadas Especiales | Fans Coffee Bakery',
   description:
-    'Descubre nuestras tostadas gourmet: combinaciones únicas con ingredientes frescos. El desayuno o merienda perfecto en Madrid.',
+    'Tostadas especiales gourmet: jamón serrano, salmón, Nutella y más. Pan artesano con mollete integral o chapata. Desde 4.30€.',
+  alternates: {
+    canonical: 'https://www.fanscoffee.es/special-toast'
+  },
   openGraph: {
-    title: 'Tostadas Gourmet | Fans Coffee Bakery',
+    title: 'Tostadas Especiales | Fans Coffee Bakery',
     description:
-      'Descubre nuestras tostadas gourmet con ingredientes frescos y combinaciones únicas.',
+      'Tostadas gourmet: saladas y dulces. Desde 4.30€.',
     url: 'https://www.fanscoffee.es/special-toast',
     siteName: 'Fans Coffee Bakery',
     locale: 'es_ES',
