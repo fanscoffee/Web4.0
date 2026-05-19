@@ -1,23 +1,24 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import {
+  baseOptions,
   normalDrinks,
   specialDrinks,
   extras,
-  breadOptions
+  extraImages
 } from './data'
 
 export const metadata: Metadata = {
   title: 'Desayuno Especial | Fans Coffee Bakery',
   description:
-    'Desayuno completo en Madrid: café o té, tostadas artesanas con mantequilla y mermelada. Solo 3.30€. Lunes a viernes de 7:00 a 14:00.',
+    'Diseña tu desayuno perfecto en Madrid: elige tu base, bebida y extras. Desde 3.00€. Lunes a viernes de 7:00 a 14:00.',
   alternates: {
     canonical: 'https://www.fanscoffee.es/breakfast'
   },
   openGraph: {
     title: 'Desayuno Especial | Fans Coffee Bakery',
     description:
-      'Desayuno completo por solo 3.30€. Café, tostadas artesanas con mantequilla y mermelada.',
+      'Diseña tu desayuno perfecto: elige tu base, bebida y extras. Desde 3.00€.',
     url: 'https://www.fanscoffee.es/breakfast',
     siteName: 'Fans Coffee Bakery',
     locale: 'es_ES',
@@ -33,179 +34,156 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1200&q=80']
+    images: [
+      'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1200&q=80'
+    ]
   }
 }
 
 export default function Breakfast() {
   return (
-    <main className='min-h-screen bg-gray-50'>
-      {/* Hero Section */}
-      <section className='pt-20 md:pt-32'>
-        <div className='container mx-auto px-4 py-8 md:py-12'>
-          <div className='mx-auto max-w-5xl'>
-            <div className='relative overflow-hidden rounded-2xl'>
-              <div className='relative h-64 w-full md:h-[450px]'>
-                <Image
-                  src='https://images.unsplash.com/photo-1525351484163-7529414344d8?w=1200&q=80'
-                  alt='Desayuno especial'
-                  fill
-                  sizes='(max-width: 768px) 100vw, 1200px'
-                  className='object-cover'
-                  priority
-                />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent' />
-                <div className='absolute bottom-6 left-6 md:bottom-10 md:left-10'>
-                  <span className='inline-block rounded-full bg-green px-4 py-1 text-sm font-semibold text-white'>
-                    Promoción
-                  </span>
-                  <h1 className='mt-3 text-3xl font-bold text-white md:text-5xl'>
-                    Desayuno Especial Fans
-                  </h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <main className='min-h-screen'>
+      <section className='px-4 pb-16 pt-24 md:pt-48'>
+        <div className='mx-auto max-w-6xl'>
+          <h1 className='mb-12 text-center text-3xl font-bold tracking-wide text-[#774949] md:text-4xl'>
+            DISEÑA TU DESAYUNO PERFECTO
+          </h1>
 
-      {/* Content Section */}
-      <section className='bg-gray-50 pb-12'>
-        <div className='container mx-auto px-4'>
-          <div className='mx-auto max-w-5xl'>
-            {/* Title and Description */}
-            <div className='mb-8 text-center'>
-              <h2 className='mb-4 text-2xl font-bold text-gray-900 md:text-3xl'>
-                ¡Comienza tu día con nosotros!
+          <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
+            {/* PASO 1: ELIGE TU BASE */}
+            <div>
+              <h2 className='mb-6 text-center text-xl font-bold text-[#2c2c2c] md:text-2xl lg:text-left'>
+                PASO 1: ELIGE TU BASE
               </h2>
-              <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600'>
-                Disfruta de nuestro desayuno completo que incluye café o té,
-                tostadas artesanas con mantequilla y mermelada.
-              </p>
-            </div>
-
-            {/* Combo and Price Cards */}
-            <div className='mb-8 grid gap-4 md:grid-cols-2'>
-              <div className='rounded-xl bg-white p-6 text-center shadow-md'>
-                <div className='mb-2 text-2xl font-bold text-green'>
-                  Café + Tostada
-                </div>
-                <p className='text-gray-600'>La combinación perfecta</p>
-              </div>
-              <div className='rounded-xl bg-white p-6 text-center shadow-md'>
-                <div className='mb-2 text-4xl font-bold text-gray-900'>
-                  3.30€
-                </div>
-                <p className='text-gray-600'>Precio del desayuno especial</p>
-              </div>
-            </div>
-
-            {/* Schedule Card */}
-            <div className='mb-10 rounded-xl bg-white p-6 shadow-md'>
-              <h3 className='mb-3 text-xl font-bold text-gray-900'>
-                Horario del desayuno
-              </h3>
-              <p className='text-gray-600'>
-                Disponible de lunes a viernes de{' '}
-                <strong className='font-bold'>7:00 a 14:00</strong>
-              </p>
-              <p className='mt-2 text-sm text-gray-500'>
-                Consulta disponibilidad para fines de semana
-              </p>
-            </div>
-
-            {/* Bebidas Section */}
-            <div className='mb-10 grid gap-6 md:grid-cols-2'>
-              {/* Bebidas Normales */}
-              <div className='rounded-xl bg-white p-6 shadow-md'>
-                <h3 className='mb-4 text-xl font-bold text-green'>
-                  Bebidas Normales
-                </h3>
-                <ul className='space-y-2'>
-                  {normalDrinks.map((drink, index) => (
-                    <li key={index} className='flex items-center text-gray-700'>
-                      <span className='mr-2 h-2 w-2 rounded-full bg-green' />
-                      {drink.name}
-                      {drink.detail && (
-                        <span className='ml-2 text-sm text-gray-500'>
-                          ({drink.detail})
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Bebidas Especiales */}
-              <div className='rounded-xl bg-white p-6 shadow-md'>
-                <h3 className='mb-4 text-xl font-bold text-green'>
-                  Bebidas Especiales
-                </h3>
-                <ul className='space-y-2'>
-                  {specialDrinks.map((drink, index) => (
-                    <li key={index} className='flex items-center text-gray-700'>
-                      <span className='mr-2 h-2 w-2 rounded-full bg-green' />
-                      {drink.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Extras Section */}
-            <div className='mb-10 rounded-xl bg-white p-6 shadow-md'>
-              <h3 className='mb-4 text-xl font-bold text-green'>Extras</h3>
-              <div className='grid gap-2 md:grid-cols-2'>
-                {extras.map((extra, index) => (
+              <div className='space-y-6'>
+                {baseOptions.map(option => (
                   <div
-                    key={index}
-                    className='flex items-center justify-between border-b border-gray-100 py-2'
+                    key={option.id}
+                    className='overflow-hidden rounded-lg bg-white shadow-sm transition-shadow hover:shadow-md'
                   >
-                    <span className='text-gray-700'>{extra.name}</span>
-                    <span className='font-semibold text-dark-green'>
-                      {extra.price.toFixed(2).replace('.', ',')} €
-                    </span>
+                    <div className='relative aspect-[4/3] w-full'>
+                      <Image
+                        src={option.image}
+                        alt={option.name}
+                        fill
+                        sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                        className='object-cover'
+                      />
+                    </div>
+                    <div className='p-4'>
+                      <h3 className='text-lg font-bold text-[#2c2c2c]'>
+                        {option.name}
+                      </h3>
+                      {option.description && (
+                        <p className='text-gray-600 mt-1 text-sm'>
+                          {option.description}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Pan / Bollería Section */}
-            <div className='rounded-xl bg-white p-6 shadow-md'>
-              <h3 className='mb-4 text-xl font-bold text-green'>
-                Opciones de Pan / Base
-              </h3>
-              <div className='space-y-4'>
-                {breadOptions.map((option, index) => (
-                  <div key={index} className='border-b border-gray-100 pb-4 last:border-0 last:pb-0'>
-                    <div className='flex items-start'>
-                      <span className='mr-3 mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-green/10 text-sm font-bold text-green'>
-                        {index + 1}
+            {/* PASO 2: ELIGE TU BEBIDA */}
+            <div>
+              <h2 className='mb-6 text-center text-xl font-bold text-[#2c2c2c] md:text-2xl lg:text-left'>
+                PASO 2: ELIGE TU BEBIDA
+              </h2>
+              <div className='space-y-6'>
+                {/* Bebida Normal */}
+                <div className='relative rounded-lg bg-white p-6 shadow-sm'>
+                  <span className='absolute right-4 top-4 text-3xl'>☕</span>
+                  <span className='mb-4 inline-block rounded-full bg-[#6b7c3f] px-3 py-1 text-sm font-semibold text-white'>
+                    CON BEBIDA NORMAL: 3.00€
+                  </span>
+                  <ul className='space-y-2'>
+                    {normalDrinks.map((drink, index) => (
+                      <li key={index} className='text-gray-700 text-sm'>
+                        <span className='mr-2'>•</span>
+                        {drink.name}
+                        {drink.detail && (
+                          <span className='text-gray-500'>
+                            {' '}
+                            ({drink.detail})
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Bebida Especial */}
+                <div className='relative rounded-lg bg-white p-6 shadow-sm'>
+                  <span className='absolute right-4 top-4 text-3xl'>🥛</span>
+                  <span className='mb-4 inline-block rounded-full bg-[#5a6a35] px-3 py-1 text-sm font-semibold text-white'>
+                    CON BEBIDA ESPECIAL: 3.30€
+                  </span>
+                  <ul className='space-y-2'>
+                    {specialDrinks.map((drink, index) => (
+                      <li key={index} className='text-gray-700 text-sm'>
+                        <span className='mr-2'>•</span>
+                        {drink.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Horario */}
+                <div className='border-gray-100 rounded-lg border bg-[#faf8f5] p-5 shadow-sm'>
+                  <h3 className='mb-2 text-lg font-bold text-[#2c2c2c]'>
+                    Horario del desayuno
+                  </h3>
+                  <p className='text-gray-600 text-sm'>
+                    Disponible de lunes a viernes de{' '}
+                    <strong className='font-bold text-[#2c2c2c]'>
+                      7:00 a 14:00
+                    </strong>
+                  </p>
+                  <p className='text-gray-500 mt-2 text-xs'>
+                    Consulta disponibilidad para fines de semana
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* PASO 3: AÑADE EXTRAS */}
+            <div>
+              <h2 className='mb-6 text-center text-xl font-bold text-[#2c2c2c] md:text-2xl lg:text-left'>
+                PASO 3: AÑADE EXTRAS
+              </h2>
+              <div className='rounded-lg bg-white p-6 shadow-sm'>
+                <div className='space-y-0'>
+                  {extras.map((extra, index) => (
+                    <div
+                      key={index}
+                      className='border-gray-100 flex items-center justify-between border-b py-3 last:border-b-0'
+                    >
+                      <span className='text-gray-700 text-sm font-medium'>
+                        {extra.name}
                       </span>
-                      <div>
-                        <h4 className='font-semibold text-gray-900'>
-                          {option.name}
-                        </h4>
-                        {option.detail && (
-                          <p className='mt-1 text-sm text-gray-600'>
-                            {option.detail}
-                          </p>
-                        )}
-                        {option.items && (
-                          <ul className='mt-2 space-y-1'>
-                            {option.items.map((item, i) => (
-                              <li
-                                key={i}
-                                className='flex items-center text-sm text-gray-600'
-                              >
-                                <span className='mr-2 text-green'>•</span>
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
+                      <span className='text-sm font-semibold text-[#6b7c3f]'>
+                        {extra.price.toFixed(2).replace('.', ',')} €
+                      </span>
                     </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Extra Images Grid */}
+              <div className='mt-6 grid grid-cols-2 gap-3'>
+                {extraImages.map((img, index) => (
+                  <div
+                    key={index}
+                    className='relative aspect-square overflow-hidden rounded-lg'
+                  >
+                    <Image
+                      src={img}
+                      alt={`Ingrediente extra ${index + 1}`}
+                      fill
+                      sizes='(max-width: 768px) 50vw, 25vw'
+                      className='object-cover'
+                    />
                   </div>
                 ))}
               </div>
