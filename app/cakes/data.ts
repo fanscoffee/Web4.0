@@ -8,7 +8,7 @@ export const cakesProducts: Product[] = [
     image:
       'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
-    price: 28.0,
+    price: 40.0,
     category: 'Chocolate'
   },
   {
@@ -18,67 +18,107 @@ export const cakesProducts: Product[] = [
     image:
       'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=800&q=80',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
-    price: 26.0,
+    price: 40.0,
     category: 'Especial'
   },
   {
-    title: 'Tarta de Queso',
+    title: 'Tarta de Queso L',
     description:
       'Clásica tarta de queso al estilo vasco, cremosa por dentro y ligeramente caramelizada por fuera.',
     image:
       'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=800&q=80',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
-    price: 24.0,
+    price: 40.0,
     category: 'Clásica'
   },
   {
-    title: 'Tarta de Frutas',
+    title: 'Tarta de Queso M',
     description:
-      'Base de masa sablée rellena de crema pastelera y cubierta con frutas frescas de temporada.',
+      'Clásica tarta de queso al estilo vasco, cremosa por dentro y ligeramente caramelizada por fuera.',
     image:
-      'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800&q=80',
+      'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=800&q=80',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
-    price: 22.0,
-    category: 'Frutas'
+    price: 28.0,
+    category: 'Clásica'
   },
   {
-    title: 'Tarta Tres Chocolates',
+    title: 'Tarta de Queso S',
     description:
-      'Elegante combinación de chocolate blanco, con leche y negro sobre base de galleta.',
+      'Clásica tarta de queso al estilo vasco, cremosa por dentro y ligeramente caramelizada por fuera.',
+    image:
+      'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=800&q=80',
+    allergens: { gluten: true, lactose: true, egg: true, nuts: false },
+    price: 15.0,
+    category: 'Clásica'
+  },
+  {
+    title: 'Tarta Tres Leches L',
+    description:
+      'La tarta tres leches es un postre tradicional de América Latina, consistente en un bizcocho esponjoso bañado con una mezcla de leche condensada, leche evaporada y crema de leche (o nata).',
     image:
       'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
-    price: 30.0,
-    category: 'Chocolate'
+    price: 47.0,
+    category: 'Leche'
   },
   {
-    title: 'Tarta de Almendra',
+    title: 'Tarta Tres Leches M',
     description:
-      'Bizcocho de almendra tierno con crema de avellanas y cobertura de chocolate.',
+      'La tarta tres leches es un postre tradicional de América Latina, consistente en un bizcocho esponjoso bañado con una mezcla de leche condensada, leche evaporada y crema de leche (o nata).',
     image:
-      'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80',
-    allergens: { gluten: false, lactose: true, egg: true, nuts: true },
-    price: 27.0,
-    category: 'Sin Gluten'
+      'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80',
+    allergens: { gluten: true, lactose: true, egg: true, nuts: false },
+    price: 35.0,
+    category: 'Leche'
   },
   {
-    title: 'Tarta de Zanahoria',
+    title: 'Tarta Tres Leches S',
+    description:
+      'La tarta tres leches es un postre tradicional de América Latina, consistente en un bizcocho esponjoso bañado con una mezcla de leche condensada, leche evaporada y crema de leche (o nata).',
+    image:
+      'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80',
+    allergens: { gluten: true, lactose: true, egg: true, nuts: false },
+    price: 15.0,
+    category: 'Leche'
+  },
+  {
+    title: 'Tarta de Zanahoria L',
     description:
       'Carrot cake con especias, nueces y frosting de queso crema. Humeda y aromática.',
     image:
       'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80',
     allergens: { gluten: true, lactose: true, egg: true, nuts: true },
-    price: 25.0,
+    price: 40.0,
     category: 'Especial'
   },
   {
-    title: 'Tarta Limón y Merengue',
+    title: 'Tarta de Zanahoria S',
+    description:
+      'Carrot cake con especias, nueces y frosting de queso crema. Humeda y aromática.',
+    image:
+      'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80',
+    allergens: { gluten: true, lactose: true, egg: true, nuts: true },
+    price: 28.0,
+    category: 'Especial'
+  },
+  {
+    title: 'Pie de Limón L',
     description:
       'Base crujiente con curd de limón ácido y merengue italiano tostado. Refrescante y ligera.',
     image:
       'https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=800&q=80',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
-    price: 23.0,
+    price: 30.0,
+    category: 'Cítricos'
+  },
+  {
+    title: 'Pie de Limón S',
+    description:
+      'Base crujiente con curd de limón ácido y merengue italiano tostado. Refrescante y ligera.',
+    image:
+      'https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=800&q=80',
+    allergens: { gluten: true, lactose: true, egg: true, nuts: false },
+    price: 12.0,
     category: 'Cítricos'
   }
 ]
