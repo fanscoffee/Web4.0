@@ -39,7 +39,7 @@ const menuItems = [
   { name: 'Desayunos', href: '/breakfast', price: 'Desde 3.30€' },
   { name: 'Tostadas', href: '/special-toast', price: '4.30€ - 7.50€' },
   { name: 'Bebidas', href: '/special-drinks', price: '4.70€' },
-  { name: 'Tartas', href: '/cakes', price: '22€ - 30€' }
+  { name: 'Tartas', href: '/cakes', price: '12€ - 47€' }
 ]
 
 const stats = [
@@ -57,44 +57,60 @@ export default function Home() {
       </section>
 
       {/* Value Proposition Section */}
-      <section className='bg-gray-50 py-16' aria-labelledby='proposition-heading'>
+      <section
+        className='bg-gray-50 py-16'
+        aria-labelledby='proposition-heading'
+      >
         <div className='container mx-auto max-w-5xl px-4'>
           <h1 id='proposition-heading' className='sr-only'>
             Fans Coffee Bakery - Tu cafetería en Madrid
           </h1>
           <div className='mb-12 text-center'>
-            <h2 className='mb-4 text-3xl font-bold text-gray-900 md:text-4xl'>
+            <h2 className='text-gray-900 mb-4 text-3xl font-bold md:text-4xl'>
               En FANS somos FANS de ti
             </h2>
-            <p className='mx-auto max-w-2xl text-lg text-gray-600'>
-              Café artesanal 100% arábico, tostadas gourmet, desayunos completos y
-              repostería artesanal en el corazón de Madrid. Cada producto hecho con
-              ingredientes frescos y mucho cariño.
+            <p className='text-gray-600 mx-auto max-w-2xl text-lg'>
+              Café artesanal 100% arábico, tostadas gourmet, desayunos completos
+              y repostería artesanal en el corazón de Madrid. Cada producto
+              hecho con ingredientes frescos y mucho cariño.
             </p>
           </div>
 
           {/* Stats */}
-          <div className='mb-12 grid grid-cols-3 gap-4 text-center' role='list' aria-label='Características principales'>
+          <div
+            className='mb-12 grid grid-cols-3 gap-4 text-center'
+            role='list'
+            aria-label='Características principales'
+          >
             {stats.map((stat, index) => (
-              <div key={index} className='rounded-xl bg-white p-6 shadow-md' role='listitem'>
-                <div className='text-2xl font-bold text-green md:text-3xl'>{stat.number}</div>
-                <div className='text-sm text-gray-600'>{stat.label}</div>
+              <div
+                key={index}
+                className='rounded-xl bg-white p-6 shadow-md'
+                role='listitem'
+              >
+                <div className='text-2xl font-bold text-green md:text-3xl'>
+                  {stat.number}
+                </div>
+                <div className='text-gray-600 text-sm'>{stat.label}</div>
               </div>
             ))}
           </div>
 
           {/* CTA Cards */}
-          <nav className='grid gap-4 md:grid-cols-2 lg:grid-cols-4' aria-label='Navegación del menú'>
+          <nav
+            className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'
+            aria-label='Navegación del menú'
+          >
             {menuItems.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
                 className='group rounded-xl bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg'
               >
-                <h3 className='mb-2 text-xl font-bold text-gray-900 group-hover:text-green'>
+                <h3 className='text-gray-900 mb-2 text-xl font-bold group-hover:text-green'>
                   {item.name}
                 </h3>
-                <p className='text-sm text-gray-500'>{item.price}</p>
+                <p className='text-gray-500 text-sm'>{item.price}</p>
                 <span className='mt-3 inline-block text-sm font-medium text-green group-hover:underline'>
                   Ver menú →
                 </span>
@@ -107,16 +123,20 @@ export default function Home() {
       {/* CTA Contact Section */}
       <section className='bg-green py-16' aria-labelledby='contact-cta-heading'>
         <div className='container mx-auto max-w-4xl px-4 text-center'>
-          <h2 id='contact-cta-heading' className='mb-4 text-2xl font-bold text-white md:text-3xl'>
+          <h2
+            id='contact-cta-heading'
+            className='mb-4 text-2xl font-bold text-white md:text-3xl'
+          >
             ¿Tienes preguntas? ¡Escríbenos!
           </h2>
           <p className='mb-8 text-white/90'>
-            Estamos aquí para ayudarte. Contáctanos por teléfono, email o visita nuestra cafetería.
+            Estamos aquí para ayudarte. Contáctanos por teléfono, email o visita
+            nuestra cafetería.
           </p>
           <div className='flex flex-col items-center justify-center gap-4 sm:flex-row'>
             <a
               href='tel:+34628984413'
-              className='rounded-full bg-white px-8 py-4 font-bold text-green transition-all hover:bg-gray-100'
+              className='hover:bg-gray-100 rounded-full bg-white px-8 py-4 font-bold text-green transition-all'
             >
               📞 628 984 413
             </a>
@@ -131,7 +151,10 @@ export default function Home() {
       </section>
 
       {/* Location Quick View */}
-      <section className='bg-gray-900 py-12 text-white' aria-labelledby='location-heading'>
+      <section
+        className='bg-gray-900 py-12 text-white'
+        aria-labelledby='location-heading'
+      >
         <div className='container mx-auto max-w-4xl px-4'>
           <div className='flex flex-col items-center justify-between gap-8 md:flex-row'>
             <div className='text-center md:text-left'>
@@ -147,7 +170,7 @@ export default function Home() {
             </div>
             <Link
               href='/contact'
-              className='rounded-full border-2 border-white px-6 py-3 font-medium text-white transition-all hover:bg-white hover:text-gray-900'
+              className='hover:text-gray-900 rounded-full border-2 border-white px-6 py-3 font-medium text-white transition-all hover:bg-white'
             >
               Ver en mapa →
             </Link>
@@ -169,9 +192,7 @@ function ParallaxHero() {
       >
         <div className='absolute inset-0 bg-black/40' />
         <div className='relative z-10 text-center text-white'>
-          <h1 className='text-4xl font-bold md:text-6xl'>
-            Fans Coffee Bakery
-          </h1>
+          <h1 className='text-4xl font-bold md:text-6xl'>Fans Coffee Bakery</h1>
           <p className='mt-4 text-xl md:text-2xl'>
             Café artesanal y repostería en Madrid
           </p>
