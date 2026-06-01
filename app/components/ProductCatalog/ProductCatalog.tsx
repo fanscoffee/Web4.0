@@ -61,7 +61,7 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
       <div className='mx-4 my-12 grid max-w-[1920px] grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:mx-8 lg:mx-16 lg:grid-cols-3 lg:gap-10 xl:mx-24'>
         {products.map((product, index) => (
           <ProductCard
-            key={index}
+            key={product.title}
             product={product}
             onInfoClick={() => openModal(index)}
           />
@@ -92,6 +92,9 @@ function ProductCard({ product, onInfoClick }: ProductCardProps) {
   return (
     <div
       onClick={onInfoClick}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onInfoClick() }}
+      role='button'
+      tabIndex={0}
       className='group relative h-[320px] cursor-pointer overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl'
     >
       <Image

@@ -34,8 +34,9 @@ const Footer = () => {
           </div>
           <p className='mt-4 text-sm'>
             <strong>Horario:</strong><br />
-            Lunes a viernes: 7:00 – 14:00<br />
-            Fines de semana: consultar disponibilidad
+            Lunes a viernes: 7:00 – 21:00<br />
+            Sábado: 8:00 – 21:00<br />
+            Domingo: 8:30 – 21:00
           </p>
         </div>
 
@@ -46,7 +47,7 @@ const Footer = () => {
             <div className='grid grid-cols-3 gap-2'>
               <Image
                 src='/images/instagram/i1.webp'
-                alt='Post 1'
+                alt='Foto de Instagram de Fans Coffee Bakery 1'
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
@@ -55,7 +56,7 @@ const Footer = () => {
               />
               <Image
                 src='/images/instagram/i2.webp'
-                alt='Post 2'
+                alt='Foto de Instagram de Fans Coffee Bakery 2'
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
@@ -64,7 +65,7 @@ const Footer = () => {
               />
               <Image
                 src='/images/instagram/i3.webp'
-                alt='Post 3'
+                alt='Foto de Instagram de Fans Coffee Bakery 3'
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
@@ -73,7 +74,7 @@ const Footer = () => {
               />
               <Image
                 src='/images/instagram/i4.webp'
-                alt='Post 4'
+                alt='Foto de Instagram de Fans Coffee Bakery 4'
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
@@ -82,7 +83,7 @@ const Footer = () => {
               />
               <Image
                 src='/images/instagram/i5.webp'
-                alt='Post 5'
+                alt='Foto de Instagram de Fans Coffee Bakery 5'
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
@@ -91,7 +92,7 @@ const Footer = () => {
               />
               <Image
                 src='/images/instagram/i6.webp'
-                alt='Post 6'
+                alt='Foto de Instagram de Fans Coffee Bakery 6'
                 width={112}
                 height={112}
                 className='h-28 w-28 object-cover'
