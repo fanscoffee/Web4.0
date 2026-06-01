@@ -26,7 +26,7 @@ const Footer = () => {
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Instagram de Fans Coffee Bakery'
-              className='text-gray-300'
+              className='text-green transition-colors hover:text-dark-green'
             >
               <FaInstagram className='size-6' />
             </a>
@@ -116,25 +116,25 @@ const Footer = () => {
           </div>
         )}
       </div>
-      <div className='text-gray-500 mx-auto mt-8 flex max-w-[1200px] flex-col items-center text-center'>
+      <div className='mx-auto mt-8 flex max-w-[1200px] flex-col items-center text-center'>
         <div className='mb-2 flex flex-col space-y-2 md:flex-row md:space-x-4 md:space-y-0'>
-          <Link href='legal' className='hover:text-green'>
+          <Link href='legal' className='text-green transition-colors hover:text-dark-green'>
             Aviso Legal
           </Link>
           <span className='hidden md:inline'>|</span>
-          <Link href='privacy' className='hover:text-green'>
+          <Link href='privacy' className='text-green transition-colors hover:text-dark-green'>
             Privacidad
           </Link>
           <span className='hidden md:inline'>|</span>
-          <Link href='work' className='hover:text-green'>
+          <Link href='work' className='text-green transition-colors hover:text-dark-green'>
             Trabaja con nosotros
           </Link>
           <span className='hidden md:inline'>|</span>
-          <Link href='about' className='hover:text-green'>
+          <Link href='about' className='text-green transition-colors hover:text-dark-green'>
             Nosotros
           </Link>
           <span className='hidden md:inline'>|</span>
-          <Link href='sitemap' className='hover:text-green'>
+          <Link href='sitemap' className='text-green transition-colors hover:text-dark-green'>
             Mapa del sitio
           </Link>
         </div>
