@@ -138,7 +138,7 @@ export default function Home() {
               href='tel:+34628984413'
               className='hover:bg-gray-100 rounded-full bg-white px-8 py-4 font-bold text-green transition-all'
             >
-              📞 628 984 413
+              <span aria-hidden='true'>📞</span> 628 984 413
             </a>
             <Link
               href='/contact'
