@@ -11,7 +11,7 @@ const Footer = () => {
   const showMap = pathname !== '/contact'
 
   return (
-    <footer className='bg-gray-900 text-gray-300 px-4 py-8'>
+    <footer className='bg-beige text-brown px-4 py-8'>
       <div className='container mx-auto flex flex-col justify-between md:flex-row'>
         {/* Logo y Descripción */}
         <div className='mb-8 md:mb-0'>
