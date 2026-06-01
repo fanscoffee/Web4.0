@@ -165,7 +165,7 @@ export default function Home() {
                 C/ Doctor Esquerdo 180, 28007 Madrid
               </p>
               <p className='mt-2 text-sm text-white/60'>
-                Lunes a viernes: 7:00 - 14:00
+                Lunes a viernes: 7:00 - 14:00 (desayunos)
               </p>
             </div>
             <Link

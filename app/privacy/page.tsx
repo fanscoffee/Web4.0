@@ -36,10 +36,7 @@ function Privacy() {
           política que cualquier y toda la información enviada en línea, tales
           como nombre, empresa, correo electrónico, teléfono, etc. sea utilizada
           únicamente con el propósito expreso de responder a su consulta. Toda
-          la información personal es confidencial y sólo se comparte sólo se
-          comparte con su consentimiento expreso. No es nuestra política enviar
-          no solicitados, y todos los usuarios pueden darse de baja de nuestra
-          lista de de correo electrónico en cualquier momento.
+          la información personal es confidencial y sólo se comparte con su consentimiento expreso. No es nuestra política enviar no solicitados, y todos los usuarios pueden darse de baja de nuestra lista de correo electrónico en cualquier momento.
         </p>
         <p className='my-4'>
           Adicionalmente, es política de Fans Coffee prohibir la venta y/o

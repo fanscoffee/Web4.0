@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import 'react-phone-number-input/style.css'
 import Link from 'next/link'
 
 export default function ReviewForm() {
@@ -36,8 +35,10 @@ export default function ReviewForm() {
       comment: formData.get('mensaje')
     }
 
+    const reviewApiUrl = process.env.NEXT_PUBLIC_REVIEW_API_URL || 'https://back-seven-livid.vercel.app/reviews'
+
     try {
-      const res = await fetch('https://back-seven-livid.vercel.app/reviews', {
+      const res = await fetch(reviewApiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
@@ -56,7 +57,6 @@ export default function ReviewForm() {
       form.reset()
       setAgreed(false)
     } catch (error) {
-      console.error(error)
       Swal.fire({
         title: 'Error',
         text: 'No hemos podido enviar tu reseña, comunícate a nuestro número de soporte.',
@@ -86,7 +86,6 @@ export default function ReviewForm() {
                 name='puntos'
                 className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
                 id='puntos'
-                autoComplete='off'
                 placeholder='0 - 5'
                 required
               />
@@ -100,14 +99,14 @@ export default function ReviewForm() {
                 name='nombre'
                 className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
                 id='nombre'
-                autoComplete='off'
+                autoComplete='name'
                 placeholder='Nombre'
                 required
               />
             </label>
           </div>
 
-          <label htmlFor='email' className='text-md my-2 block font-medium'>
+          <label htmlFor='email' className='text-sm my-2 block font-medium'>
             Ingresa tu correo electrónico
             <input
               type='email'
@@ -115,7 +114,7 @@ export default function ReviewForm() {
               id='email'
               aria-describedby='emailHelp'
               name='email'
-              autoComplete='off'
+              autoComplete='email'
               placeholder='Email'
               required
             />
@@ -129,7 +128,6 @@ export default function ReviewForm() {
               name='factura'
               className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
               id='factura'
-              autoComplete='off'
               placeholder='Factura'
               required
             />
@@ -159,7 +157,6 @@ export default function ReviewForm() {
             Comentario
             <textarea
               className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
-              autoComplete='off'
               id='mensaje'
               name='mensaje'
               rows={3}

@@ -1,8 +1,7 @@
-// components/Footer.jsx
+// components/Footer.tsx
 'use client'
 
 import Link from 'next/link'
-import React from 'react'
 import Image from 'next/image'
 import { FaInstagram } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
@@ -23,7 +22,7 @@ const Footer = () => {
           <div className='mt-4 flex items-center space-x-4'>
             <span>Síguenos:</span>
             <a
-              href='https://www.instagram.com/fanscoffee.es/'
+              href='https://www.instagram.com/fanscoffeebakery/'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Instagram de Fans Coffee Bakery'
@@ -43,7 +42,7 @@ const Footer = () => {
         {/* Feed de Instagram */}
         <div className='mb-8 md:mb-0'>
           <h3 className='mb-4 font-semibold'>Feed de Instagram</h3>
-          <a href='https://www.instagram.com/fanscoffee.es/' target='_blank' rel='noopener noreferrer'>
+          <a href='https://www.instagram.com/fanscoffeebakery/' target='_blank' rel='noopener noreferrer'>
             <div className='grid grid-cols-3 gap-2'>
               <Image
                 src='/images/instagram/i1.webp'

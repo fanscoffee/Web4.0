@@ -31,7 +31,7 @@ export const baseOptions: BaseOption[] = [
   {
     id: 'bollería',
     name: 'Bollería',
-    description: '',
+    description: 'Croissant de mantequilla, napolitana o croissant integral',
     image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80'
   }
 ]
@@ -41,7 +41,7 @@ export const normalDrinks: Drink[] = [
   { name: 'Infusión', detail: 'Poleo menta, manzanilla o tila' },
   { name: 'Café con leche mediano' },
   { name: 'Cortado' },
-  { name: 'Expresso' },
+  { name: 'Espresso' },
   { name: 'Colacao' },
   { name: 'Vaso con leche' }
 ]
@@ -52,7 +52,7 @@ export const specialDrinks: Drink[] = [
   { name: 'Cortado, Expreso o Americano doble' },
   { name: 'Té con leche' },
   { name: 'Bombón' },
-  { name: 'Capuccino' }
+  { name: 'Cappuccino' }
 ]
 
 export const extras: Extra[] = [

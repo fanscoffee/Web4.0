@@ -27,7 +27,7 @@ export default function Work() {
         panadería y la excelencia culinaria!
       </p>
       <p className='mx-auto mt-5'>
-        En Fans Coffee & (En adelante FANS), no solo creamos de deliciosos
+        En Fans Coffee & Bakery (en adelante FANS), no solo creamos deliciosos
         productos y bebidas, sino que también cultivamos experiencias
         inolvidables para nuestros clientes. Sabemos que nuestros empleados son
         la base de nuestro éxito, y es por eso que buscamos personas
