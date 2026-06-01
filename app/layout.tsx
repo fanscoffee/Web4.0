@@ -3,6 +3,7 @@ import './globals.css'
 import { Poppins } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import WhatsAppButton from '@/components/WhatsAppButton'
 import Script from 'next/script'
 
 const poppins = Poppins({
@@ -155,6 +156,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <WhatsAppButton />
         <Script
           id='json-ld-global'
           type='application/ld+json'

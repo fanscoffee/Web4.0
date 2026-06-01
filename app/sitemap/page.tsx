@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import fs from 'fs'
-import path from 'path'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -13,39 +11,38 @@ export const metadata: Metadata = {
   }
 }
 
-export default async function SiteMapPage() {
+const sitePages: { href: string; label: string }[] = [
+  { href: '/', label: 'Inicio' },
+  { href: '/about', label: 'Sobre Nosotros' },
+  { href: '/breakfast', label: 'Desayunos' },
+  { href: '/special-toast', label: 'Tostadas Especiales' },
+  { href: '/special-drinks', label: 'Bebidas Especiales' },
+  { href: '/cakes', label: 'Tartas Enteras' },
+  { href: '/contact', label: 'Contacto' },
+  { href: '/work', label: 'Trabaja con Nosotros' },
+  { href: '/legal', label: 'Aviso Legal' },
+  { href: '/privacy', label: 'Política de Privacidad' },
+  { href: '/review', label: 'Déjanos tu Reseña' }
+]
+
+export default function SiteMapPage() {
   const baseUrl = 'https://www.fanscoffee.es'
-  const appDir = path.join(process.cwd(), 'app')
-  const excludeFiles = [
-    'layout.tsx',
-    'sitemap.tsx',
-    'components',
-    'favicon.ico',
-    'globals.css',
-    'not-found.tsx',
-    'page.tsx',
-    'pdfs'
-  ]
-
-  const entries = await fs.promises.readdir(appDir, { withFileTypes: true })
-
-  const pages = entries
-    .filter(entry => entry.isDirectory() || entry.name.endsWith('page.tsx'))
-    .map(entry => entry.name.replace('/page.tsx', ''))
-    .filter(route => !excludeFiles.includes(route))
 
   return (
     <main className='container mx-auto mt-28 max-w-[800px] p-6 md:mt-32'>
-      <h1 className='mb-4 text-3xl font-bold'>Mapa del Sitio</h1>
-      <ul className='list-disc pl-6'>
-        {pages.map(page => (
-          <li key={page}>
+      <h1 className='mb-6 text-3xl font-bold'>Mapa del Sitio</h1>
+      <ul className='list-disc space-y-2 pl-6'>
+        {sitePages.map(page => (
+          <li key={page.href}>
             <Link
-              href={`/${page === 'home' ? '' : page}`}
-              className='text-blue-600 hover:underline'
+              href={page.href}
+              className='text-green hover:text-dark-green'
             >
-              {baseUrl}/{page}
+              {page.label}
             </Link>
+            <span className='ml-2 text-sm text-gray-500'>
+              {baseUrl}{page.href}
+            </span>
           </li>
         ))}
       </ul>

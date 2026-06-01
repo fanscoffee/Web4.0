@@ -45,14 +45,14 @@ export default function Breakfast() {
     <main className='min-h-screen'>
       <section className='px-4 pb-16 pt-24 md:pt-48'>
         <div className='mx-auto max-w-6xl'>
-          <h1 className='mb-12 text-center text-3xl font-bold tracking-wide text-[#774949] md:text-4xl'>
+          <h1 className='mb-12 text-center text-3xl font-bold tracking-wide text-brown md:text-4xl'>
             DISEÑA TU DESAYUNO PERFECTO
           </h1>
 
           <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
             {/* PASO 1: ELIGE TU BASE */}
             <div>
-              <h2 className='mb-6 text-center text-xl font-bold text-[#2c2c2c] md:text-2xl lg:text-left'>
+              <h2 className='mb-6 text-center text-xl font-bold text-brown md:text-2xl lg:text-left'>
                 PASO 1: ELIGE TU BASE
               </h2>
               <div className='space-y-6'>
@@ -71,7 +71,7 @@ export default function Breakfast() {
                       />
                     </div>
                     <div className='p-4'>
-                      <h3 className='text-lg font-bold text-[#2c2c2c]'>
+                      <h3 className='text-lg font-bold text-brown'>
                         {option.name}
                       </h3>
                       {option.description && (
@@ -87,14 +87,14 @@ export default function Breakfast() {
 
             {/* PASO 2: ELIGE TU BEBIDA */}
             <div>
-              <h2 className='mb-6 text-center text-xl font-bold text-[#2c2c2c] md:text-2xl lg:text-left'>
+              <h2 className='mb-6 text-center text-xl font-bold text-brown md:text-2xl lg:text-left'>
                 PASO 2: ELIGE TU BEBIDA
               </h2>
               <div className='space-y-6'>
                 {/* Bebida Normal */}
                 <div className='relative rounded-lg bg-white p-6 shadow-sm'>
                   <span className='absolute right-4 top-4 text-3xl'>☕</span>
-                  <span className='mb-4 inline-block rounded-full bg-[#6b7c3f] px-3 py-1 text-sm font-semibold text-white'>
+                  <span className='mb-4 inline-block rounded-full bg-green px-3 py-1 text-sm font-semibold text-white'>
                     CON BEBIDA NORMAL: 3.00€
                   </span>
                   <ul className='space-y-2'>
@@ -116,7 +116,7 @@ export default function Breakfast() {
                 {/* Bebida Especial */}
                 <div className='relative rounded-lg bg-white p-6 shadow-sm'>
                   <span className='absolute right-4 top-4 text-3xl'>🥛</span>
-                  <span className='mb-4 inline-block rounded-full bg-[#5a6a35] px-3 py-1 text-sm font-semibold text-white'>
+                  <span className='mb-4 inline-block rounded-full bg-dark-green px-3 py-1 text-sm font-semibold text-white'>
                     CON BEBIDA ESPECIAL: 3.30€
                   </span>
                   <ul className='space-y-2'>
@@ -130,13 +130,13 @@ export default function Breakfast() {
                 </div>
 
                 {/* Horario */}
-                <div className='border-gray-100 rounded-lg border bg-[#faf8f5] p-5 shadow-sm'>
-                  <h3 className='mb-2 text-lg font-bold text-[#2c2c2c]'>
+                <div className='border-gray-100 rounded-lg border bg-beige p-5 shadow-sm'>
+                  <h3 className='mb-2 text-lg font-bold text-brown'>
                     Horario del desayuno
                   </h3>
                   <p className='text-gray-600 text-sm'>
                     Disponible de lunes a viernes de{' '}
-                    <strong className='font-bold text-[#2c2c2c]'>
+                    <strong className='font-bold text-brown'>
                       7:00 a 14:00
                     </strong>
                   </p>
@@ -149,7 +149,7 @@ export default function Breakfast() {
 
             {/* PASO 3: AÑADE EXTRAS */}
             <div>
-              <h2 className='mb-6 text-center text-xl font-bold text-[#2c2c2c] md:text-2xl lg:text-left'>
+              <h2 className='mb-6 text-center text-xl font-bold text-brown md:text-2xl lg:text-left'>
                 PASO 3: AÑADE EXTRAS
               </h2>
               <div className='rounded-lg bg-white p-6 shadow-sm'>
@@ -162,7 +162,7 @@ export default function Breakfast() {
                       <span className='text-gray-700 text-sm font-medium'>
                         {extra.name}
                       </span>
-                      <span className='text-sm font-semibold text-[#6b7c3f]'>
+                      <span className='text-sm font-semibold text-green'>
                         {extra.price.toFixed(2).replace('.', ',')} €
                       </span>
                     </div>

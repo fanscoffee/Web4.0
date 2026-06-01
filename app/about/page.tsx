@@ -78,7 +78,7 @@ export default function About() {
             </h2>
             <p className='text-gray-700'>
               Estamos ubicados en el corazón de Madrid, en la calle Doctor Esquerdo 180.
-              Abremos de lunes a viernes de 7:00 a 14:00.
+              Abrimos de lunes a viernes de 7:00 a 14:00 (desayunos).
             </p>
             <div className='mt-4'>
               <Link
