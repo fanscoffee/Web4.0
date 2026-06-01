@@ -54,10 +54,11 @@ function Privacy() {
           aclaración.
         </p>
         <div className='my-8 text-center'>
-          <Link href='/contact'>
-            <button className='font-small hover:text-md rounded-full bg-green px-8 py-4 text-sm text-white transition-all hover:bg-dark-green hover:font-medium'>
-              CONTACTO
-            </button>
+          <Link
+            href='/contact'
+            className='inline-block rounded-full bg-green px-8 py-4 text-sm font-medium text-white transition-all hover:bg-dark-green'
+          >
+            CONTACTO
           </Link>
         </div>
       </div>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function Work() {
   return (
-    <div className='mt-18 container mx-auto max-w-[800px] py-24 md:mt-28'>
+    <div className='mt-20 container mx-auto max-w-[800px] py-24 md:mt-28'>
       <h1 className='mx-auto text-3xl font-bold'>Trabaja con nosotros</h1>
       <p className='mx-auto mt-5'>
         ¡Únete a nuestro equipo y forma parte de una familia apasionada por la
@@ -81,7 +81,7 @@ export default function Work() {
       </p>
       <a
         href='mailto:fanscoffee22@gmail.com?subject=CV enviado desde WEB - [Nombre]&body=Recuerda adjuntar tu CV y contarnos un poco sobre ti.'
-        className='font-small hover:text-md rounded-full bg-green px-8 py-4 text-sm text-white transition-all hover:bg-dark-green hover:font-medium'
+        className='text-sm rounded-full bg-green px-8 py-4 text-white transition-all hover:bg-dark-green hover:font-medium'
       >
         ÚNETE
       </a>

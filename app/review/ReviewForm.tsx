@@ -193,7 +193,7 @@ export default function ReviewForm() {
 
         <button
           type='submit'
-          className='font-small hover:text-md rounded-full bg-green px-8 py-4 text-sm text-white transition-all hover:bg-dark-green hover:font-medium'
+          className='text-sm rounded-full bg-green px-8 py-4 text-white transition-all hover:bg-dark-green hover:font-medium'
         >
           ENVIAR
         </button>

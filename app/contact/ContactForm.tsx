@@ -49,7 +49,6 @@ export default function ContactForm() {
       )
       .then(
         result => {
-          console.log(result.text)
           Swal.fire({
             title: 'Confirmado',
             text: 'Hemos recibido tu mensaje, revisaremos la información y estaremos en contacto pronto.',
@@ -59,9 +58,9 @@ export default function ContactForm() {
           })
           ;(e.target as HTMLFormElement).reset()
           setAgreed(false)
+          setValue(undefined)
         },
         error => {
-          console.error(error.text)
           Swal.fire({
             title: 'Error',
             text: 'No hemos podido enviar tu mail, comunícate a nuestro número de soporte.',
@@ -109,7 +108,7 @@ export default function ContactForm() {
                   name='nombre'
                   className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
                   id='nombre'
-                  autoComplete='off'
+                  autoComplete='name'
                   placeholder='Nombre'
                   required
                 />
@@ -118,8 +117,7 @@ export default function ContactForm() {
             <div className='mb-3'>
               <label
                 htmlFor='telefono'
-                className='text-md my-2 block font-medium'
-                suppressHydrationWarning
+                className='text-sm my-2 block font-medium'
               >
                 Ingresa tu movil
                 <div className='mt-1'>
@@ -127,17 +125,16 @@ export default function ContactForm() {
                     <PhoneInputComponent
                       international
                       id='telefono'
-                      autoComplete='off'
                       defaultCountry='ES'
                       value={value}
                       onChange={setValue}
-                      name='telefono'
                       className='phone-input-horizontal'
                     />
                   ) : (
                     <div className='phone-input-horizontal' />
                   )}
                 </div>
+                <input type='hidden' name='telefono' value={value || ''} />
               </label>
             </div>
             <label htmlFor='email' className='text-md my-2 block font-medium'>
@@ -148,7 +145,7 @@ export default function ContactForm() {
                 id='email'
                 aria-describedby='emailHelp'
                 name='email'
-                autoComplete='off'
+                autoComplete='email'
                 placeholder='Email'
                 required
               />
@@ -159,7 +156,6 @@ export default function ContactForm() {
               ¿Podrías proporcionarnos más información al respecto?
               <textarea
                 className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
-                autoComplete='off'
                 id='mensaje'
                 name='mensaje'
                 rows={3}
@@ -193,7 +189,7 @@ export default function ContactForm() {
 
           <button
             type='submit'
-            className='font-small hover:text-md rounded-full bg-green px-8 py-4 text-sm text-white transition-all hover:bg-dark-green hover:font-medium'
+            className='text-sm rounded-full bg-green px-8 py-4 text-white transition-all hover:bg-dark-green hover:font-medium'
           >
             ENVIAR
           </button>
