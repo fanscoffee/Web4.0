@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
@@ -10,7 +10,7 @@ const PhoneInputComponent = dynamic(() => import('react-phone-number-input'), {
 })
 
 export default function ContactForm() {
-  const [Check, setCheck] = useState(false)
+  const [agreed, setAgreed] = useState(false)
   const [value, setValue] = useState<string | undefined>()
   const [mounted, setMounted] = useState(false)
 
@@ -20,6 +20,18 @@ export default function ContactForm() {
 
   async function sendEmail(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    if (!agreed) {
+      const Swal = (await import('sweetalert2')).default
+      Swal.fire({
+        title: 'Espera',
+        text: 'Tienes que terminar de rellenar la información.',
+        icon: 'info',
+        timer: 3000,
+        timerProgressBar: true
+      })
+      return
+    }
 
     const emailjs = await import('emailjs-com')
     const Swal = (await import('sweetalert2')).default
@@ -46,6 +58,7 @@ export default function ContactForm() {
             timerProgressBar: true
           })
           ;(e.target as HTMLFormElement).reset()
+          setAgreed(false)
         },
         error => {
           console.error(error.text)
@@ -60,26 +73,6 @@ export default function ContactForm() {
       )
   }
 
-  const check = () => {
-    const agree = document.querySelector(
-      '#contactFormAgree'
-    ) as HTMLInputElement | null
-    setCheck(agree?.checked || false)
-  }
-
-  const showAlert = async () => {
-    if (!Check) {
-      const Swal = (await import('sweetalert2')).default
-      Swal.fire({
-        title: 'Espera',
-        text: 'Tienes que terminar de rellenar la información.',
-        icon: 'info',
-        timer: 3000,
-        timerProgressBar: true
-      })
-    }
-  }
-
   return (
     <div className='mx-auto mb-5 mt-[5rem] max-w-[1200px] lg:mt-[6rem]'>
       <div className='grid-1 grid gap-8 md:grid-cols-2'>
@@ -91,13 +84,13 @@ export default function ContactForm() {
             <h3 className='mt-6 text-xl font-extrabold'>
               FORMULARIO DE CONTACTO
             </h3>
-            <div className='mb 3'>
+            <div className='mb-3'>
               <label htmlFor='tipo' className='text-md my-2 block font-medium'>
                 Tipo
                 <select
                   name='tipo'
                   id='tipo'
-                  defaultChecked
+                  defaultValue='consulta'
                   className='focus:shadow-outline w-full rounded border py-1 leading-tight shadow focus:outline-none'
                 >
                   <option value='consulta'>Consulta</option>
@@ -182,7 +175,7 @@ export default function ContactForm() {
               value='1'
               className='text-md indeterminate:bg-gray-300 mx-1 my-2 font-medium default:ring-2 checked:bg-blue-500'
               id='contactFormAgree'
-              onChange={check}
+              onChange={e => setAgreed(e.target.checked)}
               required
             />
             <label className='mx-1' htmlFor='contactFormAgree'>
@@ -201,7 +194,6 @@ export default function ContactForm() {
           <button
             type='submit'
             className='font-small hover:text-md rounded-full bg-green px-8 py-4 text-sm text-white transition-all hover:bg-dark-green hover:font-medium'
-            onClick={showAlert}
           >
             ENVIAR
           </button>

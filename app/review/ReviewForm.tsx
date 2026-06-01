@@ -5,10 +5,23 @@ import 'react-phone-number-input/style.css'
 import Link from 'next/link'
 
 export default function ReviewForm() {
-  const [Check, setCheck] = useState(false)
+  const [agreed, setAgreed] = useState(false)
 
   async function sendReview(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    if (!agreed) {
+      const Swal = (await import('sweetalert2')).default
+      Swal.fire({
+        title: 'Espera',
+        text: 'Tienes que terminar de rellenar la información.',
+        icon: 'info',
+        timer: 3000,
+        timerProgressBar: true
+      })
+      return
+    }
+
     const Swal = (await import('sweetalert2')).default
 
     const form = e.target as HTMLFormElement
@@ -41,32 +54,13 @@ export default function ReviewForm() {
       })
 
       form.reset()
+      setAgreed(false)
     } catch (error) {
       console.error(error)
       Swal.fire({
         title: 'Error',
         text: 'No hemos podido enviar tu reseña, comunícate a nuestro número de soporte.',
         icon: 'error',
-        timer: 3000,
-        timerProgressBar: true
-      })
-    }
-  }
-
-  const check = () => {
-    const agree = document.querySelector(
-      '#contactFormAgree'
-    ) as HTMLInputElement | null
-    setCheck(agree?.checked || false)
-  }
-
-  const showAlert = async () => {
-    if (!Check) {
-      const Swal = (await import('sweetalert2')).default
-      Swal.fire({
-        title: 'Espera',
-        text: 'Tienes que terminar de rellenar la información.',
-        icon: 'info',
         timer: 3000,
         timerProgressBar: true
       })
@@ -141,14 +135,14 @@ export default function ReviewForm() {
             />
           </label>
         </div>
-        <div className='mb 3'>
+        <div className='mb-3'>
           <label htmlFor='camarera' className='text-md my-2 block font-medium'>
             Camarera
           </label>
           <select
             name='camarera'
             id='camarera'
-            defaultChecked
+            defaultValue='elije'
             className='focus:shadow-outline w-full rounded border py-1 leading-tight shadow focus:outline-none'
           >
             <option value='elije'>Elije quien te atendió</option>
@@ -181,7 +175,7 @@ export default function ReviewForm() {
             value='1'
             className='text-md indeterminate:bg-gray-300 mx-1 my-2 font-medium default:ring-2 checked:bg-blue-500'
             id='contactFormAgree'
-            onChange={check}
+            onChange={e => setAgreed(e.target.checked)}
             required
           />
           <label className='mx-1' htmlFor='contactFormAgree'>
@@ -200,7 +194,6 @@ export default function ReviewForm() {
         <button
           type='submit'
           className='font-small hover:text-md rounded-full bg-green px-8 py-4 text-sm text-white transition-all hover:bg-dark-green hover:font-medium'
-          onClick={showAlert}
         >
           ENVIAR
         </button>
