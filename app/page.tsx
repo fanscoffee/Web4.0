@@ -152,7 +152,7 @@ export default function Home() {
 
       {/* Location Quick View */}
       <section
-        className='bg-gray-900 py-12 text-white'
+        className='bg-brown py-12 text-white'
         aria-labelledby='location-heading'
       >
         <div className='container mx-auto max-w-4xl px-4'>
