@@ -138,7 +138,7 @@ export default function Home() {
               href='tel:+34628984413'
               className='hover:bg-gray-100 rounded-full bg-white px-8 py-4 font-bold text-green transition-all'
             >
-              📞 628 984 413
+              <span aria-hidden='true'>📞</span> 628 984 413
             </a>
             <Link
               href='/contact'
@@ -152,7 +152,7 @@ export default function Home() {
 
       {/* Location Quick View */}
       <section
-        className='bg-gray-900 py-12 text-white'
+        className='bg-brown py-12 text-white'
         aria-labelledby='location-heading'
       >
         <div className='container mx-auto max-w-4xl px-4'>
@@ -165,7 +165,7 @@ export default function Home() {
                 C/ Doctor Esquerdo 180, 28007 Madrid
               </p>
               <p className='mt-2 text-sm text-white/60'>
-                Lunes a viernes: 7:00 - 14:00
+                Lunes a viernes: 7:00 - 14:00 (desayunos)
               </p>
             </div>
             <Link

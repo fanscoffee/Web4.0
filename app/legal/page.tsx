@@ -102,7 +102,7 @@ export default function Legal() {
         La navegación en esta web por menores de edad exige que éstos hayan
         obtenido previamente autorización de sus padres, tutores o
         representantes legales, los cuales tendrán la consideración de
-        responsables legales por cualesquier actos realizado por los menores a
+        responsables legales por cualesquiera actos realizado por los menores a
         su cargo.
       </p>
       <p className='my-2'>
@@ -503,7 +503,7 @@ export default function Legal() {
       </p>
       <p className='my-2'>
         FANS no se responsabiliza de los posibles errores de seguridad que se
-        puedan producir ni de posibles posibles daños que puedan causarse al
+        puedan producir ni de posibles daños que puedan causarse al
         sistema informático del usuario (hardware y software), los ficheros o
         documentos almacenados en el mismo, como consecuencia de la presencia de
         virus en el ordenador del usuario utilizado para la conexión a los
@@ -527,7 +527,7 @@ export default function Legal() {
         contacte con FANS.
       </p>
       <p className='my-2'>
-        FANS no se responsabilidad de las contestaciones que se realicen a
+        FANS no se responsabiliza de las contestaciones que se realicen a
         través de las distintas direcciones de correo electrónico que aparecen
         en su portal, por lo que en ningún caso podrá derivarse efecto jurídico
         vinculante de las mismas.

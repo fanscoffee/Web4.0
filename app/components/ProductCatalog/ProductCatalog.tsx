@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import { Product, ALLERGEN_LABELS, ALLERGEN_ICONS } from './types'
 
@@ -11,6 +11,7 @@ interface ProductCatalogProps {
 export default function ProductCatalog({ products }: ProductCatalogProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const modalRef = useRef<HTMLDivElement>(null)
 
   const openModal = (index: number) => {
     setSelectedIndex(index)
@@ -61,7 +62,7 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
       <div className='mx-4 my-12 grid max-w-[1920px] grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:mx-8 lg:mx-16 lg:grid-cols-3 lg:gap-10 xl:mx-24'>
         {products.map((product, index) => (
           <ProductCard
-            key={index}
+            key={`${product.title}-${index}`}
             product={product}
             onInfoClick={() => openModal(index)}
           />
@@ -92,6 +93,9 @@ function ProductCard({ product, onInfoClick }: ProductCardProps) {
   return (
     <div
       onClick={onInfoClick}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onInfoClick() }}
+      role='button'
+      tabIndex={0}
       className='group relative h-[320px] cursor-pointer overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl'
     >
       <Image
@@ -148,14 +152,48 @@ function ProductModal({
   currentIndex,
   totalProducts
 }: ProductModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null)
+
   if (!isOpen) return null
+
+  useEffect(() => {
+    modalRef.current?.focus()
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+      const modal = modalRef.current
+      if (!modal) return
+      const focusable = modal.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+    document.addEventListener('keydown', handleTabKey)
+    return () => document.removeEventListener('keydown', handleTabKey)
+  }, [])
 
   return (
     <div
       className='fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm'
       onClick={onClose}
+      role='dialog'
+      aria-modal='true'
+      aria-label={`Detalles de ${product.title}`}
     >
       <div
+        ref={modalRef}
+        tabIndex={-1}
         className='relative mx-2 w-full max-w-sm overflow-hidden rounded-2xl bg-beige shadow-2xl sm:mx-4 sm:max-w-lg md:max-w-2xl lg:flex'
         onClick={e => e.stopPropagation()}
       >
@@ -292,6 +330,7 @@ function ProductModal({
                     onPrevious()
                   }}
                   className='flex items-center gap-1 rounded-lg bg-green/10 px-3 py-1.5 text-xs font-medium text-dark-green transition-colors hover:bg-green/20 sm:px-4 sm:py-2 sm:text-sm'
+                  aria-label='Producto anterior'
                 >
                   <svg
                     className='h-3 w-3 sm:h-4 sm:w-4'
@@ -313,6 +352,7 @@ function ProductModal({
                     onNext()
                   }}
                   className='flex items-center gap-1 rounded-lg bg-green/10 px-3 py-1.5 text-xs font-medium text-dark-green transition-colors hover:bg-green/20 sm:px-4 sm:py-2 sm:text-sm'
+                  aria-label='Siguiente producto'
                 >
                   <svg
                     className='h-3 w-3 sm:h-4 sm:w-4'
