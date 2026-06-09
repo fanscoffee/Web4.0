@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
+import ParallaxHero from '@/components/ParallaxHero'
 
 export const metadata: Metadata = {
   title: 'Fans Coffee Bakery | Café Artesanal y Repostería en Madrid',
@@ -178,26 +178,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  )
-}
-
-function ParallaxHero() {
-  return (
-    <div className='relative'>
-      <div
-        className='flex h-screen items-center justify-center bg-cover bg-center'
-        style={{
-          backgroundImage: 'url(/images/carousel-1.webp)'
-        }}
-      >
-        <div className='absolute inset-0 bg-black/40' />
-        <div className='relative z-10 text-center text-white'>
-          <h1 className='text-4xl font-bold md:text-6xl'>Fans Coffee Bakery</h1>
-          <p className='mt-4 text-xl md:text-2xl'>
-            Café artesanal y repostería en Madrid
-          </p>
-        </div>
-      </div>
-    </div>
   )
 }
