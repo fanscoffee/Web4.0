@@ -11,7 +11,7 @@ const Footer = () => {
   const showMap = pathname !== '/contact'
 
   return (
-    <footer className='bg-beige text-brown px-4 py-8'>
+    <footer className='bg-beige px-4 py-8 text-brown'>
       <div className='container mx-auto flex flex-col justify-between md:flex-row'>
         {/* Logo y Descripción */}
         <div className='mb-8 md:mb-0'>
@@ -28,13 +28,16 @@ const Footer = () => {
               aria-label='Instagram de Fans Coffee Bakery'
               className='text-green transition-colors hover:text-dark-green'
             >
-              <FaInstagram className='size-6' />
+              <FaInstagram className='size-8' />
             </a>
           </div>
           <p className='mt-4 text-sm'>
-            <strong>Horario:</strong><br />
-            Lunes a viernes: 7:00 – 21:00<br />
-            Sábado: 8:00 – 21:00<br />
+            <strong>Horario:</strong>
+            <br />
+            Lunes a viernes: 7:00 – 21:00
+            <br />
+            Sábado: 8:00 – 21:00
+            <br />
             Domingo: 8:30 – 21:00
           </p>
         </div>
@@ -42,60 +45,64 @@ const Footer = () => {
         {/* Feed de Instagram */}
         <div className='mb-8 md:mb-0'>
           <h3 className='mb-4 font-semibold'>Feed de Instagram</h3>
-          <a href='https://www.instagram.com/fanscoffeebakery/' target='_blank' rel='noopener noreferrer'>
+          <a
+            href='https://www.instagram.com/fanscoffeebakery/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <div className='grid grid-cols-3 gap-2'>
               <Image
                 src='/images/instagram/i1.webp'
                 alt='Foto de Instagram de Fans Coffee Bakery 1'
-                width={112}
-                height={112}
-                className='h-28 w-28 object-cover'
-                sizes='112px'
+                width={128}
+                height={128}
+                className='h-32 w-32 object-cover'
+                sizes='128px'
                 loading='lazy'
               />
               <Image
                 src='/images/instagram/i2.webp'
                 alt='Foto de Instagram de Fans Coffee Bakery 2'
-                width={112}
-                height={112}
-                className='h-28 w-28 object-cover'
-                sizes='112px'
+                width={128}
+                height={128}
+                className='h-32 w-32 object-cover'
+                sizes='128px'
                 loading='lazy'
               />
               <Image
                 src='/images/instagram/i3.webp'
                 alt='Foto de Instagram de Fans Coffee Bakery 3'
-                width={112}
-                height={112}
-                className='h-28 w-28 object-cover'
-                sizes='112px'
+                width={128}
+                height={128}
+                className='h-32 w-32 object-cover'
+                sizes='128px'
                 loading='lazy'
               />
               <Image
                 src='/images/instagram/i4.webp'
                 alt='Foto de Instagram de Fans Coffee Bakery 4'
-                width={112}
-                height={112}
-                className='h-28 w-28 object-cover'
-                sizes='112px'
+                width={128}
+                height={128}
+                className='h-32 w-32 object-cover'
+                sizes='128px'
                 loading='lazy'
               />
               <Image
                 src='/images/instagram/i5.webp'
                 alt='Foto de Instagram de Fans Coffee Bakery 5'
-                width={112}
-                height={112}
-                className='h-28 w-28 object-cover'
-                sizes='112px'
+                width={128}
+                height={128}
+                className='h-32 w-32 object-cover'
+                sizes='128px'
                 loading='lazy'
               />
               <Image
                 src='/images/instagram/i6.webp'
                 alt='Foto de Instagram de Fans Coffee Bakery 6'
-                width={112}
-                height={112}
-                className='h-28 w-28 object-cover'
-                sizes='112px'
+                width={128}
+                height={128}
+                className='h-32 w-32 object-cover'
+                sizes='128px'
                 loading='lazy'
               />
             </div>
@@ -118,23 +125,38 @@ const Footer = () => {
       </div>
       <div className='mx-auto mt-8 flex max-w-[1200px] flex-col items-center text-center'>
         <div className='mb-2 flex flex-col space-y-2 md:flex-row md:space-x-4 md:space-y-0'>
-          <Link href='legal' className='text-green transition-colors hover:text-dark-green'>
+          <Link
+            href='legal'
+            className='text-green transition-colors hover:text-dark-green'
+          >
             Aviso Legal
           </Link>
           <span className='hidden md:inline'>|</span>
-          <Link href='privacy' className='text-green transition-colors hover:text-dark-green'>
+          <Link
+            href='privacy'
+            className='text-green transition-colors hover:text-dark-green'
+          >
             Privacidad
           </Link>
           <span className='hidden md:inline'>|</span>
-          <Link href='work' className='text-green transition-colors hover:text-dark-green'>
+          <Link
+            href='work'
+            className='text-green transition-colors hover:text-dark-green'
+          >
             Trabaja con nosotros
           </Link>
           <span className='hidden md:inline'>|</span>
-          <Link href='about' className='text-green transition-colors hover:text-dark-green'>
+          <Link
+            href='about'
+            className='text-green transition-colors hover:text-dark-green'
+          >
             Nosotros
           </Link>
           <span className='hidden md:inline'>|</span>
-          <Link href='sitemap' className='text-green transition-colors hover:text-dark-green'>
+          <Link
+            href='sitemap'
+            className='text-green transition-colors hover:text-dark-green'
+          >
             Mapa del sitio
           </Link>
         </div>

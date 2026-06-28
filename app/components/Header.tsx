@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 const navItems = [
@@ -15,18 +15,37 @@ const navItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const pathname = usePathname()
   const isHomePage = pathname === '/'
 
-  const logoSrc = isHomePage ? '/fans-logo-blanco.png' : '/fans-logo-oscuro.png'
-  const headerBgClass = isHomePage ? 'bg-transparent' : 'bg-white shadow-md'
-  const textColor = isHomePage ? 'text-white' : 'text-gray-700'
-  const menuBg = isHomePage ? 'bg-black/90 backdrop-blur-md' : 'bg-white'
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)')
+    setIsMobile(mq.matches)
+    const onResize = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+    mq.addEventListener('change', onResize)
+
+    const onScroll = () => setScrolled(window.scrollY > 30)
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => {
+      mq.removeEventListener('change', onResize)
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
+  const showHomeTransparent = isHomePage && (!isMobile || !scrolled)
+
+  const logoSrc = showHomeTransparent ? '/fans-logo-blanco.png' : '/fans-logo-oscuro.png'
+  const headerBgClass = showHomeTransparent ? 'bg-transparent' : 'bg-white shadow-md'
+  const textColor = showHomeTransparent ? 'text-white' : 'text-gray-700'
+  const menuBg = showHomeTransparent ? 'bg-black/90 backdrop-blur-md' : 'bg-white'
 
   const getMobileLinkClass = (href: string) => {
     const isActive = pathname === href
     return `block w-full py-4 text-center text-xl font-medium transition-colors ${
-      isHomePage
+      showHomeTransparent
         ? `text-white hover:bg-white/10 ${isActive ? 'text-green' : ''}`
         : `text-gray-900 hover:bg-gray-100 ${isActive ? 'text-green' : ''}`
     }`
