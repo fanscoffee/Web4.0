@@ -56,12 +56,11 @@ export const specialDrinks: Drink[] = [
 ]
 
 export const extras: Extra[] = [
-  { name: 'Jamón Serrano', price: 1.50 },
-  { name: 'Jamón de Pavo', price: 1.00 },
-  { name: 'Jamón York', price: 1.00 },
+  { name: 'Jamón Serrano', price: 2.00 },
+  { name: 'Jamón de Pavo', price: 1.50 },
+  { name: 'Jamón York', price: 1.50 },
   { name: 'Queso Feta', price: 1.90 },
-  { name: 'Queso de Cabra', price: 2.10 },
-  { name: 'Aguacate', price: 3.50 },
+  { name: 'Aguacate', price: 2.00 },
   { name: 'Atún', price: 2.00 }
 ]
 
