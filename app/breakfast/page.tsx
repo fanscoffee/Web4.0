@@ -95,7 +95,7 @@ export default function Breakfast() {
                 <div className='relative rounded-lg bg-white p-6 shadow-sm'>
                   <span className='absolute right-4 top-4 text-3xl'>☕</span>
                   <span className='mb-4 inline-block rounded-full bg-green px-3 py-1 text-sm font-semibold text-white'>
-                    CON BEBIDA NORMAL: 3.00€
+                    CON BEBIDA NORMAL: 3.30€
                   </span>
                   <ul className='space-y-2'>
                     {normalDrinks.map((drink, index) => (
@@ -117,7 +117,7 @@ export default function Breakfast() {
                 <div className='relative rounded-lg bg-white p-6 shadow-sm'>
                   <span className='absolute right-4 top-4 text-3xl'>🥛</span>
                   <span className='mb-4 inline-block rounded-full bg-dark-green px-3 py-1 text-sm font-semibold text-white'>
-                    CON BEBIDA ESPECIAL: 3.30€
+                    CON BEBIDA ESPECIAL: 3.50€
                   </span>
                   <ul className='space-y-2'>
                     {specialDrinks.map((drink, index) => (
