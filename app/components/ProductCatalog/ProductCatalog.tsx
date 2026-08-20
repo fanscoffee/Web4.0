@@ -11,7 +11,6 @@ interface ProductCatalogProps {
 export default function ProductCatalog({ products }: ProductCatalogProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const modalRef = useRef<HTMLDivElement>(null)
 
   const openModal = (index: number) => {
     setSelectedIndex(index)
@@ -72,7 +71,6 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
       {isModalOpen && selectedIndex !== null && (
         <ProductModal
           product={products[selectedIndex]}
-          isOpen={isModalOpen}
           onClose={closeModal}
           onPrevious={goToPrevious}
           onNext={goToNext}
@@ -140,7 +138,6 @@ function ProductCard({ product, onInfoClick }: ProductCardProps) {
 
 interface ProductModalProps {
   product: Product
-  isOpen: boolean
   onClose: () => void
   onPrevious: () => void
   onNext: () => void
@@ -150,7 +147,6 @@ interface ProductModalProps {
 
 function ProductModal({
   product,
-  isOpen,
   onClose,
   onPrevious,
   onNext,
@@ -158,8 +154,6 @@ function ProductModal({
   totalProducts
 }: ProductModalProps) {
   const modalRef = useRef<HTMLDivElement>(null)
-
-  if (!isOpen) return null
 
   useEffect(() => {
     modalRef.current?.focus()
@@ -199,7 +193,7 @@ function ProductModal({
       <div
         ref={modalRef}
         tabIndex={-1}
-        className='relative mx-2 w-full max-w-sm overflow-hidden rounded-2xl bg-beige shadow-2xl sm:mx-4 sm:max-w-lg md:max-w-2xl lg:flex'
+        className='relative mx-2 flex max-h-[85vh] w-full max-w-sm flex-col overflow-hidden rounded-2xl bg-beige shadow-2xl sm:mx-4 sm:max-w-md md:max-w-2xl lg:h-[min(480px,85vh)] lg:w-[min(900px,94vw)] lg:max-w-none lg:flex-row'
         onClick={e => e.stopPropagation()}
       >
         <button
@@ -268,18 +262,17 @@ function ProductModal({
           </svg>
         </button>
 
-        <div className='max-h-[85vh] overflow-y-auto lg:flex lg:max-h-[500px]'>
-          <div className='w-full lg:w-1/2'>
-            <Image
-              src={product.image}
-              alt={product.title}
-              width={400}
-              height={300}
-              className='h-36 w-full object-cover sm:h-48 sm:object-center lg:h-full'
-            />
-          </div>
+        <div className='relative aspect-square w-full shrink-0 overflow-hidden bg-beige lg:h-full lg:w-auto'>
+          <Image
+            src={product.image}
+            alt={product.title}
+            fill
+            className='object-cover'
+            sizes='(max-width: 1024px) 100vw, 480px'
+          />
+        </div>
 
-          <div className='flex w-full flex-col p-3 sm:p-6 lg:w-1/2 lg:p-8'>
+        <div className='flex min-w-0 flex-1 flex-col overflow-y-auto p-3 sm:p-6 lg:p-8'>
             <span className='mb-2 inline-block w-fit rounded-full bg-green/20 px-2 py-0.5 text-[10px] font-semibold text-dark-green sm:mb-3 sm:px-3 sm:py-1 sm:text-xs'>
               {product.category}
             </span>
@@ -381,7 +374,6 @@ function ProductModal({
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   )
