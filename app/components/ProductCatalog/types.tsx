@@ -11,6 +11,7 @@ export interface Product {
   image: string
   allergens: ProductAllergens
   price: number
+  portions?: number
   category: string
 }
 
