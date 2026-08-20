@@ -128,6 +128,11 @@ function ProductCard({ product, onInfoClick }: ProductCardProps) {
          <p className='line-clamp-2 text-sm text-white/90'>
            {product.description}
          </p>
+         {product.portions !== undefined && (
+           <p className='mt-1 text-sm font-semibold text-white'>
+             {product.portions} porciones
+           </p>
+         )}
        </div>
     </div>
   )
@@ -284,6 +289,11 @@ function ProductModal({
              <span className='mb-1 inline-block rounded-full bg-green/90 px-2 py-0.5 text-sm font-bold text-white sm:mb-3'>
                {product.price.toFixed(2)}€
              </span>
+             {product.portions !== undefined && (
+               <span className='mb-1 inline-block rounded-full bg-green/20 px-2 py-0.5 text-sm font-semibold text-dark-green sm:mb-3'>
+                 {product.portions} porciones
+               </span>
+             )}
              <p className='mb-2 text-xs leading-relaxed text-brown/80 sm:mb-4 sm:text-sm'>
               {product.description}
             </p>
