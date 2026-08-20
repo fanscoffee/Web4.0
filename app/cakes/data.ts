@@ -9,6 +9,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/kinder_bueno.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: true },
     price: 40.0,
+    portions: 10,
     category: 'Chocolate'
   },
   {
@@ -19,6 +20,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_sacher.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 40.0,
+    portions: 10,
     category: 'Chocolate'
   },
   {
@@ -29,6 +31,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_Lotus.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 40.0,
+    portions: 10,
     category: 'Especial'
   },
   {
@@ -39,6 +42,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_chocolate.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 40.0,
+    portions: 10,
     category: 'Chocolate'
   },
   {
@@ -49,6 +53,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_red_velvet.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 40.0,
+    portions: 10,
     category: 'Especial'
   },
   {
@@ -59,6 +64,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_de_chocolate.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 40.0,
+    portions: 10,
     category: 'Chocolate'
   },
   {
@@ -69,6 +75,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_de_piña.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 35.0,
+    portions: 8,
     category: 'Frutas'
   },
   {
@@ -79,6 +86,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_lotus.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 28.0,
+    portions: 4,
     category: 'Especial'
   },
   {
@@ -89,6 +97,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/kinder_bueno.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: true },
     price: 28.0,
+    portions: 4,
     category: 'Chocolate'
   },
   {
@@ -99,6 +108,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Pie_de_limón.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 12.0,
+    portions: 4,
     category: 'Cítricos'
   },
   {
@@ -109,6 +119,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Pie_de_limón.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 30.0,
+    portions: 8,
     category: 'Cítricos'
   },
   {
@@ -119,6 +130,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Quesillo.webp',
     allergens: { gluten: false, lactose: true, egg: true, nuts: false },
     price: 35.0,
+    portions: 8,
     category: 'Clásica'
   },
   {
@@ -129,6 +141,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_de_queso.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 40.0,
+    portions: 10,
     category: 'Clásica'
   },
   {
@@ -139,6 +152,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_de_queso.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 28.0,
+    portions: 6,
     category: 'Clásica'
   },
   {
@@ -149,6 +163,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_de_queso.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 15.0,
+    portions: 4,
     category: 'Clásica'
   },
   {
@@ -159,6 +174,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/tresleches_G.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 47.0,
+    portions: 12,
     category: 'Leche'
   },
   {
@@ -169,6 +185,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/tres_leches_M.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 35.0,
+    portions: 8,
     category: 'Leche'
   },
   {
@@ -179,6 +196,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/tres_leches_P.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 15.0,
+    portions: 4,
     category: 'Leche'
   },
   {
@@ -189,6 +207,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Tarta_zanahoria.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: true },
     price: 40.0,
+    portions: 10,
     category: 'Especial'
   },
   {
@@ -198,7 +217,8 @@ export const cakesProducts: Product[] = [
     image:
       '/tartas-enteras/Tarta_zanahoria.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: true },
-    price: 28.0,
+    price: 20.0,
+    portions: 4,
     category: 'Especial'
   },
   {
@@ -209,6 +229,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Pie_maracuyá.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 12.0,
+    portions: 4,
     category: 'Cítricos'
   },
   {
@@ -219,6 +240,7 @@ export const cakesProducts: Product[] = [
       '/tartas-enteras/Pie_maracuyá.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 30.0,
+    portions: 8,
     category: 'Cítricos'
   }
 ]
