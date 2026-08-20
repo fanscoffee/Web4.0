@@ -217,7 +217,7 @@ export const cakesProducts: Product[] = [
     image:
       '/tartas-enteras/Tarta_zanahoria.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: true },
-    price: 28.0,
+    price: 20.0,
     portions: 4,
     category: 'Especial'
   },
