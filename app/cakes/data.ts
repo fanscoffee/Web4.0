@@ -61,7 +61,7 @@ export const cakesProducts: Product[] = [
     description:
       'Intenso bizcocho de chocolate negro con ganache y decoración artesanal.',
     image:
-      '/tartas-enteras/Tarta_de_chocolate.webp',
+      '/tartas-enteras/tarta_de_chocolate.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 40.0,
     portions: 10,
@@ -83,7 +83,7 @@ export const cakesProducts: Product[] = [
     description:
       'Porción individual con crema de galleta Lotus y base crujiente.',
     image:
-      '/tartas-enteras/Tarta_lotus.webp',
+      '/tartas-enteras/Tarta_Lotus.webp',
     allergens: { gluten: true, lactose: true, egg: true, nuts: false },
     price: 28.0,
     portions: 4,
