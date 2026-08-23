@@ -184,7 +184,7 @@ function ProductModal({
 
   return (
     <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm'
+      className='fixed inset-0 z-[1100] flex items-center justify-center overflow-hidden bg-black/70 px-2 py-4 pt-[5.5rem] backdrop-blur-sm sm:px-4 sm:py-4 sm:pt-4 lg:z-50'
       onClick={onClose}
       role='dialog'
       aria-modal='true'
@@ -193,12 +193,12 @@ function ProductModal({
       <div
         ref={modalRef}
         tabIndex={-1}
-        className='relative mx-2 flex max-h-[85vh] w-full max-w-sm flex-col overflow-hidden rounded-2xl bg-beige shadow-2xl sm:mx-4 sm:max-w-md md:max-w-2xl lg:h-[min(480px,85vh)] lg:w-[min(900px,94vw)] lg:max-w-none lg:flex-row'
+        className='relative mx-2 flex h-[min(560px,calc(100dvh-6.25rem))] max-h-[calc(100dvh-6.25rem)] w-full max-w-sm flex-col overflow-hidden rounded-2xl bg-beige shadow-2xl sm:mx-4 sm:h-auto sm:max-h-[85vh] sm:max-w-md md:max-w-2xl lg:h-[min(480px,85vh)] lg:w-[min(900px,94vw)] lg:max-w-none lg:flex-row'
         onClick={e => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className='absolute right-2 top-2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white sm:right-4 sm:top-4 sm:h-10 sm:w-10'
+          className='absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white sm:right-4 sm:top-4'
           aria-label='Cerrar modal'
         >
           <svg
@@ -262,7 +262,7 @@ function ProductModal({
           </svg>
         </button>
 
-        <div className='relative aspect-square w-full shrink-0 overflow-hidden bg-beige lg:h-full lg:w-auto'>
+        <div className='relative aspect-square h-[clamp(190px,31dvh,230px)] w-full shrink-0 overflow-hidden bg-beige lg:h-full lg:w-auto'>
           <Image
             src={product.image}
             alt={product.title}
@@ -270,9 +270,53 @@ function ProductModal({
             className='object-cover'
             sizes='(max-width: 1024px) 100vw, 480px'
           />
+          <button
+            onClick={e => {
+              e.stopPropagation()
+              onPrevious()
+            }}
+            className='absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white lg:hidden'
+            aria-label='Producto anterior'
+          >
+            <svg
+              className='h-5 w-5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M15 19l-7-7 7-7'
+              />
+            </svg>
+          </button>
+          <button
+            onClick={e => {
+              e.stopPropagation()
+              onNext()
+            }}
+            className='absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white lg:hidden'
+            aria-label='Siguiente producto'
+          >
+            <svg
+              className='h-5 w-5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M9 5l7 7-7 7'
+              />
+            </svg>
+          </button>
         </div>
 
-        <div className='flex min-w-0 flex-1 flex-col overflow-y-auto p-3 sm:p-6 lg:p-8'>
+        <div className='flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden p-3 sm:p-6 lg:overflow-y-auto lg:p-8'>
             <span className='mb-2 inline-block w-fit rounded-full bg-green/20 px-2 py-0.5 text-[10px] font-semibold text-dark-green sm:mb-3 sm:px-3 sm:py-1 sm:text-xs'>
               {product.category}
             </span>
@@ -322,56 +366,10 @@ function ProductModal({
               </div>
             </div>
 
-            <div className='mt-3 flex items-center justify-between gap-2 sm:mt-6'>
+            <div className='mt-auto flex items-center justify-between gap-2 pt-3 sm:mt-6 sm:pt-0'>
               <span className='text-[10px] text-brown/50 sm:text-sm'>
                 {currentIndex + 1} / {totalProducts}
               </span>
-              <div className='flex items-center gap-2 lg:hidden'>
-                <button
-                  onClick={e => {
-                    e.stopPropagation()
-                    onPrevious()
-                  }}
-                  className='flex items-center gap-1 rounded-lg bg-green/10 px-3 py-1.5 text-xs font-medium text-dark-green transition-colors hover:bg-green/20 sm:px-4 sm:py-2 sm:text-sm'
-                  aria-label='Producto anterior'
-                >
-                  <svg
-                    className='h-3 w-3 sm:h-4 sm:w-4'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke='currentColor'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M15 19l-7-7 7-7'
-                    />
-                  </svg>
-                </button>
-                <button
-                  onClick={e => {
-                    e.stopPropagation()
-                    onNext()
-                  }}
-                  className='flex items-center gap-1 rounded-lg bg-green/10 px-3 py-1.5 text-xs font-medium text-dark-green transition-colors hover:bg-green/20 sm:px-4 sm:py-2 sm:text-sm'
-                  aria-label='Siguiente producto'
-                >
-                  <svg
-                    className='h-3 w-3 sm:h-4 sm:w-4'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke='currentColor'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M9 5l7 7-7 7'
-                    />
-                  </svg>
-                </button>
-              </div>
             </div>
           </div>
       </div>
