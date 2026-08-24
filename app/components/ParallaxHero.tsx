@@ -1,14 +1,11 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
-import { Dancing_Script } from 'next/font/google'
-
-const dancing = Dancing_Script({ subsets: ['latin'], weight: ['400', '700'] })
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const slides = [
   {
-    src: '/images/carousel-1.webp',
+    src: '/images/ilustracion-blanca.webp',
     title: 'Cafés Artesanales',
     subtitle: '100% Arábico',
     text: 'Café cuidadosamente seleccionado y preparado con pasión. Cada taza ofrece una experiencia única.'
@@ -42,7 +39,7 @@ export default function ParallaxHero() {
       setPrevIndex(currentIndex)
       setCurrentIndex(index)
       setIsTransitioning(true)
-      setTimeout(() => {
+      window.setTimeout(() => {
         setPrevIndex(index)
         setIsTransitioning(false)
       }, FADE_DURATION)
@@ -67,8 +64,10 @@ export default function ParallaxHero() {
   }, [startAutoplay])
 
   return (
-    <section aria-label='Galería de productos' className='relative h-screen'>
-      {/* Slides with crossfade */}
+    <section
+      aria-label='Galería de productos'
+      className='relative h-[calc(100svh-4.75rem)] min-h-[38rem] overflow-hidden bg-brand-burgundy md:h-[calc(100svh-5.75rem)]'
+    >
       {slides.map((slide, index) => {
         const isActive = index === currentIndex
         const isPrev = isTransitioning && index === prevIndex
@@ -77,20 +76,17 @@ export default function ParallaxHero() {
           <div
             key={slide.src}
             className={`absolute inset-0 transition-opacity ease-in-out ${
-              isActive && !isTransitioning
-                ? 'opacity-100'
-                : isActive
-                  ? 'opacity-100'
-                  : isPrev
-                    ? 'opacity-0'
-                    : 'opacity-0'
+              isActive || isPrev ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{ transitionDuration: `${FADE_DURATION}ms` }}
+            style={{
+              transitionDuration: `${FADE_DURATION}ms`,
+              opacity: isPrev ? 0 : undefined
+            }}
             aria-hidden={!isActive}
           >
             <Image
               src={slide.src}
-              alt={slide.title}
+              alt={isActive ? slide.title : ''}
               fill
               priority={index === 0}
               sizes='100vw'
@@ -100,44 +96,46 @@ export default function ParallaxHero() {
         )
       })}
 
-      {/* Dark overlay */}
-      <div className='absolute inset-0 bg-black/40' />
+      <div className='absolute inset-0 bg-brand-burgundy/55' />
+      <div className='absolute inset-0 bg-gradient-to-r from-brand-burgundy/80 via-brand-burgundy/35 to-transparent' />
 
-      {/* Content */}
-      <div className='relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white'>
-        <h1
-          key={currentIndex}
-          className={`${dancing.className} animate-fade-in text-5xl font-medium md:text-7xl`}
-        >
-          {slides[currentIndex].title}
-        </h1>
-        <p
-          key={`sub-${currentIndex}`}
-          className='animate-fade-in mt-4 text-xl font-light md:text-3xl'
-        >
-          {slides[currentIndex].subtitle}
-        </p>
-        <p
-          key={`txt-${currentIndex}`}
-          className='animate-fade-in mt-4 max-w-lg text-sm font-light md:text-base'
-        >
-          {slides[currentIndex].text}
-        </p>
+      <div className='brand-container relative z-10 flex h-full items-end pb-24 md:items-center md:pb-0'>
+        <div className='max-w-2xl border-l-4 border-brand-pink pl-5 sm:pl-8'>
+          <p className='brand-eyebrow text-brand-pink'>Fans Coffee Bakery</p>
+          <h1
+            key={currentIndex}
+            className='animate-fade-in mt-4 text-6xl leading-[0.88] text-brand-pink sm:text-7xl md:text-8xl'
+          >
+            {slides[currentIndex].title}
+          </h1>
+          <p
+            key={`sub-${currentIndex}`}
+            className='brand-script animate-fade-in mt-4 text-3xl text-brand-cream sm:text-4xl md:text-5xl'
+          >
+            {slides[currentIndex].subtitle}
+          </p>
+          <p
+            key={`txt-${currentIndex}`}
+            className='animate-fade-in mt-4 max-w-lg text-sm leading-6 text-brand-cream/85 md:text-base'
+          >
+            {slides[currentIndex].text}
+          </p>
+        </div>
       </div>
 
-      {/* Navigation dots */}
       <nav
-        className='absolute bottom-6 left-0 right-0 flex justify-center gap-3'
+        className='absolute bottom-7 left-0 right-0 z-10 flex justify-center gap-3'
         aria-label='Navegación del carousel'
       >
-        {slides.map((_, index) => (
+        {slides.map((slide, index) => (
           <button
-            key={index}
+            key={slide.src}
+            type='button'
             onClick={() => goToSlide(index)}
-            className={`h-3 w-3 rounded-full transition-all ${
+            className={`h-3 w-10 rounded-full border border-brand-cream/70 transition-all ${
               index === currentIndex
-                ? 'scale-125 bg-white'
-                : 'bg-white/50 hover:bg-white/80'
+                ? 'bg-brand-pink'
+                : 'bg-brand-cream/20 hover:bg-brand-cream/60'
             }`}
             aria-label={`Ir a slide ${index + 1}`}
             aria-current={index === currentIndex ? 'true' : undefined}

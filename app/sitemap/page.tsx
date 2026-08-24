@@ -29,23 +29,27 @@ export default function SiteMapPage() {
   const baseUrl = 'https://www.fanscoffee.es'
 
   return (
-    <main className='container mx-auto mt-28 max-w-[800px] p-6 md:mt-32'>
-      <h1 className='mb-6 text-3xl font-bold'>Mapa del Sitio</h1>
-      <ul className='list-disc space-y-2 pl-6'>
-        {sitePages.map(page => (
-          <li key={page.href}>
-            <Link
-              href={page.href}
-              className='text-green hover:text-dark-green'
-            >
-              {page.label}
-            </Link>
-            <span className='ml-2 text-sm text-gray-500'>
-              {baseUrl}{page.href}
-            </span>
-          </li>
-        ))}
-      </ul>
+    <main className='brand-page'>
+      <div className='brand-prose'>
+        <p className='brand-eyebrow'>Explora FANS</p>
+        <h1>Mapa del Sitio</h1>
+        <ul className='brand-panel list-disc space-y-3 p-6 pl-10'>
+          {sitePages.map(page => (
+            <li key={page.href}>
+              <Link
+                href={page.href}
+                className='font-bold text-brand-olive underline decoration-brand-pink decoration-2 underline-offset-4'
+              >
+                {page.label}
+              </Link>
+              <span className='ml-2 text-sm text-brand-muted'>
+                {baseUrl}
+                {page.href}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </main>
   )
 }

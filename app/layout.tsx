@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Poppins } from 'next/font/google'
+import { Caveat, Lilita_One, Poppins } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
@@ -10,7 +10,22 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '700'],
   display: 'swap',
-  preload: true
+  preload: true,
+  variable: '--font-body'
+})
+
+const lilita = Lilita_One({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-display'
+})
+
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  display: 'swap',
+  variable: '--font-script'
 })
 
 const SITE_URL = 'https://www.fanscoffee.es'
@@ -46,9 +61,9 @@ export const metadata: Metadata = {
     siteName: 'Fans Coffee Bakery',
     images: [
       {
-        url: '/images/carousel-1.webp',
-        width: 1200,
-        height: 630,
+        url: '/images/ilustracion-blanca.webp',
+        width: 1269,
+        height: 1239,
         alt: 'Fans Coffee Bakery - Café Artesanal y Repostería'
       }
     ],
@@ -60,7 +75,7 @@ export const metadata: Metadata = {
     title: 'Fans Coffee Bakery | Café Artesanal y Repostería en Madrid',
     description:
       'En Fans somos fan(s) de ti. Café artesanal, desayunos, tostadas gourmet y repostería en Madrid.',
-    images: ['/images/carousel-1.webp']
+    images: ['/images/ilustracion-blanca.webp']
   },
   robots: {
     index: true,
@@ -89,7 +104,7 @@ const jsonLd = {
   url: SITE_URL,
   telephone: '+34628984413',
   email: 'fanscoffee22@gmail.com',
-  image: `${SITE_URL}/fans-logo.jpg`,
+  image: `${SITE_URL}/logo-negro.png`,
   priceRange: '€€',
   servesCuisine: ['Café', 'Desayunos', 'Repostería', 'Panadería'],
   address: {
@@ -124,9 +139,7 @@ const jsonLd = {
       closes: '21:00'
     }
   ],
-  sameAs: [
-    'https://www.instagram.com/fanscoffeebakery/'
-  ]
+  sameAs: ['https://www.instagram.com/fanscoffeebakery/']
 }
 
 const breadcrumbListJsonLd = {
@@ -150,9 +163,11 @@ export default function RootLayout({
   return (
     <html lang='es'>
       <head>
-        <link rel='preload' as='image' href='/images/carousel-1.webp' />
+        <link rel='preload' as='image' href='/images/ilustracion-blanca.webp' />
       </head>
-      <body className={poppins.className}>
+      <body
+        className={`${poppins.variable} ${lilita.variable} ${caveat.variable} font-sans`}
+      >
         <Header />
         {children}
         <Footer />

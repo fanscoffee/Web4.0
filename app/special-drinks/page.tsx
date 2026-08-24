@@ -22,21 +22,27 @@ export const metadata: Metadata = {
 
 export default function SpecialDrinks() {
   return (
-    <main className='pt-20 md:pt-32'>
-      <section className='container mx-auto max-w-[1920px] px-4 py-12 md:py-20'>
-        <div className='mb-16'>
-          <h2 className='mb-8 text-center text-3xl font-bold text-green md:text-4xl'>
+    <main className='brand-page pt-[4.75rem] md:pt-[5.75rem]'>
+      <section className='border-b-2 border-brand-burgundy/15 py-14 md:py-24'>
+        <header className='brand-container mb-10 border-b-2 border-brand-burgundy/15 pb-7'>
+          <p className='brand-eyebrow'>Fruta, hielo y energía</p>
+          <h1 className='mt-3 text-5xl leading-none text-brand-burgundy md:text-7xl'>
             Smoothies
-          </h2>
+          </h1>
+        </header>
+        <div>
           <ProductCatalog products={smoothieProducts} />
         </div>
+      </section>
 
-        <div>
-          <h2 className='mb-8 text-center text-3xl font-bold text-green md:text-4xl'>
+      <section className='bg-brand-burgundy py-14 text-brand-cream md:py-24'>
+        <header className='brand-container mb-10 border-b-2 border-brand-pink/30 pb-7'>
+          <p className='brand-eyebrow text-brand-pink'>Cremosos y frescos</p>
+          <h2 className='mt-3 text-5xl leading-none text-brand-pink md:text-7xl'>
             Frappés
           </h2>
-          <ProductCatalog products={frappeProducts} />
-        </div>
+        </header>
+        <ProductCatalog products={frappeProducts} />
       </section>
     </main>
   )
