@@ -1,11 +1,13 @@
 import { Product } from '@/components/ProductCatalog/types'
 
+const smoothieRepresentativeImage = '/bebidas-especiales/smoothies.webp'
+const frappeRepresentativeImage = '/bebidas-especiales/frappes.webp'
+
 export const smoothieProducts: Product[] = [
   {
     title: 'Regulador',
     description: 'Fresa y piña',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -13,8 +15,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Vitaminado',
     description: 'Fresa y mango',
-    image:
-      'https://images.pexels.com/photos/8284685/pexels-photo-8284685.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -22,8 +23,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Regulador +',
     description: 'Plátano, coco y piña',
-    image:
-      'https://images.pexels.com/photos/17272970/pexels-photo-17272970.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -31,8 +31,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Energizante',
     description: 'Plátano, arándanos y açaí',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -40,8 +39,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Digestivo',
     description: 'Semillas de chía, mango, fresa y sandía',
-    image:
-      'https://images.pexels.com/photos/28107534/pexels-photo-28107534.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -49,8 +47,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Nutritivo',
     description: 'Mango, zanahoria, piña y maracuyá',
-    image:
-      'https://images.pexels.com/photos/8679371/pexels-photo-8679371.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -58,8 +55,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Energético',
     description: 'Plátano y fresa',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -67,8 +63,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Regenerador',
     description: 'Mango, melón, kiwi y piña',
-    image:
-      'https://images.pexels.com/photos/10003793/pexels-photo-10003793.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -76,8 +71,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Energético +',
     description: 'Plátano, grosella, arándano y cereza',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -85,8 +79,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Antioxidante',
     description: 'Mango, piña y papaya',
-    image:
-      'https://images.pexels.com/photos/24743547/pexels-photo-24743547.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -94,8 +87,7 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Mango',
     description: 'Sabor puro de mango',
-    image:
-      'https://images.pexels.com/photos/8679343/pexels-photo-8679343.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
@@ -103,11 +95,29 @@ export const smoothieProducts: Product[] = [
   {
     title: 'Fresa',
     description: 'Sabor puro de fresa',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: smoothieRepresentativeImage,
     allergens: { gluten: false, lactose: false, egg: false, nuts: false },
     price: 4.70,
     category: 'Smoothie'
+  }
+]
+
+export const hotDrinkProducts: Product[] = [
+  {
+    title: 'Chai latte',
+    description: 'Té chai especiado con leche y espuma cremosa',
+    image: '/bebidas-especiales/chai-caliente.webp',
+    allergens: { gluten: false, lactose: true, egg: false, nuts: false },
+    price: 4.70,
+    category: 'Bebida caliente'
+  },
+  {
+    title: 'Matcha latte',
+    description: 'Matcha suave con leche y espuma ligera',
+    image: '/bebidas-especiales/matcha-caliente.webp',
+    allergens: { gluten: false, lactose: true, egg: false, nuts: false },
+    price: 4.70,
+    category: 'Bebida caliente'
   }
 ]
 
@@ -115,8 +125,7 @@ export const frappeProducts: Product[] = [
   {
     title: 'Galletas & Canela',
     description: 'Frappé cremoso con sabor a galletas y un toque de canela',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: frappeRepresentativeImage,
     allergens: { gluten: true, lactose: true, egg: false, nuts: false },
     price: 4.70,
     category: 'Frappé'
@@ -124,8 +133,7 @@ export const frappeProducts: Product[] = [
   {
     title: 'Vainilla',
     description: 'Frappé clásico de vainilla suave y cremoso',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: frappeRepresentativeImage,
     allergens: { gluten: false, lactose: true, egg: false, nuts: false },
     price: 4.70,
     category: 'Frappé'
@@ -133,8 +141,7 @@ export const frappeProducts: Product[] = [
   {
     title: 'Café',
     description: 'Frappé intenso de café con hielo y leche',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: frappeRepresentativeImage,
     allergens: { gluten: false, lactose: true, egg: false, nuts: false },
     price: 4.70,
     category: 'Frappé'
@@ -142,8 +149,7 @@ export const frappeProducts: Product[] = [
   {
     title: 'Oreo',
     description: 'Frappé con trozos de galleta Oreo y crema',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: frappeRepresentativeImage,
     allergens: { gluten: true, lactose: true, egg: false, nuts: false },
     price: 4.70,
     category: 'Frappé'
@@ -151,8 +157,7 @@ export const frappeProducts: Product[] = [
   {
     title: 'Caramelo',
     description: 'Frappé dulce con salsa de caramelo y nata montada',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: frappeRepresentativeImage,
     allergens: { gluten: false, lactose: true, egg: false, nuts: false },
     price: 4.70,
     category: 'Frappé'
@@ -160,8 +165,7 @@ export const frappeProducts: Product[] = [
   {
     title: 'Nutella',
     description: 'Frappé de chocolate y avellanas con Nutella',
-    image:
-      'https://images.pexels.com/photos/4753639/pexels-photo-4753639.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: frappeRepresentativeImage,
     allergens: { gluten: false, lactose: true, egg: false, nuts: true },
     price: 4.70,
     category: 'Frappé'
