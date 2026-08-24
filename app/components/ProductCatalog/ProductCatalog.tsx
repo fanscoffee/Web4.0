@@ -9,9 +9,15 @@ import type { Product } from './types'
 
 interface ProductCatalogProps {
   products: Product[]
+  representativeImage?: string
+  representativeAlt?: string
 }
 
-export default function ProductCatalog({ products }: ProductCatalogProps) {
+export default function ProductCatalog({
+  products,
+  representativeImage,
+  representativeAlt = 'Bebidas de la categoría'
+}: ProductCatalogProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -60,17 +66,44 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
     }
   }, [isModalOpen])
 
+  const renderProducts = (showImage: boolean) =>
+    products.map((product, index) => (
+      <ProductCard
+        key={`${product.title}-${index}`}
+        product={product}
+        onInfoClick={() => openModal(index)}
+        showImage={showImage}
+      />
+    ))
+
   return (
     <>
-      <div className='brand-container grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
-        {products.map((product, index) => (
-          <ProductCard
-            key={`${product.title}-${index}`}
-            product={product}
-            onInfoClick={() => openModal(index)}
-          />
-        ))}
-      </div>
+      {representativeImage ? (
+        <div className='brand-container grid gap-8 lg:grid-cols-[minmax(18rem,0.8fr)_minmax(0,1.7fr)]'>
+          <div className='lg:sticky lg:top-28 lg:self-start'>
+            <div className='relative aspect-[2/3] overflow-hidden rounded-brand-lg border-2 border-brand-burgundy/15 bg-brand-cream shadow-brand'>
+              <Image
+                src={representativeImage}
+                alt={representativeAlt}
+                fill
+                className='object-cover'
+                sizes='(max-width: 1024px) 100vw, 35vw'
+              />
+            </div>
+            <p className='mt-4 max-w-sm text-sm leading-6 text-brand-cream/75'>
+              Una imagen, muchas combinaciones. Abre cada tarjeta para consultar
+              ingredientes, precio y alérgenos.
+            </p>
+          </div>
+          <div className='grid gap-4 sm:grid-cols-2'>
+            {renderProducts(false)}
+          </div>
+        </div>
+      ) : (
+        <div className='brand-container grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+          {renderProducts(true)}
+        </div>
+      )}
 
       {isModalOpen && selectedIndex !== null && (
         <ProductModal
@@ -89,16 +122,23 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
 interface ProductCardProps {
   product: Product
   onInfoClick: () => void
+  showImage?: boolean
 }
 
-function ProductCard({ product, onInfoClick }: ProductCardProps) {
+function ProductCard({
+  product,
+  onInfoClick,
+  showImage = true
+}: ProductCardProps) {
   return (
     <article className='group relative overflow-hidden rounded-brand-lg border-2 border-brand-burgundy/15 bg-brand-burgundy shadow-brand-soft transition-transform duration-300 hover:-translate-y-1 hover:shadow-brand'>
-      <ProductImageGallery
-        images={product.images ?? [product.image]}
-        alt={product.title}
-        onImageClick={onInfoClick}
-      />
+      {showImage && (
+        <ProductImageGallery
+          images={product.images ?? [product.image]}
+          alt={product.title}
+          onImageClick={onInfoClick}
+        />
+      )}
       <button
         type='button'
         onClick={onInfoClick}
@@ -137,17 +177,19 @@ function ProductCard({ product, onInfoClick }: ProductCardProps) {
           </span>
         </div>
       </button>
-      <button
-        type='button'
-        onClick={event => {
-          event.stopPropagation()
-          onInfoClick()
-        }}
-        className='absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-burgundy bg-brand-cream text-lg font-bold text-brand-burgundy transition-transform hover:scale-105 hover:bg-brand-pink'
-        aria-label='Ver información del producto'
-      >
-        i
-      </button>
+      {showImage && (
+        <button
+          type='button'
+          onClick={event => {
+            event.stopPropagation()
+            onInfoClick()
+          }}
+          className='absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-burgundy bg-brand-cream text-lg font-bold text-brand-burgundy transition-transform hover:scale-105 hover:bg-brand-pink'
+          aria-label='Ver información del producto'
+        >
+          i
+        </button>
+      )}
     </article>
   )
 }

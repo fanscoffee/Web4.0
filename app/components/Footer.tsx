@@ -29,9 +29,6 @@ export default function Footer() {
               height={200}
               className='h-12 w-auto object-contain object-left md:h-14'
             />
-            <h2 className='mt-3 max-w-sm text-4xl leading-none text-brand-pink md:text-5xl'>
-              En FANS somos FANS de ti
-            </h2>
             <p className='mt-5 max-w-sm text-sm leading-6 text-brand-cream/75'>
               En FANS, somos FANS de ti y de cada momento dulce.
             </p>
