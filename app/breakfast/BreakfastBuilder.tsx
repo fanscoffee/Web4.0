@@ -55,7 +55,7 @@ export default function BreakfastBuilder() {
   }
 
   return (
-    <main className='min-h-screen overflow-hidden bg-[#fcf8f1] pt-20 text-brown md:pt-28'>
+    <main className='brand-page overflow-hidden pt-[4.75rem] md:pt-[5.75rem]'>
       <section className='border-b border-brown/10'>
         <div className='mx-auto grid max-w-7xl gap-8 px-4 pb-12 pt-8 sm:px-6 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-14 md:px-8 md:pb-24 md:pt-12'>
           <div>
@@ -103,7 +103,7 @@ export default function BreakfastBuilder() {
             </div>
           </div>
 
-          <figure className='relative min-h-[21rem] overflow-hidden rounded-[2rem] bg-brown shadow-2xl shadow-brown/20 sm:min-h-[28rem] md:min-h-[38rem]'>
+          <figure className='relative min-h-[21rem] overflow-hidden rounded-brand-lg bg-brown shadow-brand sm:min-h-[28rem] md:min-h-[38rem]'>
             <Image
               src={breakfastHero.src}
               alt={breakfastHero.alt}
@@ -144,7 +144,7 @@ export default function BreakfastBuilder() {
             </p>
           </div>
 
-          <div className='rounded-[1.75rem] border border-brown/10 bg-white p-4 shadow-sm sm:p-6 md:rounded-[2rem] md:p-8'>
+          <div className='brand-panel p-4 sm:p-6 md:p-8'>
             <StepHeading
               number='01'
               title='Elige tu base'
@@ -173,7 +173,7 @@ export default function BreakfastBuilder() {
           </div>
 
           <div className='mt-6 grid gap-6 lg:mt-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-8'>
-            <section className='rounded-[1.75rem] bg-dark-green p-4 text-white sm:p-6 md:rounded-[2rem] md:p-8'>
+            <section className='brand-panel-dark p-4 sm:p-6 md:p-8'>
               <StepHeading
                 number='02'
                 title='Elige tu bebida'
@@ -223,14 +223,14 @@ export default function BreakfastBuilder() {
                 disponibilidad para fines de semana.
               </p>
             </div>
-            <span className='w-fit rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-wide text-green'>
+            <span className='w-fit rounded-full bg-brand-paper px-4 py-2 text-xs font-bold uppercase tracking-wide text-green'>
               Te esperamos
             </span>
           </div>
         </div>
       </section>
 
-      <section className='bg-dark-green px-4 py-14 text-white sm:px-6 md:px-8 md:py-24'>
+      <section className='bg-brand-burgundy px-4 py-14 text-brand-cream sm:px-6 md:px-8 md:py-24'>
         <div className='mx-auto max-w-7xl'>
           <div className='mb-8 flex flex-col justify-between gap-5 md:mb-10 md:flex-row md:items-end'>
             <div className='max-w-xl'>
@@ -250,11 +250,11 @@ export default function BreakfastBuilder() {
             {galleryImages.map((item, index) => (
               <figure
                 key={item.src}
-                className={`group relative overflow-hidden rounded-[1.5rem] ${
+                className={`group relative aspect-[4/5] overflow-hidden rounded-brand ${
                   index === 1 ? 'sm:mt-10' : index === 2 ? 'sm:-mt-4' : ''
                 }`}
               >
-                <div className='relative aspect-[4/5]'>
+                <div className='absolute inset-0 overflow-hidden'>
                   <Image
                     src={item.src}
                     alt={item.alt}
@@ -265,9 +265,11 @@ export default function BreakfastBuilder() {
                   />
                   <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/5 to-transparent' />
                 </div>
-                <figcaption className='absolute bottom-0 left-0 right-0 p-5'>
-                  <h3 className='text-xl font-bold'>{item.title}</h3>
-                  <p className='mt-1 text-sm text-white/75'>
+                <figcaption className='absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/85 via-black/60 to-transparent px-5 pb-5 pt-16'>
+                  <h3 className='text-xl font-bold leading-tight'>
+                    {item.title}
+                  </h3>
+                  <p className='mt-2 text-sm leading-5 text-white/80'>
                     {item.description}
                   </p>
                 </figcaption>
@@ -278,7 +280,7 @@ export default function BreakfastBuilder() {
       </section>
 
       <section className='px-4 py-12 sm:px-6 md:px-8 md:py-20'>
-        <div className='mx-auto flex max-w-5xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-green p-7 text-white sm:p-10 md:flex-row md:items-center'>
+        <div className='mx-auto flex max-w-5xl flex-col items-start justify-between gap-8 rounded-brand-lg bg-green p-7 text-white sm:p-10 md:flex-row md:items-center'>
           <div>
             <p className='text-xs font-bold uppercase tracking-[0.25em] text-light-yellow'>
               Madrid, C/ Doctor Esquerdo 180
@@ -289,7 +291,7 @@ export default function BreakfastBuilder() {
           </div>
           <Link
             href='/contact'
-            className='min-h-12 shrink-0 rounded-full bg-white px-6 py-3 text-sm font-bold text-green transition-colors hover:bg-light-yellow hover:text-dark-green'
+            className='min-h-12 shrink-0 rounded-full bg-brand-cream px-6 py-3 text-sm font-bold text-green transition-colors hover:bg-light-yellow hover:text-dark-green'
           >
             Cómo llegar <span className='ml-1'>→</span>
           </Link>
@@ -399,12 +401,12 @@ function BaseCard({
       className={`group w-full overflow-hidden rounded-2xl border-2 text-left transition-all active:scale-[0.98] ${
         selected
           ? 'border-green bg-green/5 shadow-md ring-2 ring-green/20'
-          : 'border-brown/10 bg-[#fcf8f1] hover:-translate-y-0.5 hover:border-green/40 hover:shadow-md'
+          : 'border-brown/10 bg-brand-paper hover:-translate-y-0.5 hover:border-green/40 hover:shadow-md'
       }`}
     >
       <span
         className={`relative block aspect-[4/3] overflow-hidden ${
-          option.kind === 'photo' ? 'bg-brown' : 'bg-[#e9e0d0]'
+          option.kind === 'photo' ? 'bg-brown' : 'bg-brand-paper'
         }`}
       >
         <Image
@@ -470,7 +472,7 @@ function DrinkOption({
   return (
     <div
       className={`rounded-2xl p-3 transition-colors sm:p-4 ${
-        selected ? 'bg-white/15' : 'bg-white/5'
+        selected ? 'bg-brand-cream/15' : 'bg-brand-cream/5'
       }`}
     >
       <button
@@ -482,7 +484,7 @@ function DrinkOption({
             ? isSpecial
               ? 'border-light-yellow bg-light-yellow text-dark-green'
               : 'border-green bg-green text-white'
-            : 'border-white/20 bg-transparent text-white hover:border-white/50'
+            : 'border-brand-cream/20 bg-transparent text-brand-cream hover:border-brand-cream/50'
         }`}
       >
         <span>
@@ -501,7 +503,7 @@ function DrinkOption({
         {drinks.map(drink => (
           <li
             key={drink.name}
-            className='flex items-start gap-2 text-sm text-white/80'
+            className='flex items-start gap-2 text-sm text-brand-cream/80'
           >
             <span className='mt-1 text-light-yellow' aria-hidden='true'>
               •
@@ -509,7 +511,7 @@ function DrinkOption({
             <span>
               {drink.name}
               {drink.detail && (
-                <span className='text-white/50'> ({drink.detail})</span>
+                <span className='text-brand-cream/50'> ({drink.detail})</span>
               )}
             </span>
           </li>
@@ -531,7 +533,7 @@ function ExtrasPanel({
   onToggle: (extra: Extra) => void
 }) {
   return (
-    <aside className='rounded-[1.75rem] border border-brown/10 bg-white p-4 shadow-sm sm:p-6 md:rounded-[2rem] md:p-8'>
+    <aside className='brand-panel p-4 sm:p-6 md:p-8'>
       <StepHeading
         number='03'
         title='Añade extras'
@@ -550,7 +552,7 @@ function ExtrasPanel({
                 className={`flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border px-3 py-2.5 text-left text-sm transition-colors ${
                   selected
                     ? 'border-green bg-green/10 text-dark-green'
-                    : 'border-brown/10 bg-[#fcf8f1] text-brown/80 hover:border-green/40'
+                    : 'border-brown/10 bg-brand-paper text-brown/80 hover:border-green/40'
                 }`}
               >
                 <span className='flex items-center gap-3 font-medium'>
@@ -613,7 +615,7 @@ function BreakfastSummary({
 
   return (
     <section
-      className='mt-6 rounded-[1.75rem] bg-green p-5 text-white shadow-lg shadow-green/20 sm:p-6 md:mt-8 md:rounded-[2rem] md:p-8'
+      className='mt-6 rounded-brand-lg bg-brand-olive p-5 text-brand-cream shadow-brand sm:p-6 md:mt-8 md:p-8'
       aria-live='polite'
       aria-label='Resumen del desayuno seleccionado'
     >

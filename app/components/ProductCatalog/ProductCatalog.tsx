@@ -1,8 +1,11 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
-import { Product, ALLERGEN_LABELS, ALLERGEN_ICONS } from './types'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { ProductImageGallery } from './ProductImageGallery'
+import { ProductRating } from './ProductRating'
+import { ALLERGEN_ICONS, ALLERGEN_LABELS } from './types'
+import type { Product } from './types'
 
 interface ProductCatalogProps {
   products: Product[]
@@ -37,11 +40,11 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
   }, [selectedIndex, products.length])
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (!isModalOpen) return
-      if (e.key === 'Escape') closeModal()
-      if (e.key === 'ArrowLeft') goToPrevious()
-      if (e.key === 'ArrowRight') goToNext()
+      if (event.key === 'Escape') closeModal()
+      if (event.key === 'ArrowLeft') goToPrevious()
+      if (event.key === 'ArrowRight') goToNext()
     }
 
     document.addEventListener('keydown', handleKeyDown)
@@ -49,16 +52,17 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
   }, [isModalOpen, goToPrevious, goToNext])
 
   useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
+    if (!isModalOpen) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previousOverflow
     }
   }, [isModalOpen])
 
   return (
     <>
-      <div className='mx-4 my-12 grid max-w-[1920px] grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:mx-8 lg:mx-16 lg:grid-cols-3 lg:gap-10 xl:mx-24'>
+      <div className='brand-container grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
         {products.map((product, index) => (
           <ProductCard
             key={`${product.title}-${index}`}
@@ -89,50 +93,62 @@ interface ProductCardProps {
 
 function ProductCard({ product, onInfoClick }: ProductCardProps) {
   return (
-    <div
-      onClick={onInfoClick}
-      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onInfoClick() }}
-      role='button'
-      tabIndex={0}
-      className='group relative h-[320px] cursor-pointer overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl'
-    >
-      <Image
-        src={product.image}
+    <article className='group relative overflow-hidden rounded-brand-lg border-2 border-brand-burgundy/15 bg-brand-burgundy shadow-brand-soft transition-transform duration-300 hover:-translate-y-1 hover:shadow-brand'>
+      <ProductImageGallery
+        images={product.images ?? [product.image]}
         alt={product.title}
-        fill
-        className='object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110'
-        sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw'
+        onImageClick={onInfoClick}
       />
-      <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent' />
       <button
-        onClick={e => {
-          e.stopPropagation()
+        type='button'
+        onClick={onInfoClick}
+        className='block w-full text-left'
+        aria-label={`Ver información de ${product.title}`}
+      >
+        <div className='p-5 sm:p-6'>
+          <div className='flex items-start justify-between gap-4'>
+            <div>
+              <span className='brand-eyebrow text-brand-pink'>
+                {product.category}
+              </span>
+              <h3 className='mt-2 text-2xl leading-none text-brand-pink'>
+                {product.title}
+              </h3>
+              {product.rating !== undefined && (
+                <div className='mt-3'>
+                  <ProductRating rating={product.rating} />
+                </div>
+              )}
+            </div>
+            <span className='shrink-0 rounded-full bg-brand-cream px-3 py-1.5 text-sm font-bold text-brand-burgundy'>
+              {product.price.toFixed(2)}€
+            </span>
+          </div>
+          <p className='text-brand-cream/78 mt-4 line-clamp-2 text-sm leading-6'>
+            {product.description}
+          </p>
+          {product.portions !== undefined && (
+            <p className='mt-3 text-xs font-bold uppercase tracking-[0.1em] text-brand-cream/60'>
+              {product.portions} porciones
+            </p>
+          )}
+          <span className='mt-5 inline-block text-xs font-bold uppercase tracking-[0.12em] text-brand-cream underline decoration-brand-pink decoration-2 underline-offset-4'>
+            Ver detalles →
+          </span>
+        </div>
+      </button>
+      <button
+        type='button'
+        onClick={event => {
+          event.stopPropagation()
           onInfoClick()
         }}
-        className='absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-brown backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white'
+        className='absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-burgundy bg-brand-cream text-lg font-bold text-brand-burgundy transition-transform hover:scale-105 hover:bg-brand-pink'
         aria-label='Ver información del producto'
       >
-        <span className='text-lg font-bold'>i</span>
+        i
       </button>
-       <div className='absolute bottom-0 left-0 right-0 bg-black/50 p-4 backdrop-blur-md'>
-         <div className='flex items-center justify-between'>
-           <h3 className='mb-1 truncate text-xl font-bold text-white'>
-             {product.title}
-           </h3>
-           <span className='rounded-full bg-green/90 px-2 py-0.5 text-sm font-bold text-white'>
-             {product.price.toFixed(2)}€
-           </span>
-         </div>
-         <p className='line-clamp-2 text-sm text-white/90'>
-           {product.description}
-         </p>
-         {product.portions !== undefined && (
-           <p className='mt-1 text-sm font-semibold text-white'>
-             {product.portions} porciones
-           </p>
-         )}
-       </div>
-    </div>
+    </article>
   )
 }
 
@@ -157,8 +173,8 @@ function ProductModal({
 
   useEffect(() => {
     modalRef.current?.focus()
-    const handleTabKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Tab') return
+    const handleTabKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab') return
       const modal = modalRef.current
       if (!modal) return
       const focusable = modal.querySelectorAll<HTMLElement>(
@@ -166,16 +182,15 @@ function ProductModal({
       )
       const first = focusable[0]
       const last = focusable[focusable.length - 1]
-      if (e.shiftKey) {
+      if (!first || !last) return
+      if (event.shiftKey) {
         if (document.activeElement === first) {
-          e.preventDefault()
+          event.preventDefault()
           last.focus()
         }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault()
-          first.focus()
-        }
+      } else if (document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
       }
     }
     document.addEventListener('keydown', handleTabKey)
@@ -184,85 +199,28 @@ function ProductModal({
 
   return (
     <div
-      className='fixed inset-0 z-[1100] flex items-center justify-center overflow-hidden bg-black/70 px-2 py-4 pt-[5.5rem] backdrop-blur-sm sm:px-4 sm:py-4 sm:pt-4 lg:z-50'
+      className='fixed inset-0 z-[1100] flex items-center justify-center overflow-hidden bg-brand-burgundy/85 px-3 py-4 backdrop-blur-sm sm:px-6'
       onClick={onClose}
       role='dialog'
       aria-modal='true'
-      aria-label={`Detalles de ${product.title}`}
+      aria-labelledby='product-modal-title'
     >
       <div
         ref={modalRef}
         tabIndex={-1}
-        className='relative mx-2 flex h-[min(560px,calc(100dvh-6.25rem))] max-h-[calc(100dvh-6.25rem)] w-full max-w-sm flex-col overflow-hidden rounded-2xl bg-beige shadow-2xl sm:mx-4 sm:h-auto sm:max-h-[85vh] sm:max-w-md md:max-w-2xl lg:h-[min(480px,85vh)] lg:w-[min(900px,94vw)] lg:max-w-none lg:flex-row'
-        onClick={e => e.stopPropagation()}
+        className='relative mx-auto flex h-[min(680px,calc(100dvh-2rem))] w-full max-w-5xl flex-col overflow-hidden rounded-brand-lg border-2 border-brand-pink bg-brand-cream shadow-brand sm:h-auto lg:flex-row'
+        onClick={event => event.stopPropagation()}
       >
         <button
+          type='button'
           onClick={onClose}
-          className='absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white sm:right-4 sm:top-4'
+          className='absolute right-3 top-3 z-20 flex h-11 w-11 items-center justify-center rounded-full border-2 border-brand-burgundy bg-brand-cream text-xl text-brand-burgundy transition-colors hover:bg-brand-pink sm:right-5 sm:top-5'
           aria-label='Cerrar modal'
         >
-          <svg
-            className='h-4 w-4 sm:h-5 sm:w-5'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M6 18L18 6M6 6l12 12'
-            />
-          </svg>
+          ×
         </button>
 
-        <button
-          onClick={e => {
-            e.stopPropagation()
-            onPrevious()
-          }}
-          className='absolute left-1 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white lg:left-4 lg:flex lg:h-12 lg:w-12'
-          aria-label='Producto anterior'
-        >
-          <svg
-            className='h-5 w-5 lg:h-6 lg:w-6'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M15 19l-7-7 7-7'
-            />
-          </svg>
-        </button>
-
-        <button
-          onClick={e => {
-            e.stopPropagation()
-            onNext()
-          }}
-          className='absolute right-1 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white lg:right-4 lg:flex lg:h-12 lg:w-12'
-          aria-label='Siguiente producto'
-        >
-          <svg
-            className='h-5 w-5 lg:h-6 lg:w-6'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M9 5l7 7-7 7'
-            />
-          </svg>
-        </button>
-
-        <div className='relative aspect-square h-[clamp(190px,31dvh,230px)] w-full shrink-0 overflow-hidden bg-beige lg:h-full lg:w-auto'>
+        <div className='relative min-h-[15rem] shrink-0 bg-brand-burgundy sm:min-h-[20rem] lg:min-h-0 lg:w-[48%]'>
           <Image
             src={product.image}
             alt={product.title}
@@ -271,107 +229,95 @@ function ProductModal({
             sizes='(max-width: 1024px) 100vw, 480px'
           />
           <button
-            onClick={e => {
-              e.stopPropagation()
+            type='button'
+            onClick={event => {
+              event.stopPropagation()
               onPrevious()
             }}
-            className='absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white lg:hidden'
+            className='absolute left-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border-2 border-brand-burgundy bg-brand-cream text-xl text-brand-burgundy transition-colors hover:bg-brand-pink lg:left-5'
             aria-label='Producto anterior'
           >
-            <svg
-              className='h-5 w-5'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M15 19l-7-7 7-7'
-              />
-            </svg>
+            ‹
           </button>
           <button
-            onClick={e => {
-              e.stopPropagation()
+            type='button'
+            onClick={event => {
+              event.stopPropagation()
               onNext()
             }}
-            className='absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-brown shadow-md transition-colors hover:bg-white lg:hidden'
+            className='absolute right-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border-2 border-brand-burgundy bg-brand-cream text-xl text-brand-burgundy transition-colors hover:bg-brand-pink lg:right-5'
             aria-label='Siguiente producto'
           >
-            <svg
-              className='h-5 w-5'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
-            </svg>
+            ›
           </button>
         </div>
 
-        <div className='flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden p-3 sm:p-6 lg:overflow-y-auto lg:p-8'>
-            <span className='mb-2 inline-block w-fit rounded-full bg-green/20 px-2 py-0.5 text-[10px] font-semibold text-dark-green sm:mb-3 sm:px-3 sm:py-1 sm:text-xs'>
-              {product.category}
-            </span>
-             <h2 className='mb-1 text-lg font-bold text-dark-green sm:mb-3 sm:text-2xl lg:text-3xl'>
-               {product.title}
-             </h2>
-             <span className='mb-1 inline-block rounded-full bg-green/90 px-2 py-0.5 text-sm font-bold text-white sm:mb-3'>
-               {product.price.toFixed(2)}€
-             </span>
-             {product.portions !== undefined && (
-               <span className='mb-1 inline-block rounded-full bg-green/20 px-2 py-0.5 text-sm font-semibold text-dark-green sm:mb-3'>
-                 {product.portions} porciones
-               </span>
-             )}
-             <p className='mb-2 text-xs leading-relaxed text-brown/80 sm:mb-4 sm:text-sm'>
-              {product.description}
-            </p>
-            <div className='border-t border-brown/20 pt-2 sm:pt-4'>
-              <h4 className='mb-2 text-xs font-semibold text-dark-green sm:mb-3'>
-                Alérgenos
-              </h4>
-              <div className='flex flex-wrap gap-1 sm:gap-3'>
-                {(
-                  Object.keys(product.allergens) as Array<
-                    keyof typeof product.allergens
-                  >
-                ).map(allergen => {
-                  const isPresent = product.allergens[allergen]
-                  return (
-                    <div
-                      key={allergen}
-                      className={`inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[10px] sm:px-3 sm:py-2 sm:text-sm ${
-                        isPresent
-                          ? 'bg-red-100 text-red-700'
-                          : 'bg-gray-100 text-gray-400'
-                      }`}
-                    >
-                      <span className='flex h-3 w-3 shrink-0 items-center justify-center sm:h-4 sm:w-4'>
-                        {ALLERGEN_ICONS[allergen]}
-                      </span>
-                      <span className='font-medium leading-none sm:font-semibold'>
-                        {ALLERGEN_LABELS[allergen]}
-                      </span>
-                    </div>
-                  )
-                })}
-              </div>
+        <div className='min-h-0 flex-1 overflow-y-auto bg-brand-cream p-5 text-brand-burgundy sm:p-8 lg:p-10'>
+          <span className='brand-eyebrow text-brand-olive'>
+            {product.category}
+          </span>
+          <h2
+            id='product-modal-title'
+            className='mt-3 text-4xl leading-none text-brand-burgundy sm:text-5xl'
+          >
+            {product.title}
+          </h2>
+          {product.rating !== undefined && (
+            <div className='mt-4'>
+              <ProductRating rating={product.rating} />
             </div>
-
-            <div className='mt-auto flex items-center justify-between gap-2 pt-3 sm:mt-6 sm:pt-0'>
-              <span className='text-[10px] text-brown/50 sm:text-sm'>
-                {currentIndex + 1} / {totalProducts}
+          )}
+          <div className='mt-5 flex flex-wrap items-center gap-3'>
+            <span className='rounded-full bg-brand-burgundy px-4 py-2 text-sm font-bold text-brand-cream'>
+              {product.price.toFixed(2)}€
+            </span>
+            {product.portions !== undefined && (
+              <span className='rounded-full bg-brand-pink px-4 py-2 text-sm font-bold text-brand-burgundy'>
+                {product.portions} porciones
               </span>
+            )}
+          </div>
+          <p className='text-brand-burgundy/78 mt-6 text-base leading-7'>
+            {product.description}
+          </p>
+
+          <div className='mt-8 border-t-2 border-brand-burgundy/15 pt-6'>
+            <h4 className='text-2xl text-brand-olive'>Alérgenos</h4>
+            <div className='mt-4 flex flex-wrap gap-2'>
+              {(
+                Object.keys(product.allergens) as Array<
+                  keyof typeof product.allergens
+                >
+              ).map(allergen => {
+                const isPresent = product.allergens[allergen]
+                return (
+                  <div
+                    key={allergen}
+                    className={`inline-flex items-center gap-2 rounded-[0.65rem] px-3 py-2 text-xs font-bold ${
+                      isPresent
+                        ? 'bg-brand-pink text-brand-burgundy'
+                        : 'bg-brand-paper text-brand-muted'
+                    }`}
+                  >
+                    <span className='flex h-4 w-4 items-center justify-center'>
+                      {ALLERGEN_ICONS[allergen]}
+                    </span>
+                    <span>{ALLERGEN_LABELS[allergen]}</span>
+                  </div>
+                )
+              })}
             </div>
           </div>
+
+          <div className='mt-8 flex items-center justify-between border-t border-brand-burgundy/15 pt-5 text-sm text-brand-muted'>
+            <span>
+              {currentIndex + 1} / {totalProducts}
+            </span>
+            <span className='brand-script text-xl text-brand-olive'>
+              Fans handmade
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   )

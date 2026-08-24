@@ -4,21 +4,25 @@ import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Página no encontrada | Fans Coffee Bakery',
-  description: 'La página que buscas no existe. Vuelve al inicio de Fans Coffee Bakery.'
+  description:
+    'La página que buscas no existe. Vuelve al inicio de Fans Coffee Bakery.'
 }
 
 export default function NotFound() {
   return (
-    <main className='container py-24 text-center'>
-      <h1 className='mx-auto text-3xl font-bold'>Error 404</h1>
-      <p className='mx-auto mt-4 max-w-lg text-xl'>
+    <main className='brand-page px-4 pb-20 pt-36 text-center md:pt-48'>
+      <p className='brand-eyebrow'>Ups, algo se perdió</p>
+      <h1 className='mx-auto mt-4 text-6xl leading-none text-brand-burgundy md:text-8xl'>
+        Error 404
+      </h1>
+      <p className='mx-auto mt-5 max-w-lg text-lg leading-8 text-brand-burgundy/75'>
         Lo sentimos, no hemos podido encontrar la página que busca. Tal vez haya
         escrito mal la URL? Asegúrese de revisar su ortografía.
       </p>
 
       <Link href='/' className='block'>
         <Image
-          className='mx-auto mt-5 h-[400px] w-[600px] object-contain'
+          className='mx-auto mt-8 h-[280px] w-full max-w-[600px] object-contain'
           src='https://i.imgur.com/lDJZJoX.png'
           alt='Ilustración de página no encontrada'
           width={600}
@@ -26,10 +30,7 @@ export default function NotFound() {
           priority
         />
       </Link>
-      <Link
-        href='/'
-        className='mt-5 inline-block rounded-full bg-green px-8 py-4 text-sm font-medium text-white transition-all hover:bg-dark-green'
-      >
+      <Link href='/' className='brand-button mt-6'>
         Inicio
       </Link>
     </main>

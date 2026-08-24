@@ -9,8 +9,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Aviso Legal | Fans Coffee Bakery',
-    description:
-      'Aviso legal y términos de uso de Fans Coffee Bakery.',
+    description: 'Aviso legal y términos de uso de Fans Coffee Bakery.',
     url: 'https://www.fanscoffee.es/legal',
     siteName: 'Fans Coffee Bakery',
     locale: 'es_ES',
@@ -24,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function Legal() {
   return (
-    <div className='container mb-5 mt-28 max-w-[800px] md:mt-48'>
-      <h1 className='my-5 text-center text-3xl font-bold'>AVISO LEGAL</h1>
+    <main className='brand-page brand-prose'>
+      <h1>AVISO LEGAL</h1>
       <p className='my-2'>
         En <strong>FANS COFFEE FRIENDS, S.L.L.</strong> consideramos que la
         privacidad de nuestros clientes y usuarios debe ser primordial. Por esta
@@ -290,7 +289,9 @@ export default function Legal() {
         ¿QUÉ DERECHOS TIENE USTED CON RESPECTO A LOS DATOS QUE NOS FACILITA?
       </h3>
       <p className='my-2'>
-        Usted tiene derecho a obtener confirmación sobre si en FANS COFFEE FRIENDS S.L.L. estamos tratando los datos personales que le conciernan, o no.
+        Usted tiene derecho a obtener confirmación sobre si en FANS COFFEE
+        FRIENDS S.L.L. estamos tratando los datos personales que le conciernan,
+        o no.
       </p>
       <p className='my-2'>
         Asimismo las personas interesadas tienen derecho a{' '}
@@ -399,7 +400,9 @@ export default function Legal() {
       <p className='my-2'>
         La legislación aplicable al presente AVISO LEGAL será la legislación
         española, y a la jurisdicción competente para conocer de cualesquiera
-        demandas que esta web suscite será la de los Juzgados y Tribunales de Madrid, renunciando expresamente el usuario a cualquier otro fuero que pudiera corresponderle.
+        demandas que esta web suscite será la de los Juzgados y Tribunales de
+        Madrid, renunciando expresamente el usuario a cualquier otro fuero que
+        pudiera corresponderle.
       </p>
 
       <h3 className='my-6 text-2xl'>CONTENIDO DE LA WEB Y ENLACES (LINKS) </h3>
@@ -503,12 +506,12 @@ export default function Legal() {
       </p>
       <p className='my-2'>
         FANS no se responsabiliza de los posibles errores de seguridad que se
-        puedan producir ni de posibles daños que puedan causarse al
-        sistema informático del usuario (hardware y software), los ficheros o
-        documentos almacenados en el mismo, como consecuencia de la presencia de
-        virus en el ordenador del usuario utilizado para la conexión a los
-        servicios y contenidos de la Web, de un mal funcionamiento del navegador
-        o del uso de versiones no actualizadas del mismo.
+        puedan producir ni de posibles daños que puedan causarse al sistema
+        informático del usuario (hardware y software), los ficheros o documentos
+        almacenados en el mismo, como consecuencia de la presencia de virus en
+        el ordenador del usuario utilizado para la conexión a los servicios y
+        contenidos de la Web, de un mal funcionamiento del navegador o del uso
+        de versiones no actualizadas del mismo.
       </p>
       <p className='my-2'>
         FANS no se hace responsable de la información y contenidos almacenados,
@@ -527,11 +530,11 @@ export default function Legal() {
         contacte con FANS.
       </p>
       <p className='my-2'>
-        FANS no se responsabiliza de las contestaciones que se realicen a
-        través de las distintas direcciones de correo electrónico que aparecen
-        en su portal, por lo que en ningún caso podrá derivarse efecto jurídico
+        FANS no se responsabiliza de las contestaciones que se realicen a través
+        de las distintas direcciones de correo electrónico que aparecen en su
+        portal, por lo que en ningún caso podrá derivarse efecto jurídico
         vinculante de las mismas.
       </p>
-    </div>
+    </main>
   )
 }

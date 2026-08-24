@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
@@ -15,61 +15,23 @@ const navItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
   const pathname = usePathname()
-  const isHomePage = pathname === '/'
 
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)')
-    setIsMobile(mq.matches)
-    const onResize = (e: MediaQueryListEvent) => setIsMobile(e.matches)
-    mq.addEventListener('change', onResize)
-
-    const onScroll = () => setScrolled(window.scrollY > 30)
-    window.addEventListener('scroll', onScroll, { passive: true })
-
-    return () => {
-      mq.removeEventListener('change', onResize)
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
-
-  const showHomeTransparent = isHomePage && (!isMobile || !scrolled)
-
-  const logoSrc = showHomeTransparent ? '/fans-logo-blanco.png' : '/fans-logo-oscuro.png'
-  const headerBgClass = showHomeTransparent ? 'bg-transparent' : 'bg-white shadow-md'
-  const textColor = showHomeTransparent ? 'text-white' : 'text-gray-700'
-  const menuBg = showHomeTransparent ? 'bg-black/90 backdrop-blur-md' : 'bg-white'
-
-  const getMobileLinkClass = (href: string) => {
-    const isActive = pathname === href
-    return `block w-full py-4 text-center text-xl font-medium transition-colors ${
-      showHomeTransparent
-        ? `text-white hover:bg-white/10 ${isActive ? 'text-green' : ''}`
-        : `text-gray-900 hover:bg-gray-100 ${isActive ? 'text-green' : ''}`
-    }`
-  }
-
-  const getDesktopLinkClass = (href: string) => {
-    const isActive = pathname === href
-    return `text-lg font-medium transition-colors ${
-      isHomePage
-        ? `text-white hover:text-green ${isActive ? 'text-green' : ''}`
-        : `text-gray-800 hover:text-green ${isActive ? 'text-green' : ''}`
-    }`
-  }
+    setIsMenuOpen(false)
+  }, [pathname])
 
   return (
-    <header>
+    <header className='fixed inset-x-0 top-0 z-[1000]'>
       <nav
-        className={`fixed left-0 top-0 z-[1000] w-full transition-colors md:absolute md:left-0 md:top-0 md:z-[100] ${headerBgClass}`}
+        className='border-b-2 border-brand-burgundy/15 bg-brand-cream/95 backdrop-blur-md'
         aria-label='Navegación principal'
       >
-        <div className='flex items-center justify-between p-4 md:p-3'>
+        <div className='brand-container flex h-[4.75rem] items-center justify-between gap-6 md:h-[5.75rem]'>
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`flex h-12 w-12 items-center justify-center rounded-lg md:hidden ${textColor}`}
+            type='button'
+            onClick={() => setIsMenuOpen(current => !current)}
+            className='flex h-11 w-11 items-center justify-center rounded-full border-2 border-brand-burgundy text-brand-burgundy transition-colors hover:bg-brand-burgundy hover:text-brand-cream md:hidden'
             aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isMenuOpen}
             aria-controls='mobile-menu'
@@ -79,93 +41,100 @@ export default function Header() {
 
           <Link
             href='/'
-            onClick={() => setIsMenuOpen(false)}
-            className='absolute left-1/2 -translate-x-1/2 md:hidden'
+            className='shrink-0'
+            aria-label='Fans Coffee Bakery, ir a inicio'
           >
             <Image
-              src={logoSrc}
-              alt='Fans Coffee Bakery — ir a inicio'
-              width={120}
-              height={80}
-              className='h-14 w-auto'
+              src='/logo-negro.png'
+              alt='Fans Coffee Bakery'
+              width={300}
+              height={100}
+              className='h-12 w-auto object-contain md:h-16'
               priority
             />
           </Link>
 
-          <div className='hidden w-12 md:block' />
+          <div className='hidden min-w-0 flex-1 items-center justify-end gap-8 md:flex'>
+            <ul className='flex items-center gap-6 lg:gap-8'>
+              {navItems.map(item => (
+                <li key={item.href}>
+                  <NavLink href={item.href} isActive={pathname === item.href}>
+                    {item.name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+            <span className='brand-script hidden text-xl text-brand-burgundy xl:block'>
+              tu rincón favorito
+            </span>
+          </div>
         </div>
 
         <div
           id='mobile-menu'
-          className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}
+          className={`${isMenuOpen ? 'block' : 'hidden'} border-t border-brand-burgundy/15 md:hidden`}
           aria-hidden={!isMenuOpen}
         >
-          <div
-            className={`flex flex-col items-center pb-8 pt-4 ${menuBg}`}
-          >
-            {navItems.map(item => {
-              const isActive = pathname === item.href
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={getMobileLinkClass(item.href)}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  {item.name}
-                </Link>
-              )
-            })}
+          <div className='brand-container flex flex-col gap-1 py-4'>
+            {navItems.map(item => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`border-l-4 px-4 py-3 font-display text-lg transition-colors ${
+                  pathname === item.href
+                    ? 'border-brand-pink bg-brand-pink/20 text-brand-burgundy'
+                    : 'border-transparent text-brand-burgundy/75 hover:border-brand-pink hover:bg-brand-pink/10 hover:text-brand-burgundy'
+                }`}
+                aria-current={pathname === item.href ? 'page' : undefined}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
-        </div>
-
-        <div className='hidden md:flex md:items-center md:justify-center md:py-4'>
-          <Link href='/' className='flex items-center'>
-            <Image
-              src={logoSrc}
-              alt='Fans Coffee Bakery — ir a inicio'
-              width={220}
-              height={140}
-              className='h-20 w-auto'
-              priority
-            />
-          </Link>
-          <ul className='ml-16 flex space-x-10'>
-            {navItems.map(item => {
-              const isActive = pathname === item.href
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={getDesktopLinkClass(item.href)}
-                    aria-current={isActive ? 'page' : undefined}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
         </div>
       </nav>
     </header>
   )
 }
 
+function NavLink({
+  href,
+  isActive,
+  children
+}: {
+  href: string
+  isActive: boolean
+  children: React.ReactNode
+}) {
+  return (
+    <Link
+      href={href}
+      className={`relative whitespace-nowrap text-[0.68rem] font-bold uppercase tracking-[0.12em] transition-colors ${
+        isActive
+          ? 'text-brand-olive after:absolute after:-bottom-3 after:left-0 after:right-0 after:h-1 after:rounded-full after:bg-brand-pink'
+          : 'text-brand-burgundy/75 hover:text-brand-burgundy'
+      }`}
+      aria-current={isActive ? 'page' : undefined}
+    >
+      {children}
+    </Link>
+  )
+}
+
 function IconMenu() {
   return (
     <svg
-      className='h-8 w-8'
+      className='h-5 w-5'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
       strokeWidth={2}
+      aria-hidden='true'
     >
       <path
         strokeLinecap='round'
         strokeLinejoin='round'
-        d='M4 6h16M4 12h16M4 18h16'
+        d='M4 7h16M4 12h16M4 17h16'
       />
     </svg>
   )
@@ -174,16 +143,17 @@ function IconMenu() {
 function IconClose() {
   return (
     <svg
-      className='h-8 w-8'
+      className='h-5 w-5'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
       strokeWidth={2}
+      aria-hidden='true'
     >
       <path
         strokeLinecap='round'
         strokeLinejoin='round'
-        d='M6 18L18 6M6 6l12 12'
+        d='M6 6l12 12M18 6L6 18'
       />
     </svg>
   )

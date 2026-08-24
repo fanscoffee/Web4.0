@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     siteName: 'Fans Coffee Bakery',
     images: [
       {
-        url: '/images/carousel-1.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Cafés Artesanales - Fans Coffee Bakery'
+        url: '/images/ilustracion-blanca.webp',
+        width: 1269,
+        height: 1239,
+        alt: 'Ilustración granate - Fans Coffee Bakery'
       }
     ],
     locale: 'es_ES',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Fans Coffee Bakery | Café Artesanal y Repostería en Madrid',
     description:
       'Descubre Fans Coffee Bakery: café 100% arábico, tostadas gourmet, postres artesanales.',
-    images: ['/images/carousel-1.webp']
+    images: ['/images/ilustracion-blanca.webp']
   }
 }
 
@@ -50,68 +50,84 @@ const stats = [
 
 export default function Home() {
   return (
-    <main>
-      {/* Hero Section - Parallax Carousel */}
+    <main className='brand-page pt-[4.75rem] md:pt-[5.75rem]'>
       <section aria-label='Galería de productos'>
         <ParallaxHero />
       </section>
 
-      {/* Value Proposition Section */}
       <section
-        className='bg-gray-50 py-16'
+        className='relative overflow-hidden bg-brand-cream py-16 md:py-24'
         aria-labelledby='proposition-heading'
       >
-        <div className='container mx-auto max-w-5xl px-4'>
+        <div className='pointer-events-none absolute -right-16 top-10 h-48 w-48 rounded-full border-2 border-dashed border-brand-pink/60 md:h-72 md:w-72' />
+        <div className='brand-container relative'>
           <h1 id='proposition-heading' className='sr-only'>
             Fans Coffee Bakery - Tu cafetería en Madrid
           </h1>
-          <div className='mb-12 text-center'>
-            <h2 className='text-gray-900 mb-4 text-3xl font-bold md:text-4xl'>
-              En FANS somos FANS de ti
-            </h2>
-            <p className='text-gray-600 mx-auto max-w-2xl text-lg'>
-              Café artesanal 100% arábico, tostadas gourmet, desayunos completos
-              y repostería artesanal en el corazón de Madrid. Cada producto
-              hecho con ingredientes frescos y mucho cariño.
-            </p>
-          </div>
 
-          {/* Stats */}
-          <div
-            className='mb-12 grid grid-cols-3 gap-4 text-center'
-            role='list'
-            aria-label='Características principales'
-          >
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className='rounded-xl bg-white p-6 shadow-md'
-                role='listitem'
-              >
-                <div className='text-2xl font-bold text-green md:text-3xl'>
-                  {stat.number}
-                </div>
-                <div className='text-gray-600 text-sm'>{stat.label}</div>
+          <div className='grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-end'>
+            <div className='max-w-2xl'>
+              <p className='brand-eyebrow'>Café & Bakery · Madrid</p>
+              <h2 className='mt-4 max-w-xl text-5xl leading-[0.9] text-brand-burgundy sm:text-6xl md:text-7xl'>
+                En FANS somos FANS de ti
+              </h2>
+              <p className='text-brand-burgundy/72 mt-6 max-w-xl text-lg leading-8'>
+                Café artesanal 100% arábico, tostadas gourmet, desayunos
+                completos y repostería artesanal en el corazón de Madrid. Cada
+                producto hecho con ingredientes frescos y mucho cariño.
+              </p>
+            </div>
+
+            <div className='brand-panel-dark relative overflow-hidden p-6 sm:p-8'>
+              <span className='brand-script absolute right-6 top-4 text-3xl text-brand-pink'>
+                hecho con cariño
+              </span>
+              <div className='mt-8 grid grid-cols-3 gap-3 text-center'>
+                {stats.map(stat => (
+                  <div
+                    key={stat.label}
+                    className='border-r border-brand-cream/20 last:border-0'
+                  >
+                    <div className='text-3xl leading-none text-brand-pink md:text-4xl'>
+                      {stat.number}
+                    </div>
+                    <div className='mt-2 text-[0.65rem] font-bold uppercase tracking-[0.1em] text-brand-cream/70'>
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* CTA Cards */}
           <nav
-            className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'
+            className='mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4'
             aria-label='Navegación del menú'
           >
             {menuItems.map((item, index) => (
               <Link
-                key={index}
+                key={item.href}
                 href={item.href}
-                className='group rounded-xl bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg'
+                className={`group relative min-h-52 overflow-hidden rounded-brand-lg border-2 p-6 transition-transform hover:-translate-y-1 ${
+                  index === 0
+                    ? 'border-brand-burgundy bg-brand-burgundy text-brand-cream'
+                    : index === 1
+                      ? 'border-brand-pink bg-brand-pink text-brand-burgundy'
+                      : index === 2
+                        ? 'border-brand-olive bg-brand-olive text-brand-cream'
+                        : 'border-brand-burgundy/20 bg-brand-paper text-brand-burgundy'
+                }`}
               >
-                <h3 className='text-gray-900 mb-2 text-xl font-bold group-hover:text-green'>
+                <span className='absolute right-5 top-4 text-4xl opacity-40 transition-transform group-hover:rotate-12'>
+                  ✦
+                </span>
+                <h3 className='max-w-[9rem] text-3xl leading-none'>
                   {item.name}
                 </h3>
-                <p className='text-gray-500 text-sm'>{item.price}</p>
-                <span className='mt-3 inline-block text-sm font-medium text-green group-hover:underline'>
+                <p className='mt-4 text-sm font-bold opacity-75'>
+                  {item.price}
+                </p>
+                <span className='absolute bottom-6 left-6 text-xs font-bold uppercase tracking-[0.12em] underline decoration-brand-pink decoration-2 underline-offset-4'>
                   Ver menú →
                 </span>
               </Link>
@@ -120,29 +136,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Contact Section */}
-      <section className='bg-green py-16' aria-labelledby='contact-cta-heading'>
-        <div className='container mx-auto max-w-4xl px-4 text-center'>
-          <h2
-            id='contact-cta-heading'
-            className='mb-4 text-2xl font-bold text-white md:text-3xl'
-          >
-            ¿Tienes preguntas? ¡Escríbenos!
-          </h2>
-          <p className='mb-8 text-white/90'>
-            Estamos aquí para ayudarte. Contáctanos por teléfono, email o visita
-            nuestra cafetería.
-          </p>
-          <div className='flex flex-col items-center justify-center gap-4 sm:flex-row'>
+      <section
+        className='bg-brand-pink py-16 md:py-20'
+        aria-labelledby='contact-cta-heading'
+      >
+        <div className='brand-container grid gap-8 md:grid-cols-[1fr_auto] md:items-center'>
+          <div>
+            <p className='brand-eyebrow text-brand-burgundy'>
+              Siempre estamos aquí
+            </p>
+            <h2
+              id='contact-cta-heading'
+              className='mt-3 max-w-xl text-4xl leading-none text-brand-burgundy md:text-5xl'
+            >
+              ¿Tienes preguntas? ¡Escríbenos!
+            </h2>
+            <p className='mt-4 max-w-xl text-brand-burgundy/75'>
+              Estamos aquí para ayudarte. Contáctanos por teléfono, email o
+              visita nuestra cafetería.
+            </p>
+          </div>
+          <div className='flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row'>
             <a
               href='tel:+34628984413'
-              className='hover:bg-gray-100 rounded-full bg-white px-8 py-4 font-bold text-green transition-all'
+              className='brand-button brand-button--light'
             >
-              <span aria-hidden='true'>📞</span> 628 984 413
+              <span aria-hidden='true'>☎</span> 628 984 413
             </a>
             <Link
               href='/contact'
-              className='rounded-full bg-dark-green px-8 py-4 font-bold text-white transition-all hover:bg-black'
+              className='brand-button brand-button--outline'
             >
               Formulario de contacto
             </Link>
@@ -150,31 +173,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Location Quick View */}
       <section
-        className='bg-brown py-12 text-white'
+        className='bg-brand-burgundy py-14 text-brand-cream md:py-20'
         aria-labelledby='location-heading'
       >
-        <div className='container mx-auto max-w-4xl px-4'>
-          <div className='flex flex-col items-center justify-between gap-8 md:flex-row'>
-            <div className='text-center md:text-left'>
-              <h2 id='location-heading' className='mb-2 text-2xl font-bold'>
-                Encuéntranos
-              </h2>
-              <p className='text-white/80'>
-                C/ Doctor Esquerdo 180, 28007 Madrid
-              </p>
-              <p className='mt-2 text-sm text-white/60'>
-                Lunes a viernes: 7:00 - 14:00 (desayunos)
-              </p>
-            </div>
-            <Link
-              href='/contact'
-              className='hover:text-gray-900 rounded-full border-2 border-white px-6 py-3 font-medium text-white transition-all hover:bg-white'
+        <div className='brand-container flex flex-col items-start justify-between gap-8 md:flex-row md:items-center'>
+          <div>
+            <p className='brand-eyebrow text-brand-pink'>Ven a vernos</p>
+            <h2
+              id='location-heading'
+              className='mt-3 text-4xl leading-none text-brand-pink md:text-5xl'
             >
-              Ver en mapa →
-            </Link>
+              Encuéntranos
+            </h2>
+            <p className='mt-4 text-brand-cream/80'>
+              C/ Doctor Esquerdo 180, 28007 Madrid
+            </p>
+            <p className='mt-2 text-sm text-brand-cream/60'>
+              Lunes a viernes: 7:00 - 14:00 (desayunos)
+            </p>
           </div>
+          <Link href='/contact' className='brand-button brand-button--light'>
+            Ver en mapa →
+          </Link>
         </div>
       </section>
     </main>

@@ -35,7 +35,9 @@ export default function ReviewForm() {
       comment: formData.get('mensaje')
     }
 
-    const reviewApiUrl = process.env.NEXT_PUBLIC_REVIEW_API_URL || 'https://back-seven-livid.vercel.app/reviews'
+    const reviewApiUrl =
+      process.env.NEXT_PUBLIC_REVIEW_API_URL ||
+      'https://back-seven-livid.vercel.app/reviews'
 
     try {
       const res = await fetch(reviewApiUrl, {
@@ -68,23 +70,26 @@ export default function ReviewForm() {
   }
 
   return (
-    <div className='mx-auto mb-5 mt-[5rem] max-w-[1200px] lg:mt-[6rem]'>
+    <main className='brand-page min-h-screen pb-16 pt-[4.75rem] md:pt-[5.75rem]'>
       <form
         onSubmit={sendReview}
-        className='mx-6 py-10 text-center md:text-left'
+        className='brand-container brand-panel my-12 max-w-2xl p-5 sm:p-8 md:my-20'
       >
         <div className='mb-3'>
-          <h3 className='mt-6 text-xl font-extrabold'>Reseña</h3>
+          <p className='brand-eyebrow'>Tu opinión cuenta</p>
+          <h1 className='mt-3 text-5xl leading-none text-brand-burgundy'>
+            Reseña
+          </h1>
 
           <div className='mb-3'>
-            <label htmlFor='puntos' className='text-md my-2 block font-medium'>
+            <label htmlFor='puntos' className='mt-5 block text-sm font-bold'>
               Puntuación
               <input
                 type='number'
                 max={5}
                 min={0}
                 name='puntos'
-                className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
+                className='brand-input mt-2'
                 id='puntos'
                 placeholder='0 - 5'
                 required
@@ -92,12 +97,12 @@ export default function ReviewForm() {
             </label>
           </div>
           <div className='mb-3'>
-            <label htmlFor='nombre' className='text-md my-2 block font-medium'>
+            <label htmlFor='nombre' className='mt-5 block text-sm font-bold'>
               Ingresa tu nombre
               <input
                 type='text'
                 name='nombre'
-                className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
+                className='brand-input mt-2'
                 id='nombre'
                 autoComplete='name'
                 placeholder='Nombre'
@@ -106,11 +111,11 @@ export default function ReviewForm() {
             </label>
           </div>
 
-          <label htmlFor='email' className='text-sm my-2 block font-medium'>
+          <label htmlFor='email' className='mt-5 block text-sm font-bold'>
             Ingresa tu correo electrónico
             <input
               type='email'
-              className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
+              className='brand-input mt-2'
               id='email'
               aria-describedby='emailHelp'
               name='email'
@@ -120,28 +125,28 @@ export default function ReviewForm() {
             />
           </label>
         </div>
-        <div className='mb-3'>
-          <label htmlFor='factura' className='text-md my-2 block font-medium'>
+        <div className='mb-3 mt-5'>
+          <label htmlFor='factura' className='block text-sm font-bold'>
             Número de factura
             <input
               type='number'
               name='factura'
-              className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
+              className='brand-input mt-2'
               id='factura'
               placeholder='Factura'
               required
             />
           </label>
         </div>
-        <div className='mb-3'>
-          <label htmlFor='camarera' className='text-md my-2 block font-medium'>
+        <div className='mb-3 mt-5'>
+          <label htmlFor='camarera' className='block text-sm font-bold'>
             Camarera
           </label>
           <select
             name='camarera'
             id='camarera'
             defaultValue='elije'
-            className='focus:shadow-outline w-full rounded border py-1 leading-tight shadow focus:outline-none'
+            className='brand-input mt-2'
           >
             <option value='elije'>Elije quien te atendió</option>
             <option value='Karen'>Karen</option>
@@ -152,11 +157,11 @@ export default function ReviewForm() {
             <option value='Maru'>Maru</option>
           </select>
         </div>
-        <div className='mb-3'>
-          <label htmlFor='mensaje' className='text-md my-2 block font-medium'>
+        <div className='mb-3 mt-5'>
+          <label htmlFor='mensaje' className='block text-sm font-bold'>
             Comentario
             <textarea
-              className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
+              className='brand-input mt-2 min-h-32'
               id='mensaje'
               name='mensaje'
               rows={3}
@@ -166,11 +171,11 @@ export default function ReviewForm() {
           </label>
         </div>
 
-        <div className='mb-3'>
+        <div className='mb-3 mt-6 text-sm leading-6 text-brand-burgundy/75'>
           <input
             type='checkbox'
             value='1'
-            className='text-md indeterminate:bg-gray-300 mx-1 my-2 font-medium default:ring-2 checked:bg-blue-500'
+            className='mr-2 h-4 w-4 accent-brand-olive'
             id='contactFormAgree'
             onChange={e => setAgreed(e.target.checked)}
             required
@@ -180,7 +185,7 @@ export default function ReviewForm() {
             que facilito. He leído y acepto la{' '}
             <Link
               href='/privacy'
-              className='text-green hover:text-dark-green dark:text-green'
+              className='font-bold text-brand-olive underline decoration-brand-pink decoration-2 underline-offset-4'
             >
               Política de privacidad
             </Link>
@@ -188,13 +193,10 @@ export default function ReviewForm() {
           </label>
         </div>
 
-        <button
-          type='submit'
-          className='text-sm rounded-full bg-green px-8 py-4 text-white transition-all hover:bg-dark-green hover:font-medium'
-        >
+        <button type='submit' className='brand-button mt-3'>
           ENVIAR
         </button>
       </form>
-    </div>
+    </main>
   )
 }

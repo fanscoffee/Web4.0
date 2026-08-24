@@ -73,24 +73,22 @@ export default function ContactForm() {
   }
 
   return (
-    <div className='mx-auto mb-5 mt-[5rem] max-w-[1200px] lg:mt-[6rem]'>
-      <div className='grid-1 grid gap-8 md:grid-cols-2'>
-        <form
-          onSubmit={sendEmail}
-          className='mx-6 py-10 text-center md:text-left'
-        >
+    <main className='brand-page min-h-screen pb-16 pt-[4.75rem] md:pt-[5.75rem]'>
+      <div className='brand-container grid gap-6 py-12 md:grid-cols-2 md:py-20'>
+        <form onSubmit={sendEmail} className='brand-panel p-5 sm:p-8'>
           <div className='mb-3'>
-            <h3 className='mt-6 text-xl font-extrabold'>
+            <p className='brand-eyebrow'>Hablemos</p>
+            <h1 className='mt-3 text-4xl leading-none text-brand-burgundy'>
               FORMULARIO DE CONTACTO
-            </h3>
+            </h1>
             <div className='mb-3'>
-              <label htmlFor='tipo' className='text-md my-2 block font-medium'>
+              <label htmlFor='tipo' className='mt-5 block text-sm font-bold'>
                 Tipo
                 <select
                   name='tipo'
                   id='tipo'
                   defaultValue='consulta'
-                  className='focus:shadow-outline w-full rounded border py-1 leading-tight shadow focus:outline-none'
+                  className='brand-input mt-2'
                 >
                   <option value='consulta'>Consulta</option>
                   <option value='reserva'>Reserva</option>
@@ -98,15 +96,12 @@ export default function ContactForm() {
               </label>
             </div>
             <div className='mb-3'>
-              <label
-                htmlFor='nombre'
-                className='text-md my-2 block font-medium'
-              >
+              <label htmlFor='nombre' className='mt-5 block text-sm font-bold'>
                 Ingresa tu nombre
                 <input
                   type='text'
                   name='nombre'
-                  className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
+                  className='brand-input mt-2'
                   id='nombre'
                   autoComplete='name'
                   placeholder='Nombre'
@@ -117,7 +112,7 @@ export default function ContactForm() {
             <div className='mb-3'>
               <label
                 htmlFor='telefono'
-                className='text-sm my-2 block font-medium'
+                className='mt-5 block text-sm font-bold'
               >
                 Ingresa tu movil
                 <div className='mt-1'>
@@ -137,11 +132,11 @@ export default function ContactForm() {
                 <input type='hidden' name='telefono' value={value || ''} />
               </label>
             </div>
-            <label htmlFor='email' className='text-md my-2 block font-medium'>
+            <label htmlFor='email' className='mt-5 block text-sm font-bold'>
               Ingresa tu correo electrónico
               <input
                 type='email'
-                className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
+                className='brand-input mt-2'
                 id='email'
                 aria-describedby='emailHelp'
                 name='email'
@@ -151,11 +146,11 @@ export default function ContactForm() {
               />
             </label>
           </div>
-          <div className='mb-3'>
-            <label htmlFor='mensaje' className='text-md my-2 block font-medium'>
+          <div className='mb-3 mt-5'>
+            <label htmlFor='mensaje' className='block text-sm font-bold'>
               ¿Podrías proporcionarnos más información al respecto?
               <textarea
-                className='focus:shadow-outline w-full rounded border p-1 leading-tight shadow focus:outline-none'
+                className='brand-input mt-2 min-h-32'
                 id='mensaje'
                 name='mensaje'
                 rows={3}
@@ -165,11 +160,11 @@ export default function ContactForm() {
             </label>
           </div>
 
-          <div className='mb-3'>
+          <div className='mb-3 mt-6 text-sm leading-6 text-brand-burgundy/75'>
             <input
               type='checkbox'
               value='1'
-              className='text-md indeterminate:bg-gray-300 mx-1 my-2 font-medium default:ring-2 checked:bg-blue-500'
+              className='mr-2 h-4 w-4 accent-brand-olive'
               id='contactFormAgree'
               onChange={e => setAgreed(e.target.checked)}
               required
@@ -179,7 +174,7 @@ export default function ContactForm() {
               que facilito. He leído y acepto la{' '}
               <Link
                 href='/privacy'
-                className='text-green hover:text-dark-green dark:text-green'
+                className='font-bold text-brand-olive underline decoration-brand-pink decoration-2 underline-offset-4'
               >
                 Política de privacidad
               </Link>
@@ -187,25 +182,29 @@ export default function ContactForm() {
             </label>
           </div>
 
-          <button
-            type='submit'
-            className='text-sm rounded-full bg-green px-8 py-4 text-white transition-all hover:bg-dark-green hover:font-medium'
-          >
+          <button type='submit' className='brand-button mt-3'>
             ENVIAR
           </button>
         </form>
 
-        <div className='mx-6 py-10'>
-          <h3 className='mt-6 text-xl font-extrabold'>
+        <div className='brand-panel-dark p-5 sm:p-8'>
+          <p className='brand-eyebrow text-brand-pink'>Estamos aquí</p>
+          <h2 className='mt-3 text-4xl leading-none text-brand-pink'>
             INFORMACIÓN DE CONTACTO
-          </h3>
-          <p className='mt-2'>
+          </h2>
+          <p className='mt-5 leading-7 text-brand-cream/75'>
             Si deseas contactar con nosotros, puedes hacerlo de las formas
             habituales.
           </p>
-          <p className='my-2 py-2'>
+          <p className='my-4 border-y border-brand-pink/25 py-4'>
             <strong>Teléfono:</strong>
-            <a href='tel:+34628984413' rel='noopener noreferrer'>(+34) 628 984 413</a>
+            <a
+              className='ml-2 text-brand-pink underline'
+              href='tel:+34628984413'
+              rel='noopener noreferrer'
+            >
+              (+34) 628 984 413
+            </a>
           </p>
           <iframe
             title='Ubicación de Fans Coffee Bakery en Google Maps'
@@ -216,10 +215,10 @@ export default function ContactForm() {
             allowFullScreen
             loading='lazy'
             referrerPolicy='no-referrer-when-downgrade'
-            className='my-2'
+            className='my-4 w-full overflow-hidden rounded-brand'
           />
         </div>
       </div>
-    </div>
+    </main>
   )
 }
