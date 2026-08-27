@@ -102,22 +102,30 @@ export const smoothieProducts: Product[] = [
   }
 ]
 
-export const hotDrinkProducts: Product[] = [
+export const chaiMatchaProducts: Product[] = [
   {
     title: 'Chai latte',
     description: 'Té chai especiado con leche y espuma cremosa',
     image: '/bebidas-especiales/chai-caliente.webp',
+    images: [
+      '/bebidas-especiales/chai-caliente.webp',
+      '/bebidas-especiales/chai-frio.webp'
+    ],
     allergens: { gluten: false, lactose: true, egg: false, nuts: false },
     price: 4.70,
-    category: 'Bebida caliente'
+    category: 'Chai y Matcha'
   },
   {
     title: 'Matcha latte',
     description: 'Matcha suave con leche y espuma ligera',
     image: '/bebidas-especiales/matcha-caliente.webp',
+    images: [
+      '/bebidas-especiales/matcha-caliente.webp',
+      '/bebidas-especiales/matcha-frio.webp'
+    ],
     allergens: { gluten: false, lactose: true, egg: false, nuts: false },
     price: 4.70,
-    category: 'Bebida caliente'
+    category: 'Chai y Matcha'
   }
 ]
 

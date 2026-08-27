@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
 import { ProductCatalog } from '@/components/ProductCatalog'
-import { frappeProducts, hotDrinkProducts, smoothieProducts } from './data'
+import { chaiMatchaProducts, frappeProducts, smoothieProducts } from './data'
 
 export const metadata: Metadata = {
   title:
-    'Smoothies, Frappés y Bebidas Calientes | Bebidas Especiales | Fans Coffee Bakery',
+    'Smoothies, Frappés, Chai y Matcha | Bebidas Especiales | Fans Coffee Bakery',
   description:
-    'Disfruta de nuestras bebidas especiales: smoothies naturales, frappés cremosos, café, chai y matcha. Desde 4.70€.',
+    'Disfruta de nuestras bebidas especiales: smoothies naturales, frappés cremosos, chai latte y matcha latte, fríos o calientes. Desde 4.70€.',
   alternates: {
     canonical: 'https://www.fanscoffee.es/special-drinks'
   },
   openGraph: {
     title:
-      'Smoothies, Frappés y Bebidas Calientes | Bebidas Especiales | Fans Coffee Bakery',
+      'Smoothies, Frappés, Chai y Matcha | Bebidas Especiales | Fans Coffee Bakery',
     description:
-      'Bebidas especiales: smoothies, frappés, café, chai y matcha. Desde 4.70€.',
+      'Bebidas especiales: smoothies, frappés, chai latte y matcha latte, fríos o calientes. Desde 4.70€.',
     url: 'https://www.fanscoffee.es/special-drinks',
     siteName: 'Fans Coffee Bakery',
     locale: 'es_ES',
@@ -67,17 +67,17 @@ export default function SpecialDrinks() {
 
       <section className='bg-brand-olive py-14 text-brand-cream md:py-24'>
         <header className='brand-container mb-10 border-b-2 border-brand-gold/30 pb-7'>
-          <p className='brand-eyebrow text-brand-gold'>Calor, espuma y calma</p>
+          <p className='brand-eyebrow text-brand-gold'>Té, especias y calma</p>
           <div className='mt-3 flex flex-wrap items-baseline gap-4'>
             <h2 className='text-5xl leading-none text-brand-gold md:text-7xl'>
-              Bebidas calientes
+              Chai y Matcha · Fríos o calientes
             </h2>
             <span className='rounded-full bg-brand-gold px-4 py-2 text-base font-bold text-brand-burgundy'>
               4.70€
             </span>
           </div>
         </header>
-        <ProductCatalog products={hotDrinkProducts} />
+        <ProductCatalog products={chaiMatchaProducts} />
       </section>
     </main>
   )
