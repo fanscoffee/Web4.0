@@ -2,7 +2,7 @@
 # Entorno de desarrollo para Fans Coffee
 
 [tools]
-node = "22.13.1"
+node = "26"
 pnpm = "9.15.9"
 
 [env]
