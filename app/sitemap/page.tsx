@@ -22,6 +22,8 @@ const sitePages: { href: string; label: string }[] = [
   { href: '/work', label: 'Trabaja con Nosotros' },
   { href: '/legal', label: 'Aviso Legal' },
   { href: '/privacy', label: 'Política de Privacidad' },
+  { href: '/cookies', label: 'Política de Cookies' },
+  { href: '/rights', label: 'Ejercer derechos' },
   { href: '/review', label: 'Déjanos tu Reseña' }
 ]
 

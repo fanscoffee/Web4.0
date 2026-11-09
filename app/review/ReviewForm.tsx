@@ -29,10 +29,11 @@ export default function ReviewForm() {
     const body = {
       score: Number(formData.get('puntos')),
       client_name: formData.get('nombre'),
-      client_email: formData.get('email'),
       invoice: formData.get('factura'),
       waitress: formData.get('camarera'),
-      comment: formData.get('mensaje')
+      comment: formData.get('mensaje'),
+      privacy_consent: true,
+      privacy_consent_at: new Date().toISOString()
     }
 
     const reviewApiUrl =
@@ -50,7 +51,7 @@ export default function ReviewForm() {
 
       Swal.fire({
         title: 'Confirmado',
-        text: 'Hemos recibido tu reseña, revisaremos la información y estaremos en contacto pronto.',
+        text: 'Hemos recibido tu reseña. Gracias por compartirla.',
         icon: 'success',
         timer: 3000,
         timerProgressBar: true
@@ -110,31 +111,17 @@ export default function ReviewForm() {
               />
             </label>
           </div>
-
-          <label htmlFor='email' className='mt-5 block text-sm font-bold'>
-            Ingresa tu correo electrónico
-            <input
-              type='email'
-              className='brand-input mt-2'
-              id='email'
-              aria-describedby='emailHelp'
-              name='email'
-              autoComplete='email'
-              placeholder='Email'
-              required
-            />
-          </label>
         </div>
         <div className='mb-3 mt-5'>
           <label htmlFor='factura' className='block text-sm font-bold'>
-            Número de factura
+            Número de factura (opcional; solo para validar la visita)
             <input
-              type='number'
+              type='text'
+              inputMode='numeric'
               name='factura'
               className='brand-input mt-2'
               id='factura'
               placeholder='Factura'
-              required
             />
           </label>
         </div>
@@ -145,10 +132,10 @@ export default function ReviewForm() {
           <select
             name='camarera'
             id='camarera'
-            defaultValue='elije'
+            defaultValue=''
             className='brand-input mt-2'
           >
-            <option value='elije'>Elije quien te atendió</option>
+            <option value=''>No lo recuerdo / prefiero no indicarlo</option>
             <option value='Karen'>Karen</option>
             <option value='Daniela'>Daniela</option>
             <option value='Yesenia'>Yesenia</option>
@@ -174,24 +161,31 @@ export default function ReviewForm() {
         <div className='mb-3 mt-6 text-sm leading-6 text-brand-burgundy/75'>
           <input
             type='checkbox'
+            name='privacy_consent'
             value='1'
             className='mr-2 h-4 w-4 accent-brand-olive'
-            id='contactFormAgree'
+            id='reviewFormAgree'
             onChange={e => setAgreed(e.target.checked)}
             required
           />
-          <label className='mx-1' htmlFor='contactFormAgree'>
-            Doy mi consentimiento para el tratamiento de los datos personales
-            que facilito. He leído y acepto la{' '}
+          <label className='mx-1' htmlFor='reviewFormAgree'>
+            He leído la{' '}
             <Link
               href='/privacy'
               className='font-bold text-brand-olive underline decoration-brand-pink decoration-2 underline-offset-4'
             >
               Política de privacidad
-            </Link>
-            .
+            </Link>{' '}
+            y consiento el tratamiento de los datos que facilito para gestionar
+            y revisar mi opinión. Esta casilla no está preseleccionada.
           </label>
         </div>
+
+        <p className='mt-4 text-xs leading-5 text-brand-burgundy/65'>
+          Responsable: FANS COFFEE FRIENDS S.L.L. La reseña se envía al servicio
+          externo de reseñas configurado por el responsable. No pedimos ni
+          utilizamos tu email para este trámite.
+        </p>
 
         <button type='submit' className='brand-button mt-3'>
           ENVIAR

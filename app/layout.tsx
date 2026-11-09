@@ -4,6 +4,7 @@ import { Caveat, Lilita_One, Poppins } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
+import CookieConsent from '@/components/CookieConsent'
 import Script from 'next/script'
 
 const poppins = Poppins({
@@ -139,7 +140,7 @@ const jsonLd = {
       closes: '21:00'
     }
   ],
-  sameAs: ['https://www.instagram.com/fanscoffeebakery/']
+  sameAs: ['https://www.instagram.com/fanscoffee.es/']
 }
 
 const breadcrumbListJsonLd = {
@@ -172,6 +173,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <WhatsAppButton />
+        <CookieConsent />
         <Script
           id='json-ld-global'
           type='application/ld+json'

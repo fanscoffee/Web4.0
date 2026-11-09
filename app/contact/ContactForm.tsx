@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import ConsentAwareMap from '@/components/ConsentAwareMap'
 
 const PhoneInputComponent = dynamic(() => import('react-phone-number-input'), {
   ssr: false,
@@ -114,7 +115,7 @@ export default function ContactForm() {
                 htmlFor='telefono'
                 className='mt-5 block text-sm font-bold'
               >
-                Ingresa tu movil
+                Móvil (opcional; solo para contactar contigo por teléfono)
                 <div className='mt-1'>
                   {mounted ? (
                     <PhoneInputComponent
@@ -163,6 +164,7 @@ export default function ContactForm() {
           <div className='mb-3 mt-6 text-sm leading-6 text-brand-burgundy/75'>
             <input
               type='checkbox'
+              name='privacy_consent'
               value='1'
               className='mr-2 h-4 w-4 accent-brand-olive'
               id='contactFormAgree'
@@ -170,17 +172,23 @@ export default function ContactForm() {
               required
             />
             <label className='mx-1' htmlFor='contactFormAgree'>
-              Doy mi consentimiento para el tratamiento de los datos personales
-              que facilito. He leído y acepto la{' '}
+              He leído la{' '}
               <Link
                 href='/privacy'
                 className='font-bold text-brand-olive underline decoration-brand-pink decoration-2 underline-offset-4'
               >
                 Política de privacidad
-              </Link>
-              .
+              </Link>{' '}
+              y consiento el tratamiento de los datos que facilito para
+              gestionar mi consulta. Esta casilla no está preseleccionada.
             </label>
           </div>
+
+          <p className='mt-4 text-xs leading-5 text-brand-burgundy/65'>
+            Responsable: FANS COFFEE FRIENDS S.L.L. Finalidad: responder a tu
+            consulta. El envío utiliza EmailJS como proveedor tecnológico. No
+            incorporamos tu email a una lista comercial.
+          </p>
 
           <button type='submit' className='brand-button mt-3'>
             ENVIAR
@@ -206,17 +214,7 @@ export default function ContactForm() {
               (+34) 628 984 413
             </a>
           </p>
-          <iframe
-            title='Ubicación de Fans Coffee Bakery en Google Maps'
-            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.315829639117!2d-3.6768293491456254!3d40.40185366436702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4227f0d51d1505%3A0xbfa018432bd3d379!2sFans%20Coffee%20%26%20Bakery!5e0!3m2!1ses!2ses!4v1620941613287!5m2!1ses!2ses'
-            width='100%'
-            height='300'
-            style={{ border: 0, borderRadius: 10 }}
-            allowFullScreen
-            loading='lazy'
-            referrerPolicy='no-referrer-when-downgrade'
-            className='my-4 w-full overflow-hidden rounded-brand'
-          />
+          <ConsentAwareMap height={300} className='my-4' />
         </div>
       </div>
     </main>
