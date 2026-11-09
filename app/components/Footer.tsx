@@ -4,10 +4,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FaInstagram } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
+import ConsentAwareMap from './ConsentAwareMap'
+import { openCookieSettings } from './cookieConsentUtils'
 
 const legalLinks = [
   { href: '/legal', label: 'Aviso Legal' },
   { href: '/privacy', label: 'Privacidad' },
+  { href: '/cookies', label: 'Cookies' },
+  { href: '/rights', label: 'Ejercer derechos' },
   { href: '/work', label: 'Trabaja con nosotros' },
   { href: '/about', label: 'Nosotros' },
   { href: '/sitemap', label: 'Mapa del sitio' }
@@ -37,7 +41,7 @@ export default function Footer() {
                 Síguenos:
               </span>
               <a
-                href='https://www.instagram.com/fanscoffeebakery/'
+                href='https://www.instagram.com/fanscoffee.es/'
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label='Instagram de Fans Coffee Bakery'
@@ -60,7 +64,7 @@ export default function Footer() {
           <div>
             <h3 className='mb-4 text-2xl text-brand-pink'>Feed de Instagram</h3>
             <a
-              href='https://www.instagram.com/fanscoffeebakery/'
+              href='https://www.instagram.com/fanscoffee.es/'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Abrir Instagram de Fans Coffee Bakery'
@@ -84,15 +88,7 @@ export default function Footer() {
 
           {showMap && (
             <div className='w-full min-w-0 overflow-hidden rounded-brand border-2 border-brand-pink/50 bg-brand-cream p-1 lg:w-[300px]'>
-              <iframe
-                title='Ubicación de Fans Coffee Bakery en Google Maps'
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.315829639117!2d-3.6768293491456254!3d40.40185366436702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4227f0d51d1505%3A0xbfa018432bd3d379!2sFans%20Coffee%20%26%20Bakery!5e0!3m2!1ses!2ses!4v1620941613287!5m2!1ses!2ses'
-                width='100%'
-                height='250'
-                loading='lazy'
-                referrerPolicy='no-referrer-when-downgrade'
-                className='block h-[250px] w-full max-w-full rounded-brand border-0'
-              />
+              <ConsentAwareMap height={250} />
             </div>
           )}
         </div>
@@ -112,6 +108,13 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <button
+                type='button'
+                onClick={openCookieSettings}
+                className='text-left transition-colors hover:text-brand-pink'
+              >
+                Configurar cookies
+              </button>
             </nav>
             <p>
               &copy; 2026 FANS COFFEE FRIENDS S.L.L. Todos los derechos
